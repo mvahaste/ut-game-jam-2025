@@ -101,7 +101,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.7999997)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 4)
 shape = SubResource("BoxShape3D_ugn1x")
 
-[node name="Dumpster" parent="." instance=ExtResource("3_66k2d")]
+[node name="Dumpster1" parent="." instance=ExtResource("3_66k2d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
 to_scene = 1
 
