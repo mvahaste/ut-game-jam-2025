@@ -17,6 +17,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tlwt5"]
+albedo_color = Color(0.5350234, 0.53502345, 0.5350234, 1)
 albedo_texture = ExtResource("2_fj7yv")
 uv1_triplanar = true
 
@@ -36,7 +37,9 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_aqk2v")
 
-[node name="Player" parent="." instance=ExtResource("3_tlwt5")]
+[node name="Player" parent="." node_paths=PackedStringArray("camera", "camera_target") instance=ExtResource("3_tlwt5")]
+camera = NodePath("Marker3D/Camera3D")
+camera_target = NodePath("Marker3D")
 
 [node name="Marker3D" type="Marker3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 3.7681484, 10.115713)
