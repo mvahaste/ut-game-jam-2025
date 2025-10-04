@@ -6,27 +6,12 @@ class_name Player extends CharacterBody3D
 @onready var interaction_area: Area3D = $InteractionArea
 @onready var animated_sprite: AnimatedSprite3D = %AnimatedSprite3D
 
-var current_direction := "Down"  # Track current facing direction
-var is_moving := false
-var hp := 3;
 var _last_animation_type: String = "Idle"
 var _last_animation_direction: String = "Down"
 
 func _ready() -> void:
 	# ! TEMPORARY
 	SoundManager.play_music(SoundManager.MUSIC.MAIN_MENU)
-
-func lose_hp(amount := 1) -> void:
-	hp -= amount
-	print("Player lost 1 hp")
-	
-	if hp <= 0:
-		die()
-
-func die() -> void:
-	print("You died!")
-	OS.alert("YOU DIED")
-	queue_free()
 
 func _physics_process(_delta: float) -> void:
 	var input = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized();
