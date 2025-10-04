@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://csbk2eb0thd82"]
 
 [ext_resource type="Script" uid="uid://daw2dcu7xvxon" path="res://Props/dumpster.gd" id="1_vntms"]
+[ext_resource type="FontFile" uid="uid://7wrq8dvttvik" path="res://Fonts/F25_Executive.otf" id="2_mdcbu"]
 [ext_resource type="Texture2D" uid="uid://cgwup24772js0" path="res://Art/Prügikast(placeholder).png" id="2_n3oxr"]
 [ext_resource type="Script" uid="uid://ck5lp4jvx4kvu" path="res://Components/interactable_area.gd" id="2_rx06h"]
-[ext_resource type="FontFile" uid="uid://u7x4tooupkq3" path="res://Fonts/CHICKEN Pie.ttf" id="4_mdcbu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jutiq"]
 size = Vector3(7, 4, 4)
@@ -18,14 +18,16 @@ script = ExtResource("1_vntms")
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9964285, 1)
 billboard = 2
+shaded = true
 text = "Enter the dumpster"
-font = ExtResource("4_mdcbu")
+font = ExtResource("2_mdcbu")
 font_size = 64
 outline_size = 32
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.225, 0, 0, 0, 0.225, 0, 0, 0, 0.225, 0, 3.3999999, 0)
 billboard = 2
+shaded = true
 texture = ExtResource("2_n3oxr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

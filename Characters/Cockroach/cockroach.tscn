@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt3fderuabyig"]
+
+[ext_resource type="Texture2D" uid="uid://cfek6wrlxumhh" path="res://Characters/Cockroach/Sprites/IdleLeft.PNG" id="1_750a0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h3r4a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_750a0")
+}],
+"loop": true,
+"name": &"IdleLeft",
+"speed": 5.0
+}]
+
+[node name="Cockroach" type="CharacterBody3D"]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.4, 0)
+billboard = 2
+shaded = true
+sprite_frames = SubResource("SpriteFrames_h3r4a")
+animation = &"IdleLeft"

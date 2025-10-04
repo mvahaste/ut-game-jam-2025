@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bngyonn53ctri"]
+[gd_scene load_steps=14 format=3 uid="uid://bngyonn53ctri"]
 
 [ext_resource type="PackedScene" uid="uid://bgduylrt4kaoj" path="res://Characters/Player/player.tscn" id="1_63qix"]
 [ext_resource type="Texture2D" uid="uid://dmr1b0sms21hw" path="res://Art/Prükkarall.png" id="2_ctto2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b6ql2hcu4yqt5" path="res://Art/Prugikastkulg1.png" id="3_63qix"]
 [ext_resource type="Texture2D" uid="uid://pxwbj6m5bkeb" path="res://Art/Prügikastkulg.png" id="4_b581c"]
 [ext_resource type="PackedScene" uid="uid://bfu37u1lvav03" path="res://Scenes/UI.tscn" id="6_mbwr5"]
+[ext_resource type="PackedScene" uid="uid://dt3fderuabyig" path="res://Characters/Cockroach/cockroach.tscn" id="7_q2e70"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b581c"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -19,11 +20,12 @@ background_mode = 2
 sky = SubResource("Sky_yk07a")
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.75
 tonemap_mode = 2
 glow_enabled = true
 fog_enabled = true
 fog_light_color = Color(0.22317247, 0.24031715, 0.26698667, 1)
-fog_light_energy = 0.1
+fog_light_energy = 0.2
 fog_density = 0.05
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_63qix"]
@@ -72,3 +74,5 @@ size = Vector3(50, 21, 1)
 transform = Transform3D(-4.371139e-08, 0, -1, -8.742278e-08, -1, 3.821371e-15, -1, 8.742278e-08, 4.371139e-08, 25.5, 10.5, 2)
 material_override = SubResource("StandardMaterial3D_j0g3a")
 size = Vector3(50, 21, 1)
+
+[node name="Cockroach" parent="." instance=ExtResource("7_q2e70")]

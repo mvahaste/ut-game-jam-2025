@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dnf1n60ycakwq" path="res://Items/item.gd" id="1_bkywi"]
 [ext_resource type="Script" uid="uid://ck5lp4jvx4kvu" path="res://Components/interactable_area.gd" id="2_p2kau"]
-[ext_resource type="FontFile" uid="uid://u7x4tooupkq3" path="res://Fonts/CHICKEN Pie.ttf" id="4_07jwt"]
+[ext_resource type="FontFile" uid="uid://7wrq8dvttvik" path="res://Fonts/F25_Executive.otf" id="3_3dnog"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3dnog"]
 
@@ -13,6 +13,7 @@ script = ExtResource("1_bkywi")
 unique_name_in_owner = true
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 1, 0)
 billboard = 2
+shaded = true
 
 [node name="InteractableArea" type="Area3D" parent="."]
 unique_name_in_owner = true
@@ -27,6 +28,9 @@ shape = SubResource("SphereShape3D_3dnog")
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 billboard = 2
-font = ExtResource("4_07jwt")
+shaded = true
+render_priority = 1
+outline_render_priority = 0
+font = ExtResource("3_3dnog")
 font_size = 64
 outline_size = 32

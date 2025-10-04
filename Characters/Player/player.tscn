@@ -135,6 +135,7 @@ shape = SubResource("CapsuleShape3D_xf5fp")
 unique_name_in_owner = true
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.8, 0)
 billboard = 2
+shaded = true
 sprite_frames = SubResource("SpriteFrames_cue0d")
 animation = &"WalkRight"
 
