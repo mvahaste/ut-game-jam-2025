@@ -19,7 +19,5 @@ func _on_area_exited(area: Area3D) -> void:
 		area.unhovered.emit()
 
 func _input(event: InputEvent) -> void:
-	print(_hovered_area)
-
 	if event.is_action_pressed("interact") and _hovered_area:
 		_hovered_area.interact.emit()
