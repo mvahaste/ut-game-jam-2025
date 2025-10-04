@@ -9,6 +9,10 @@ class_name Player extends CharacterBody3D
 var _last_animation_type: String = "Idle"
 var _last_animation_direction: String = "Down"
 
+func _ready() -> void:
+	# ! TEMPORARY
+	SoundManager.play_music(SoundManager.MUSIC.MAIN_MENU)
+
 func _physics_process(_delta: float) -> void:
 	var input = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized();
 
