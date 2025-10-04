@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://bgduylrt4kaoj"]
+[gd_scene load_steps=12 format=3 uid="uid://bgduylrt4kaoj"]
 
 [ext_resource type="Script" uid="uid://c8timm0w1bs88" path="res://Characters/Player/player.gd" id="1_j341n"]
 [ext_resource type="Texture2D" uid="uid://b75um4ac7m7da" path="res://Characters/Player/Sprites/IMG_0609.PNG" id="2_cue0d"]
 [ext_resource type="PackedScene" uid="uid://dmpbillk4k6au" path="res://Components/interaction_area.tscn" id="3_cue0d"]
+[ext_resource type="Texture2D" uid="uid://ctfg1medky24" path="res://Characters/Player/Sprites/IMG_0614.PNG" id="3_osktb"]
 [ext_resource type="Texture2D" uid="uid://conjq0eiyhm3r" path="res://Characters/Player/Sprites/IMG_0610.PNG" id="3_xf5fp"]
 [ext_resource type="Texture2D" uid="uid://egf0q53doc40" path="res://Characters/Player/Sprites/IMG_0611.PNG" id="4_osktb"]
+[ext_resource type="Texture2D" uid="uid://masswbgvaypo" path="res://Characters/Player/Sprites/IMG_0615.PNG" id="6_klx3t"]
+[ext_resource type="Texture2D" uid="uid://845ad7k4ub5x" path="res://Characters/Player/Sprites/IMG_0616.PNG" id="7_r5ew0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xf5fp"]
 radius = 0.7
@@ -38,7 +41,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_cue0d")
+"texture": ExtResource("3_osktb")
 }],
 "loop": true,
 "name": &"IdleUp",
@@ -79,7 +82,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_cue0d")
+"texture": ExtResource("6_klx3t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_osktb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_r5ew0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_osktb")
 }],
 "loop": true,
 "name": &"WalkUp",
@@ -100,7 +112,7 @@ shape = SubResource("CapsuleShape3D_xf5fp")
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.8, 0)
 sprite_frames = SubResource("SpriteFrames_cue0d")
-animation = &"WalkRight"
+animation = &"WalkUp"
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_cue0d")]
 
