@@ -111,6 +111,7 @@ shape = SubResource("CapsuleShape3D_xf5fp")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.8, 0)
+billboard = 2
 sprite_frames = SubResource("SpriteFrames_cue0d")
 animation = &"WalkUp"
 
