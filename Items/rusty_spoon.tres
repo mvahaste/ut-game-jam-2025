@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BaseItem" load_steps=3 format=3 uid="uid://pnmoa0rst26a"]
+
+[ext_resource type="Script" uid="uid://crpb6twyus0v8" path="res://Items/base_item.gd" id="1_albkj"]
+[ext_resource type="Texture2D" uid="uid://dpjg6a1uhqqnu" path="res://Items/Sprites/valuables_rusty_spoon.png" id="2_nrexj"]
+
+[resource]
+script = ExtResource("1_albkj")
+id = "rusty_spoon"
+name = "Rusty Spoon"
+sprite = ExtResource("2_nrexj")
+metadata/_custom_type_script = "uid://crpb6twyus0v8"

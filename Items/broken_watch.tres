@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BaseItem" load_steps=3 format=3 uid="uid://c3acdjsutfoe6"]
+
+[ext_resource type="Script" uid="uid://crpb6twyus0v8" path="res://Items/base_item.gd" id="1_dyi1n"]
+[ext_resource type="Texture2D" uid="uid://daou1sii0yupq" path="res://Items/Sprites/valuables_broken_watch.png" id="2_t630d"]
+
+[resource]
+script = ExtResource("1_dyi1n")
+id = "broken_watch"
+name = "Broken Watch"
+sprite = ExtResource("2_t630d")
+metadata/_custom_type_script = "uid://crpb6twyus0v8"

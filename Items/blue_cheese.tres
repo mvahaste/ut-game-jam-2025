@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BaseItem" load_steps=3 format=3 uid="uid://brdsovutfdkvy"]
+
+[ext_resource type="Script" uid="uid://crpb6twyus0v8" path="res://Items/base_item.gd" id="1_dpl88"]
+[ext_resource type="Texture2D" uid="uid://d0it101dlrcl6" path="res://Items/Sprites/valuable_bluecheese.png" id="2_5q7di"]
+
+[resource]
+script = ExtResource("1_dpl88")
+id = "blue_cheese"
+name = "Blue Cheese"
+sprite = ExtResource("2_5q7di")
+metadata/_custom_type_script = "uid://crpb6twyus0v8"

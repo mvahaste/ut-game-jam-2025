@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BaseItem" load_steps=3 format=3 uid="uid://h43ofkoleojw"]
+
+[ext_resource type="Script" uid="uid://crpb6twyus0v8" path="res://Items/base_item.gd" id="1_vtbrq"]
+[ext_resource type="Texture2D" uid="uid://bovh4hrqx5bi0" path="res://Items/Sprites/valuables_plastic_ring.png" id="2_xgww2"]
+
+[resource]
+script = ExtResource("1_vtbrq")
+id = "plastic_ring"
+name = "Plastic Ring"
+sprite = ExtResource("2_xgww2")
+metadata/_custom_type_script = "uid://crpb6twyus0v8"

@@ -1,100 +1,73 @@
 class_name Player extends CharacterBody3D
 
-@export var speed := 5.0
-@export var camera: Camera3D
-@export var camera_target: Node3D
-@export var camera_allowed_distance := 1.0
-@export var animated_sprite: AnimatedSprite3D
-@export var interaction_area: Area3D
+@export var walk_speed: float = 5.0
+@export var walk_acceleration: float = 0.75
 
-var current_direction := "Down"  # Track current facing direction
-var is_moving := false
+@onready var interaction_area: Area3D = $InteractionArea
+@onready var animated_sprite: AnimatedSprite3D = %AnimatedSprite3D
 
-func _ready() -> void:
-	camera.top_level = true
+var _last_animation_type: String = "Idle"
+var _last_animation_direction: String = "Down"
 
 func _physics_process(_delta: float) -> void:
-	_process_movement()
-	_update_animation()
-	_interpolate_camera()
+	var input = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized();
+
+	_handle_movement(input, _delta)
+	_handle_animation()
+	_rotate_interaction_area(input)
+
+func _handle_movement(input: Vector2, _delta: float) -> void:
+	if !input.is_equal_approx(Vector2.ZERO):
+		var direction = (transform.basis * Vector3(input.x, 0, input.y)).normalized()
+
+		# If trying to move in opposite direction than before, increase acceleration for a snappier turn
+		if velocity.x != 0 and sign(direction.x) != sign(velocity.x):
+			walk_acceleration *= 3.0
+		else:
+			walk_acceleration = 0.75
+
+		if velocity.z != 0 and sign(direction.z) != sign(velocity.z):
+			walk_acceleration *= 3.0
+		else:
+			walk_acceleration = 0.75
+
+		velocity.x = move_toward(velocity.x, direction.x * walk_speed, walk_acceleration)
+		velocity.z = move_toward(velocity.z, direction.z * walk_speed, walk_acceleration)
+	else:
+		velocity.x = move_toward(velocity.x, 0, walk_acceleration * 1.5)
+		velocity.z = move_toward(velocity.z, 0, walk_acceleration * 1.5)
 
 	move_and_slide()
 
-func _process_movement() -> void:
-	var input_vector = Vector2.ZERO
+func _handle_animation() -> void:
+	var animation_type: String = "Idle"
+	var animation_direction: String = _last_animation_direction
 
-	input_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	input_vector.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+	if !velocity.is_equal_approx(Vector3.ZERO):
+		animation_type = "Walk"
 
-	if input_vector.length() > 0:
-		input_vector = input_vector.normalized()
-		is_moving = true
-
-		# Determine direction based on input
-		_update_direction(input_vector)
-
-		# Update interaction area rotation based on input direction
-		_update_interaction_area_rotation(input_vector)
-
-		var direction = (transform.basis * Vector3(input_vector.x, 0, input_vector.y)).normalized()
-		velocity.x = direction.x * speed
-		velocity.z = direction.z * speed
-	else:
-		is_moving = false
-		velocity.x = move_toward(velocity.x, 0, speed)
-		velocity.z = move_toward(velocity.z, 0, speed)
-
-func _interpolate_camera() -> void:
-	var target_position = camera_target.global_transform.origin
-	var camera_position = camera.global_transform.origin
-	var distance = camera_position.distance_to(target_position)
-
-	if distance > camera_allowed_distance:
-		var direction = (target_position - camera_position).normalized()
-		var new_position = target_position - direction * camera_allowed_distance
-		camera.global_transform.origin = lerp(camera_position, new_position, 0.1)
-
-func _update_direction(input_vector: Vector2) -> void:
-	# Determine direction based on the strongest input component
-	if abs(input_vector.x) > abs(input_vector.y):
-		# Horizontal movement is stronger
-		if input_vector.x > 0:
-			current_direction = "Right"
+		if abs(velocity.x) >= abs(velocity.z):
+			if velocity.x > 0:
+				animation_direction = "Right"
+			else:
+				animation_direction = "Left"
 		else:
-			current_direction = "Left"
-	else:
-		# Vertical movement is stronger
-		if input_vector.y > 0:
-			current_direction = "Down"
-		else:
-			current_direction = "Up"
+			if velocity.z > 0:
+				animation_direction = "Down"
+			else:
+				animation_direction = "Up"
 
-func _update_animation() -> void:
-	if not animated_sprite:
+	var last_animation = "%s%s" % [_last_animation_type, _last_animation_direction]
+	var new_animation = "%s%s" % [animation_type, animation_direction]
+
+	if new_animation != last_animation:
+		_last_animation_type = animation_type
+		_last_animation_direction = animation_direction
+		animated_sprite.play(new_animation)
+
+func _rotate_interaction_area(input: Vector2) -> void:
+	if input.is_equal_approx(Vector2.ZERO):
 		return
 
-	var animation_name: String
-
-	if is_moving:
-		animation_name = "Walk" + current_direction
-	else:
-		animation_name = "Idle" + current_direction
-
-	# Only change animation if it's different from current one
-	if animated_sprite.animation != animation_name:
-		animated_sprite.play(animation_name)
-
-func _update_interaction_area_rotation(input_vector: Vector2) -> void:
-	if not interaction_area:
-		return
-
-	# Calculate the angle from the input vector
-	# We need to negate Y because input Y is inverted (positive Y = down in input, but up in 3D world)
-	var angle = atan2(-input_vector.y, input_vector.x)
-
-	# Convert to 3D rotation around the Y axis (vertical axis)
-	# We add PI/2 to align with Godot's coordinate system where Z-forward is the default
-	var rotation_y = angle + PI/2
-
-	# Apply the rotation to the interaction area
-	interaction_area.rotation.y = rotation_y
+	var angle = atan2(input.x, input.y)
+	interaction_area.rotation.y = angle

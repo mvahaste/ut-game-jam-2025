@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BaseItem" load_steps=3 format=3 uid="uid://0hjcwyhfount"]
+
+[ext_resource type="Script" uid="uid://crpb6twyus0v8" path="res://Items/base_item.gd" id="1_ue4n6"]
+[ext_resource type="Texture2D" uid="uid://c5oaxcuo133k3" path="res://Items/Sprites/valuable_candywrapper.png" id="2_mcpjk"]
+
+[resource]
+script = ExtResource("1_ue4n6")
+id = "candy_wrapper"
+name = "Candy Wrapper"
+sprite = ExtResource("2_mcpjk")
+metadata/_custom_type_script = "uid://crpb6twyus0v8"
