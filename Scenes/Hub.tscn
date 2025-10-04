@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://catbw6iswevem"]
+[gd_scene load_steps=15 format=3 uid="uid://catbw6iswevem"]
 
+[ext_resource type="Script" uid="uid://btp6q4aisatwr" path="res://Scenes/main.gd" id="1_n1vlf"]
 [ext_resource type="PackedScene" uid="uid://bgduylrt4kaoj" path="res://Characters/Player/player.tscn" id="1_nqj8h"]
 [ext_resource type="Texture2D" uid="uid://6x50arsv828i" path="res://Art/Maa2.png" id="2_nqj8h"]
 [ext_resource type="PackedScene" uid="uid://csbk2eb0thd82" path="res://Items/dumpster.tscn" id="3_66k2d"]
 [ext_resource type="Texture2D" uid="uid://b314afhlxhli" path="res://Art/sein1-1.png" id="3_shh0t"]
-[ext_resource type="Texture2D" uid="uid://58it5f7yb647" path="res://Art/sein2.png" id="4_66k2d"]
+[ext_resource type="Texture2D" uid="uid://58it5f7yb647" path="res://Art/Sein2.png" id="4_66k2d"]
+[ext_resource type="PackedScene" uid="uid://dkyyya7ryt18r" path="res://Characters/Roach/roach.tscn" id="6_lv3p6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fj7yv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -30,7 +32,11 @@ albedo_texture = ExtResource("4_66k2d")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_shh0t"]
 albedo_texture = ExtResource("3_shh0t")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_n1vlf"]
+size = Vector3(100, 2, 100)
+
 [node name="Hub" type="Node3D"]
+script = ExtResource("1_n1vlf")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.62387955, 0.6768167, -0.39076024, 0, 0.49999997, 0.86602545, 0.78152055, -0.54029554, 0.31193975, 0, 0, 0)
@@ -51,7 +57,7 @@ transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.9802322e-08, 0, -2.9802322e-08,
 fov = 42.5
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.5, 2)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.0007816553, -0.49654686, 1.9931412)
 material_override = SubResource("StandardMaterial3D_tlwt5")
 use_collision = true
 size = Vector3(36, 1, 15)
@@ -89,3 +95,12 @@ size = Vector3(18, 8, 2)
 [node name="Dumpster" parent="." instance=ExtResource("3_66k2d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4)
 to_scene = 1
+
+[node name="Roach" parent="." instance=ExtResource("6_lv3p6")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 3, 1, 0)
+
+[node name="CollisionBlockerFloor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionBlockerFloor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_n1vlf")

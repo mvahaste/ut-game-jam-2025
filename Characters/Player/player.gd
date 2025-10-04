@@ -9,9 +9,22 @@ class_name Player extends CharacterBody3D
 
 var current_direction := "Down"  # Track current facing direction
 var is_moving := false
+var hp := 3;
 
 func _ready() -> void:
 	camera.top_level = true
+
+func lose_hp(amount := 1) -> void:
+	hp -= amount
+	print("Player lost 1 hp")
+	
+	if hp <= 0:
+		die()
+
+func die() -> void:
+	print("You died!")
+	OS.alert("YOU DIED")
+	queue_free()
 
 func _physics_process(_delta: float) -> void:
 	_process_movement()
