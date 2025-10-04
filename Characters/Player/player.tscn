@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgduylrt4kaoj"]
+
+[ext_resource type="Texture2D" uid="uid://danbuexjlpyc4" path="res://addons/kenney_prototype_textures/light/texture_08.png" id="1_6xdwp"]
+[ext_resource type="Script" uid="uid://c8timm0w1bs88" path="res://Characters/Player/player.gd" id="1_j341n"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fj7yv"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_j341n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_fj7yv")
+debug_color = Color(0.65, 0.1625, 0, 1)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.099999994, 0, 0, 0, 0.18900001, 0, 0, 0, 1, 0, 1, 0)
+billboard = 2
+texture = ExtResource("1_6xdwp")
