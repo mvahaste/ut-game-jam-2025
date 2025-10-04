@@ -1,6 +1,7 @@
 class_name Player extends CharacterBody3D
 
 @export var speed := 5.0
+var can_move := true
 @export var camera: Camera3D
 @export var camera_target: Node3D
 @export var camera_allowed_distance := 1.0
@@ -21,6 +22,10 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 func _process_movement() -> void:
+	if not can_move:
+		velocity = Vector3.ZERO
+		return
+	
 	var input_vector = Vector2.ZERO
 
 	input_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")

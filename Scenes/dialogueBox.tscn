@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://dq6pm5d66brci"]
+
+[ext_resource type="Script" uid="uid://bid3ov1pdyvnk" path="res://DialogueBox.gd" id="1_xhu12"]
+
+[node name="DialogueBox" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_xhu12")
+
+[node name="Panel" type="Panel" parent="."]
+
+[node name="Layout" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Text" type="RichTextLabel" parent="Panel/Layout"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "TEST DIALOGUE"
+fit_content = true
+
+[node name="LeaveButton" type="Button" parent="Panel/Layout"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Leave"
+
+[connection signal="pressed" from="Panel/Layout/LeaveButton" to="." method="_on_leave_button_pressed"]
