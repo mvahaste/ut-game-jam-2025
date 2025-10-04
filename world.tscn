@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://catbw6iswevem"]
+
+[ext_resource type="Texture2D" uid="uid://pdmemrve7va7" path="res://addons/kenney_prototype_textures/dark/texture_01.png" id="1_f3sb7"]
+[ext_resource type="Texture2D" uid="uid://3lunh1j1op5e" path="res://addons/kenney_prototype_textures/green/texture_01.png" id="2_fj7yv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fj7yv"]
+albedo_texture = ExtResource("1_f3sb7")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_gv5m4"]
+size = Vector3(50, 1, 50)
+
+[node name="World" type="Node3D"]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+material_override = SubResource("StandardMaterial3D_fj7yv")
+mesh = SubResource("BoxMesh_gv5m4")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.68335027, 0.73009074, 0, -0.73009074, 0.68335027, 0.9968982, 1.8738891, 2.0867662)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.5, 0)
+billboard = 2
+texture = ExtResource("2_fj7yv")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.90000004, 0.5, -2.6000001)
+billboard = 2
+texture = ExtResource("2_fj7yv")
+
+[node name="Sprite3D3" type="Sprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -2, 0.5, -6)
+billboard = 2
+texture = ExtResource("2_fj7yv")
