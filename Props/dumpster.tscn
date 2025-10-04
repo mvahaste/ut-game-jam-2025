@@ -9,7 +9,7 @@
 size = Vector3(7, 4, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vntms"]
-size = Vector3(8, 3, 3)
+size = Vector3(7.254883, 3, 3)
 
 [node name="Dumpster" type="StaticBody3D"]
 script = ExtResource("1_vntms")
