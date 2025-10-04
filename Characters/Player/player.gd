@@ -9,11 +9,23 @@ class_name Player extends CharacterBody3D
 var _last_animation_type: String = "Idle"
 var _last_animation_direction: String = "Down"
 
+var _movement_enabled: bool = true
+
 func _ready() -> void:
 	# ! TEMPORARY
 	SoundManager.play_music(SoundManager.MUSIC.MAIN_MENU)
 
+	DialogueManager.dialogue_started.connect(_on_dialogue_started)
+	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
+
 func _physics_process(_delta: float) -> void:
+	if !_movement_enabled:
+		velocity = Vector3.ZERO
+		_handle_animation()
+		_rotate_interaction_area(Vector2.ZERO)
+		move_and_slide()
+		return
+
 	var input = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized();
 
 	_handle_movement(input, _delta)
@@ -79,3 +91,9 @@ func _rotate_interaction_area(input: Vector2) -> void:
 
 	var angle = atan2(input.x, input.y)
 	interaction_area.rotation.y = angle
+
+func _on_dialogue_started(_var) -> void:
+	_movement_enabled = false
+
+func _on_dialogue_ended(_var) -> void:
+	_movement_enabled = true

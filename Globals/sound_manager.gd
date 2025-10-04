@@ -1,6 +1,8 @@
 extends Node
 
 enum SFX {
+	WISE_DIALOGUE_1,
+	WISE_DIALOGUE_2,
 }
 
 enum MUSIC {
@@ -48,36 +50,10 @@ func setup_audio_players():
 		sfx_players.append(sfx_player)
 
 func load_audio_resources():
-	# Load SFX resources (replace these paths with actual audio file paths)
-	# This is where you'll load your .ogg, .wav, or .mp3 files
+	sfx_resources[SFX.WISE_DIALOGUE_1] = load("res://Characters/WiseRat/WiseDialogue1.wav")
+	sfx_resources[SFX.WISE_DIALOGUE_2] = load("res://Characters/WiseRat/WiseDialogue2.wav")
 
 	music_resources[MUSIC.MAIN_MENU] = load("res://Music/MainMenu.mp3")
-
-	# UI Sounds
-	# sfx_resources[SFX.MENU_CLICK] = load("res://Audio/SFX/menu_click.ogg")
-	# sfx_resources[SFX.MENU_HOVER] = load("res://Audio/SFX/menu_hover.ogg")
-	# sfx_resources[SFX.BUTTON_PRESS] = load("res://Audio/SFX/button_press.ogg")
-
-	# Player Actions
-	# sfx_resources[SFX.FOOTSTEP] = load("res://Audio/SFX/footstep.ogg")
-	# sfx_resources[SFX.PICKUP_ITEM] = load("res://Audio/SFX/pickup.ogg")
-	# sfx_resources[SFX.DROP_ITEM] = load("res://Audio/SFX/drop.ogg")
-	# sfx_resources[SFX.INTERACT] = load("res://Audio/SFX/interact.ogg")
-	# sfx_resources[SFX.JUMP] = load("res://Audio/SFX/jump.ogg")
-
-	# Dumpster/Trash Sounds
-	# sfx_resources[SFX.DUMPSTER_OPEN] = load("res://Audio/SFX/dumpster_open.ogg")
-	# sfx_resources[SFX.DUMPSTER_CLOSE] = load("res://Audio/SFX/dumpster_close.ogg")
-	# sfx_resources[SFX.TRASH_BAG_PICKUP] = load("res://Audio/SFX/trash_pickup.ogg")
-	# sfx_resources[SFX.TRASH_BAG_DROP] = load("res://Audio/SFX/trash_drop.ogg")
-	# sfx_resources[SFX.ITEM_FOUND] = load("res://Audio/SFX/item_found.ogg")
-
-	# Load Music resources
-	# music_resources[MUSIC.MAIN_THEME] = load("res://Audio/Music/main_theme.ogg")
-	# music_resources[MUSIC.HUB_AMBIENT] = load("res://Audio/Music/hub_ambient.ogg")
-	# music_resources[MUSIC.DUMPSTER_AREA] = load("res://Audio/Music/dumpster_area.ogg")
-	# music_resources[MUSIC.VICTORY_THEME] = load("res://Audio/Music/victory.ogg")
-	# music_resources[MUSIC.MENU_MUSIC] = load("res://Audio/Music/menu.ogg")
 
 	print("Sound Manager: Audio resources loaded")
 
@@ -86,7 +62,7 @@ func load_audio_resources():
 # =============================================================================
 
 # Play a sound effect
-func play_sfx(sfx: SFX, volume_db: float = 0.0) -> void:
+func play_sfx(sfx: SFX, volume_db: float = 0.0, pitch_variance: float = 0.0) -> void:
 	if not sfx_resources.has(sfx):
 		print("Sound Manager Warning: SFX resource not found for: ", SFX.keys()[sfx])
 		return
@@ -98,6 +74,7 @@ func play_sfx(sfx: SFX, volume_db: float = 0.0) -> void:
 
 	player.stream = sfx_resources[sfx]
 	player.volume_db = volume_db + linear_to_db(sfx_volume * master_volume)
+	player.pitch_scale = 1.0 + randf_range(-pitch_variance, pitch_variance)
 	player.play()
 
 # Play background music (survives scene changes)

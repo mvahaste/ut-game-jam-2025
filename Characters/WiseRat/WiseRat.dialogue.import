@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://l1uvk41ewqck"
+path="res://.godot/imported/WiseRat.dialogue-13ce311b11a793ca81553f4850fa6905.tres"
+
+[deps]
+
+source_file="res://Characters/WiseRat/WiseRat.dialogue"
+dest_files=["res://.godot/imported/WiseRat.dialogue-13ce311b11a793ca81553f4850fa6905.tres"]
+
+[params]
+
+defaults=true

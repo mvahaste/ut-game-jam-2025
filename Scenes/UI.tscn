@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfu37u1lvav03"]
+[gd_scene load_steps=5 format=3 uid="uid://bfu37u1lvav03"]
 
 [ext_resource type="Script" uid="uid://tdcdjhob826v" path="res://Globals/ui_manager.gd" id="1_w371h"]
 [ext_resource type="Texture2D" uid="uid://djmrtoxt4nofq" path="res://icon.svg" id="2_nxvpl"]
+[ext_resource type="FontFile" uid="uid://7wrq8dvttvik" path="res://Fonts/F25_Executive.otf" id="3_dewlx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dewlx"]
+bg_color = Color(0, 0, 0, 0.5803922)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
 
 [node name="UI" type="CanvasLayer"]
 
@@ -42,3 +50,60 @@ visible = false
 layout_mode = 2
 texture = ExtResource("2_nxvpl")
 expand_mode = 2
+
+[node name="DialogueContainer" type="Control" parent="Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -563.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/DialogueContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 320
+theme_override_constants/margin_top = 128
+theme_override_constants/margin_right = 320
+theme_override_constants/margin_bottom = 128
+
+[node name="Background" type="Panel" parent="Control/DialogueContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dewlx")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/DialogueContainer/MarginContainer/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="DialogueText" type="RichTextLabel" parent="Control/DialogueContainer/MarginContainer/Background/MarginContainer"]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 1
+theme_override_constants/outline_size = 24
+theme_override_fonts/normal_font = ExtResource("3_dewlx")
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[font_size=64]Wise Rat[/font_size]
+My dear friend, it’s good to see you again. I didn’t think you’d return here anytime soon…the roaches are still relentless about protecting their trash in these parts."
+scroll_active = false

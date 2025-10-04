@@ -9,6 +9,9 @@ func _ready() -> void:
 
 	_on_inventory_updated()
 
+	# DialogueManager.dialogue_container = %DialogueContainer
+	# DialogueManager.dialogue_text_label = %DialogueText
+
 func _on_inventory_updated() -> void:
 	# Remove every item except the example item
 	for child in inventory_items.get_children():
