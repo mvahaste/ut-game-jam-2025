@@ -1,28 +1,110 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgduylrt4kaoj"]
+[gd_scene load_steps=9 format=3 uid="uid://bgduylrt4kaoj"]
 
 [ext_resource type="Script" uid="uid://c8timm0w1bs88" path="res://Characters/Player/player.gd" id="1_j341n"]
-[ext_resource type="Texture2D" uid="uid://us347t13uf3k" path="res://Characters/Player/image-removebg-preview.png" id="2_j341n"]
+[ext_resource type="Texture2D" uid="uid://b75um4ac7m7da" path="res://Characters/Player/Sprites/IMG_0609.PNG" id="2_cue0d"]
 [ext_resource type="PackedScene" uid="uid://dmpbillk4k6au" path="res://Components/interaction_area.tscn" id="3_cue0d"]
+[ext_resource type="Texture2D" uid="uid://conjq0eiyhm3r" path="res://Characters/Player/Sprites/IMG_0610.PNG" id="3_xf5fp"]
+[ext_resource type="Texture2D" uid="uid://egf0q53doc40" path="res://Characters/Player/Sprites/IMG_0611.PNG" id="4_osktb"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fj7yv"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xf5fp"]
+radius = 0.7
+height = 1.5
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_cue0d"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_cue0d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cue0d")
+}],
+"loop": true,
+"name": &"IdleDown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cue0d")
+}],
+"loop": true,
+"name": &"IdleLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cue0d")
+}],
+"loop": true,
+"name": &"IdleRight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cue0d")
+}],
+"loop": true,
+"name": &"IdleUp",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_xf5fp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cue0d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_osktb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cue0d")
+}],
+"loop": true,
+"name": &"WalkDown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cue0d")
+}],
+"loop": true,
+"name": &"WalkLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cue0d")
+}],
+"loop": true,
+"name": &"WalkRight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cue0d")
+}],
+"loop": true,
+"name": &"WalkUp",
+"speed": 5.0
+}]
 
-[node name="Player" type="CharacterBody3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_xf5fp"]
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("animated_sprite", "interaction_area")]
 script = ExtResource("1_j341n")
+animated_sprite = NodePath("AnimatedSprite3D")
+interaction_area = NodePath("InteractionArea")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_fj7yv")
-debug_color = Color(0.65, 0.1625, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("CapsuleShape3D_xf5fp")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-billboard = 2
-texture = ExtResource("2_j341n")
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.8, 0)
+sprite_frames = SubResource("SpriteFrames_cue0d")
+animation = &"WalkRight"
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_cue0d")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("BoxShape3D_cue0d")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.6)
+shape = SubResource("BoxShape3D_xf5fp")
+debug_color = Color(1, 1, 1, 0.41960785)

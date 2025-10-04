@@ -9,6 +9,7 @@
 script = ExtResource("1_bkywi")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
+unique_name_in_owner = true
 billboard = 2
 
 [node name="InteractableArea" type="Area3D" parent="."]

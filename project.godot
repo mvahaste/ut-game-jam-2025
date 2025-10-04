@@ -21,6 +21,8 @@ SceneManager="*res://Globals/scene_manager.gd"
 
 [display]
 
+window/size/viewport_width=2560
+window/size/viewport_height=1440
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/vsync/vsync_mode=2
