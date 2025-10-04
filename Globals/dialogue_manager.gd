@@ -6,7 +6,10 @@ var dialogue_container: Control
 var dialogue_text_label: RichTextLabel
 
 enum Dialogues {
-	WISE_RAT
+	WISE_RAT_1,
+	WISE_RAT_2,
+	WISE_RAT_3,
+	WISE_RAT_4,
 }
 
 func _speaker_label(speaker_name: String) -> String:
@@ -23,11 +26,6 @@ func _talk(speaker_name: String, dialogue_text: String, sounds: Array[SoundManag
 	var char_index = 0
 
 	for character in dialogue_text:
-		if Input.is_action_just_released("interact"):
-			dialogue_text_label.text = speaker_label + "\n" + dialogue_text
-			await _wait_for_input()
-			break
-
 		displayed_text += character
 		char_index += 1
 		dialogue_text_label.text = speaker_label + "\n" + displayed_text
@@ -49,12 +47,31 @@ func start_dialogue(dialogue: Dialogues) -> void:
 	var sounds: Array[SoundManager.SFX] = []
 
 	match dialogue:
-		Dialogues.WISE_RAT:
+		Dialogues.WISE_RAT_1:
 			sounds = [SoundManager.SFX.WISE_DIALOGUE_1, SoundManager.SFX.WISE_DIALOGUE_2]
-			await _talk("Wise Rat", "My dear friend, it's good to see you again. I didn't think youd return here anytime soon... the roaches are still relentless about protecting their trash in these parts.", sounds)
+			await _talk("Wise Rat", "My dear friend, it's good to see you again. I didn't think you'd return here anytime soon... the roaches are still relentless about protecting their trash in these parts.", sounds)
 			await _talk("Wise Rat", "If you enter a container then make it quick, they're gonna close the lids soon.", sounds)
+			end_dialogue()
+			return
+		Dialogues.WISE_RAT_2:
+			sounds = [SoundManager.SFX.WISE_DIALOGUE_1, SoundManager.SFX.WISE_DIALOGUE_2]
 			await _talk("Wise Rat", "This part of town, as you know, is not frequented by many other rats, therefore these garbage bins haven't been looted yet.", sounds)
 			await _talk("Wise Rat", "I fear today is the last time I scour here, I'm not in good enough health to escape the roaches anymore...", sounds)
+			end_dialogue()
+			return
+		Dialogues.WISE_RAT_3:
+			sounds = [SoundManager.SFX.WISE_DIALOGUE_1, SoundManager.SFX.WISE_DIALOGUE_2]
+			await _talk("Wise Rat", "...", sounds, 0.25, 1)
+			await _talk("Wise Rat", "...", sounds, 0.25, 1)
+			await _talk("Wise Rat", "My dear friend, you know, I found something quite nice in the dumpster today. I know  you have a large family, so here, you can have this:", sounds)
+			await _talk("Wise Rat", "*Wise Rat gave you [Shiny Gum Wrapper]*", sounds)
+			await _talk("Wise Rat", "You mustn't feel bad about me giving you this, I am simply an old rat and I don't need much to get by.", sounds)
+			end_dialogue()
+			return
+		Dialogues.WISE_RAT_4:
+			sounds = [SoundManager.SFX.WISE_DIALOGUE_1, SoundManager.SFX.WISE_DIALOGUE_2]
+			await _talk("Wise Rat", "...", sounds, 0.25, 1)
+			await _talk("Wise Rat", "If you wish to find valuables today, you ought to get to it, my friend. Soon they will close the containers.", sounds)
 			end_dialogue()
 			return
 

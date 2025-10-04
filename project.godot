@@ -20,8 +20,8 @@ config/icon="res://icon.svg"
 SceneManager="*res://Globals/scene_manager.gd"
 InventoryManager="*res://Globals/inventory_manager.gd"
 SoundManager="*res://Globals/sound_manager.gd"
-DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 Globals="*res://Globals/globals.gd"
+DialogueManager="*res://Globals/dialogue_manager.gd"
 
 [dialogue_manager]
 
@@ -35,10 +35,6 @@ window/size/viewport_height=1440
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/vsync/vsync_mode=2
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 [input]
 
