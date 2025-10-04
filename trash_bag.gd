@@ -1,13 +1,12 @@
 extends Sprite3D
 
-@export var to_scene: PackedScene
+@export var to_hub: bool = false
 
 func _on_interactable_area_interact() -> void:
-	if to_scene:
-		get_tree().change_scene_to_packed(to_scene)
+	if to_hub:
+		SceneManager.go_to_hub_scene()
 	else:
-		print("No scene assigned to trash bag")
-
+		SceneManager.go_to_trash_bag_scene()
 
 func _on_interactable_area_hovered() -> void:
 	print("Hovering over trash bag")

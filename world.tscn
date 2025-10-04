@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://catbw6iswevem"]
+[gd_scene load_steps=10 format=3 uid="uid://catbw6iswevem"]
 
 [ext_resource type="Texture2D" uid="uid://c3kh0m5wt6aye" path="res://Art/Maa_.png" id="2_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://bj5g8y52e3uxc" path="res://trash_bag.tscn" id="3_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://bgduylrt4kaoj" path="res://Characters/Player/player.tscn" id="3_tlwt5"]
-[ext_resource type="PackedScene" uid="uid://brw5l7aciplu7" path="res://dumpster1.tscn" id="5_dwbse"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fj7yv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -75,4 +74,3 @@ size = Vector3(97, 24, 2)
 
 [node name="TrashBag" parent="." instance=ExtResource("3_aqk2v")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -3, 0.5, -1)
-to_scene = ExtResource("5_dwbse")

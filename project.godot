@@ -15,10 +15,15 @@ run/main_scene="uid://catbw6iswevem"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SceneManager="*res://Globals/scene_manager.gd"
+
 [display]
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+window/vsync/vsync_mode=2
 
 [input]
 

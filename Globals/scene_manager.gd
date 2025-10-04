@@ -1,7 +1,7 @@
-class_name LevelManager extends Node
+extends Node
 
-@export var hub_scene: PackedScene
-@export var trash_bag_scene: PackedScene
+@onready var hub_scene: PackedScene = preload("res://world.tscn")
+@onready var trash_bag_scene: PackedScene = preload("res://dumpster1.tscn")
 
 func go_to_hub_scene() -> void:
 	if hub_scene:
