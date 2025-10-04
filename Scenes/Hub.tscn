@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://catbw6iswevem"]
+[gd_scene load_steps=16 format=3 uid="uid://catbw6iswevem"]
 
 [ext_resource type="PackedScene" uid="uid://bfu37u1lvav03" path="res://Scenes/UI.tscn" id="1_n1vlf"]
 [ext_resource type="PackedScene" uid="uid://bgduylrt4kaoj" path="res://Characters/Player/player.tscn" id="1_nqj8h"]
@@ -7,15 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://b314afhlxhli" path="res://Art/sein1-1.png" id="3_shh0t"]
 [ext_resource type="Texture2D" uid="uid://58it5f7yb647" path="res://Art/Sein2.png" id="4_66k2d"]
 [ext_resource type="Texture2D" uid="uid://c2b63q5cs7omy" path="res://Art/Maaactually.png" id="4_n1vlf"]
-[ext_resource type="PackedScene" uid="uid://c6ic2t0oy432u" path="res://Items/item.tscn" id="8_yx7fe"]
-[ext_resource type="Resource" uid="uid://cl4bardav0wcf" path="res://Items/cheese.tres" id="9_hmw7c"]
-[ext_resource type="Resource" uid="uid://y6mnh5n6swfj" path="res://Items/bracelet.tres" id="10_h8k3l"]
-[ext_resource type="Resource" uid="uid://dubr6t2nppnbv" path="res://Items/bottlecap.tres" id="11_r7avt"]
-[ext_resource type="Resource" uid="uid://brdsovutfdkvy" path="res://Items/blue_cheese.tres" id="12_cjtts"]
-[ext_resource type="Resource" uid="uid://pnmoa0rst26a" path="res://Items/rusty_spoon.tres" id="13_5byxb"]
-[ext_resource type="Resource" uid="uid://c3acdjsutfoe6" path="res://Items/broken_watch.tres" id="14_q3t1c"]
-[ext_resource type="Resource" uid="uid://h43ofkoleojw" path="res://Items/plastic_ring.tres" id="15_ftct6"]
-[ext_resource type="Resource" uid="uid://0hjcwyhfount" path="res://Items/candy_wrapper.tres" id="16_yk07a"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fj7yv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -121,35 +112,3 @@ to_scene = 1
 [node name="Dumpster3" parent="." instance=ExtResource("3_66k2d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -3)
 to_scene = 1
-
-[node name="Cheese" parent="." instance=ExtResource("8_yx7fe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, 0)
-item_resource = ExtResource("9_hmw7c")
-
-[node name="Bracelet" parent="." instance=ExtResource("8_yx7fe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
-item_resource = ExtResource("10_h8k3l")
-
-[node name="Bottlecap" parent="." instance=ExtResource("8_yx7fe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
-item_resource = ExtResource("11_r7avt")
-
-[node name="BlueCheese" parent="." instance=ExtResource("8_yx7fe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
-item_resource = ExtResource("12_cjtts")
-
-[node name="RustySpoon" parent="." instance=ExtResource("8_yx7fe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
-item_resource = ExtResource("13_5byxb")
-
-[node name="BrokenWatch" parent="." instance=ExtResource("8_yx7fe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
-item_resource = ExtResource("14_q3t1c")
-
-[node name="PlasticRing" parent="." instance=ExtResource("8_yx7fe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
-item_resource = ExtResource("15_ftct6")
-
-[node name="CandryWrapper" parent="." instance=ExtResource("8_yx7fe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
-item_resource = ExtResource("16_yk07a")
