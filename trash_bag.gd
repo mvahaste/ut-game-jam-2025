@@ -3,10 +3,7 @@ extends Sprite3D
 @export var to_hub: bool = false
 
 func _on_interactable_area_interact() -> void:
-	if to_hub:
-		SceneManager.go_to_hub_scene()
-	else:
-		SceneManager.go_to_trash_bag_scene()
+	print("Interacted with trash bag")
 
 func _on_interactable_area_hovered() -> void:
 	print("Hovering over trash bag")

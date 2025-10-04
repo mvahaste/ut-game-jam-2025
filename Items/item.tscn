@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6ic2t0oy432u"]
+
+[ext_resource type="Script" uid="uid://dnf1n60ycakwq" path="res://Items/item.gd" id="1_bkywi"]
+[ext_resource type="Script" uid="uid://ck5lp4jvx4kvu" path="res://Components/interactable_area.gd" id="2_p2kau"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3dnog"]
+
+[node name="Item" type="Node3D"]
+script = ExtResource("1_bkywi")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 2
+
+[node name="InteractableArea" type="Area3D" parent="."]
+script = ExtResource("2_p2kau")
+metadata/_custom_type_script = "uid://ck5lp4jvx4kvu"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableArea"]
+shape = SubResource("SphereShape3D_3dnog")

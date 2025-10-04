@@ -1,16 +1,25 @@
 extends Node
 
-@onready var hub_scene: PackedScene = preload("res://world.tscn")
-@onready var trash_bag_scene: PackedScene = preload("res://dumpster1.tscn")
+enum Scenes {
+	HUB,
+	DUMPSTER1,
+}
 
-func go_to_hub_scene() -> void:
-	if hub_scene:
-		get_tree().change_scene_to_packed(hub_scene)
-	else:
-		print("Hub scene not assigned in SceneManager")
+const SCENE_PATHS = {
+	Scenes.HUB: "res://Scenes/Hub.tscn",
+	Scenes.DUMPSTER1: "res://Scenes/Dumpster1.tscn",
+}
 
-func go_to_trash_bag_scene() -> void:
-	if trash_bag_scene:
-		get_tree().change_scene_to_packed(trash_bag_scene)
+var current_scene: Scenes = Scenes.HUB
+var previous_scene: Scenes = Scenes.HUB
+
+func transition_to_scene(target_scene: Scenes) -> void:
+	if target_scene in SCENE_PATHS:
+		previous_scene = current_scene
+		current_scene = target_scene
+		var scene_path = SCENE_PATHS[target_scene]
+		var error = get_tree().change_scene_to_file(scene_path)
+		if error != OK:
+			push_error("Failed to change scene to %s" % scene_path)
 	else:
-		print("Trash bag scene not assigned in SceneManager")
+		push_error("Scene %s not found in SCENE_PATHS" % str(target_scene))

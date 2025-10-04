@@ -16,6 +16,7 @@ script = ExtResource("2_5na6b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableArea"]
 shape = SubResource("BoxShape3D_aqk2v")
+debug_color = Color(0.96, 0, 0.4960002, 1)
 
 [connection signal="hovered" from="InteractableArea" to="." method="_on_interactable_area_hovered"]
 [connection signal="interact" from="InteractableArea" to="." method="_on_interactable_area_interact"]

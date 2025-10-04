@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BaseItem" load_steps=3 format=3 uid="uid://h72xtr1nlue4"]
+
+[ext_resource type="Script" uid="uid://crpb6twyus0v8" path="res://Items/base_item.gd" id="1_vfed7"]
+[ext_resource type="Texture2D" uid="uid://b7txa7tyjkwxm" path="res://Art/valuable placeholder.png" id="2_iebpy"]
+
+[resource]
+script = ExtResource("1_vfed7")
+name = "Demo Item"
+description = "This is a demo item for testing."
+sprite = ExtResource("2_iebpy")
+metadata/_custom_type_script = "uid://crpb6twyus0v8"
