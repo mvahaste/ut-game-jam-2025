@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bj5g8y52e3uxc"]
+
+[ext_resource type="Texture2D" uid="uid://bwmln0giy2xdb" path="res://Art/Trashbag.png" id="1_a1dd7"]
+[ext_resource type="Script" uid="uid://cmbvc722pkdvu" path="res://trash_bag.gd" id="2_5na6b"]
+[ext_resource type="PackedScene" uid="uid://dtinemjkvq6x1" path="res://Components/interactable_area.tscn" id="4_d2eua"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aqk2v"]
+size = Vector3(4, 4, 4)
+
+[node name="TrashBag" type="Sprite3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+texture = ExtResource("1_a1dd7")
+script = ExtResource("2_5na6b")
+
+[node name="InteractableArea" parent="." instance=ExtResource("4_d2eua")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableArea"]
+shape = SubResource("BoxShape3D_aqk2v")
+
+[connection signal="hovered" from="InteractableArea" to="." method="_on_interactable_area_hovered"]
+[connection signal="interact" from="InteractableArea" to="." method="_on_interactable_area_interact"]
+[connection signal="unhovered" from="InteractableArea" to="." method="_on_interactable_area_unhovered"]
