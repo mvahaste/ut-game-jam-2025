@@ -1,11 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://csbk2eb0thd82"]
+[gd_scene load_steps=7 format=3 uid="uid://csbk2eb0thd82"]
 
-[ext_resource type="Texture2D" uid="uid://dyey8umqxpn2w" path="res://Art/dumpster.png" id="1_13yp7"]
 [ext_resource type="Script" uid="uid://daw2dcu7xvxon" path="res://Props/dumpster.gd" id="1_vntms"]
+[ext_resource type="Texture2D" uid="uid://cgwup24772js0" path="res://Art/Prügikast(placeholder).png" id="2_n3oxr"]
 [ext_resource type="Script" uid="uid://ck5lp4jvx4kvu" path="res://Components/interactable_area.gd" id="2_rx06h"]
+[ext_resource type="FontFile" uid="uid://u7x4tooupkq3" path="res://Fonts/CHICKEN Pie.ttf" id="4_mdcbu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jutiq"]
-size = Vector3(7, 4, 1)
+size = Vector3(7, 4, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vntms"]
 size = Vector3(8, 3, 3)
@@ -13,20 +14,29 @@ size = Vector3(8, 3, 3)
 [node name="Dumpster" type="StaticBody3D"]
 script = ExtResource("1_vntms")
 
+[node name="Label3D" type="Label3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9964285, 1)
+billboard = 2
+text = "Enter the dumpster"
+font = ExtResource("4_mdcbu")
+font_size = 64
+outline_size = 32
+
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2.6, 0)
-texture = ExtResource("1_13yp7")
+transform = Transform3D(0.225, 0, 0, 0, 0.225, 0, 0, 0, 0.225, 0, 3.3999999, 0)
+billboard = 2
+texture = ExtResource("2_n3oxr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -1.5)
 shape = SubResource("BoxShape3D_jutiq")
 
 [node name="InteractableArea" type="Area3D" parent="."]
+unique_name_in_owner = true
 script = ExtResource("2_rx06h")
 metadata/_custom_type_script = "uid://ck5lp4jvx4kvu"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 shape = SubResource("BoxShape3D_vntms")
-
-[connection signal="interact" from="InteractableArea" to="." method="_on_interactable_area_interact"]

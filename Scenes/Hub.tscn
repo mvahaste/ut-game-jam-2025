@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://catbw6iswevem"]
+[gd_scene load_steps=24 format=3 uid="uid://catbw6iswevem"]
 
 [ext_resource type="PackedScene" uid="uid://bfu37u1lvav03" path="res://Scenes/UI.tscn" id="1_n1vlf"]
 [ext_resource type="PackedScene" uid="uid://bgduylrt4kaoj" path="res://Characters/Player/player.tscn" id="1_nqj8h"]
@@ -40,6 +40,9 @@ albedo_texture = ExtResource("4_n1vlf")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_shh0t"]
 albedo_texture = ExtResource("3_shh0t")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_yk07a"]
+size = Vector3(39, 18, 2.1000001)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lv3p6"]
 albedo_texture = ExtResource("4_66k2d")
 
@@ -75,8 +78,14 @@ size = Vector3(13, 1, 35)
 [node name="CSGBox3D6" type="CSGBox3D" parent="Floor & Walls"]
 transform = Transform3D(-1, 0, 0, 0, -1, 0, 0, 0, -1, 1, 6.8, -6.2721195)
 material_override = SubResource("StandardMaterial3D_shh0t")
-use_collision = true
 size = Vector3(35, 15, 2)
+
+[node name="BackWallBrokenLol" type="StaticBody3D" parent="Floor & Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.2000003)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor & Walls/BackWallBrokenLol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+shape = SubResource("BoxShape3D_yk07a")
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="Floor & Walls"]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 19.5, 6.8, 12.2278805)
@@ -91,7 +100,15 @@ use_collision = true
 size = Vector3(35, 15, 2)
 
 [node name="Dumpster" parent="." instance=ExtResource("3_66k2d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+to_scene = 1
+
+[node name="Dumpster2" parent="." instance=ExtResource("3_66k2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -3)
+to_scene = 1
+
+[node name="Dumpster3" parent="." instance=ExtResource("3_66k2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -3)
 to_scene = 1
 
 [node name="Cheese" parent="." instance=ExtResource("8_yx7fe")]

@@ -34,8 +34,12 @@ func _handle_movement(input: Vector2, _delta: float) -> void:
 		velocity.x = move_toward(velocity.x, direction.x * walk_speed, walk_acceleration)
 		velocity.z = move_toward(velocity.z, direction.z * walk_speed, walk_acceleration)
 	else:
-		velocity.x = move_toward(velocity.x, 0, walk_acceleration * 1.5)
-		velocity.z = move_toward(velocity.z, 0, walk_acceleration * 1.5)
+		if velocity.length() <= 0.5:
+			velocity.x = 0
+			velocity.z = 0
+		else:
+			velocity.x = move_toward(velocity.x, 0, walk_acceleration * 1.5)
+			velocity.z = move_toward(velocity.z, 0, walk_acceleration * 1.5)
 
 	move_and_slide()
 
@@ -43,7 +47,7 @@ func _handle_animation() -> void:
 	var animation_type: String = "Idle"
 	var animation_direction: String = _last_animation_direction
 
-	if !velocity.is_equal_approx(Vector3.ZERO):
+	if velocity.length() > 0.75:
 		animation_type = "Walk"
 
 		if abs(velocity.x) >= abs(velocity.z):

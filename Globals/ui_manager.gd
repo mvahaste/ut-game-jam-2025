@@ -7,6 +7,8 @@ extends Control
 func _ready() -> void:
 	InventoryManager.connect("inventory_updated", Callable(self, "_on_inventory_updated"))
 
+	_on_inventory_updated()
+
 func _on_inventory_updated() -> void:
 	# Remove every item except the example item
 	for child in inventory_items.get_children():
