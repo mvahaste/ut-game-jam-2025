@@ -21,6 +21,9 @@ enum State {
 @export var pounce_force: float = 16.0
 @export var pounce_height: float = 4.0
 @export var gravity: float = 12.0
+@export var bob_amplitude: float = 0.025  # How much the sprite bobs up and down
+@export var bob_speed_patrol: float = 10.0  # Bob speed while patrolling
+@export var bob_speed_chase: float = 25.0  # Bob speed while chasing (faster)
 
 @onready var vision_raycast_parent: Node3D = %VisionRayCasts
 @onready var sprite: Sprite3D = %Sprite3D
@@ -34,6 +37,9 @@ var _wait_timer: float = 0.0
 var _attack_timer: float = 0.0
 var _player: Player
 var _last_player_position: Vector3
+var _bob_time: float = 0.0
+var _original_sprite_y: float
+var _is_moving: bool = false
 
 func _ready() -> void:
 	for child in vision_raycast_parent.get_children():
@@ -54,14 +60,20 @@ func _ready() -> void:
 		if not _player:
 			_player = _find_player_in_tree(get_tree().root)
 
-		if not _player:
-			print("Warning: No player found in scene!")
+	if not _player:
+		print("Warning: No player found in scene!")
+
+	# Store original sprite Y position for bobbing
+	_original_sprite_y = sprite.position.y
 
 	# Start patrolling
 	_start_patrol()
 
 func _physics_process(delta: float) -> void:
 	_update_timers(delta)
+
+	# Update bobbing animation
+	_update_sprite_bobbing(delta)
 
 	# Apply gravity
 	if not is_on_floor():
@@ -102,6 +114,7 @@ func _handle_patrol_state(delta: float) -> void:
 			_move_towards(_target_position, move_speed, delta)
 		else:
 			# Reached target, wait then pick new target
+			_is_moving = false
 			_wait_timer = randf_range(patrol_wait_time_min, patrol_wait_time_max)
 			_pick_new_patrol_target()
 
@@ -147,6 +160,9 @@ func _handle_attack_state(_delta: float) -> void:
 		_start_patrol()
 		return
 
+	# Not moving during attack state
+	_is_moving = false
+
 	# Only consider X and Z axes for distance calculation
 	var flat_position = Vector3(global_position.x, 0, global_position.z)
 	var flat_player_pos = Vector3(_player.global_position.x, 0, _player.global_position.z)
@@ -189,6 +205,9 @@ func _move_towards(target: Vector3, speed: float, _delta: float) -> void:
 	var direction = (flat_target - global_position).normalized()
 	velocity.x = direction.x * speed
 	velocity.z = direction.z * speed
+
+	# Track if we're moving for bobbing animation
+	_is_moving = direction.length() > 0
 
 	# Flip sprite and vision raycasts based on horizontal movement direction
 	if direction.length() > 0:
@@ -280,6 +299,24 @@ func _handle_sprite_flipping(horizontal_direction: float) -> void:
 		# Moving left - flip sprite and vision
 		sprite.flip_h = true
 		vision_raycast_parent.scale.x = -abs(vision_raycast_parent.scale.x)
+
+func _update_sprite_bobbing(delta: float) -> void:
+	# Only bob if moving
+	if not _is_moving:
+		# Smoothly return to original position when not moving
+		sprite.position.y = lerp(sprite.position.y, _original_sprite_y, delta * 8.0)
+		return
+
+	# Update bob time
+	var bob_speed = bob_speed_patrol
+	if _current_state == State.CHASING:
+		bob_speed = bob_speed_chase
+
+	_bob_time += delta * bob_speed
+
+	# Apply bobbing offset
+	var bob_offset = sin(_bob_time) * bob_amplitude
+	sprite.position.y = _original_sprite_y + bob_offset
 
 func _find_player_in_tree(node: Node) -> Player:
 	if node is Player:
