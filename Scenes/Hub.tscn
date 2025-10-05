@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://catbw6iswevem"]
+[gd_scene load_steps=24 format=3 uid="uid://catbw6iswevem"]
 
 [ext_resource type="PackedScene" uid="uid://bfu37u1lvav03" path="res://Scenes/UI.tscn" id="1_n1vlf"]
 [ext_resource type="PackedScene" uid="uid://bgduylrt4kaoj" path="res://Characters/Player/player.tscn" id="1_nqj8h"]
@@ -11,7 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://ctwv8r48d4ela" path="res://Characters/CrazyRat/crazy_rat.tscn" id="9_hmw7c"]
 [ext_resource type="PackedScene" uid="uid://cc281xoota8r0" path="res://Characters/RaccoonGang/raccoon_gang.tscn" id="10_h8k3l"]
 [ext_resource type="PackedScene" uid="uid://dhosxvkmrhk5k" path="res://Props/rat_hole.tscn" id="11_r7avt"]
+[ext_resource type="PackedScene" uid="uid://c6ic2t0oy432u" path="res://Items/item.tscn" id="14_ftct6"]
 [ext_resource type="FontFile" uid="uid://s1lqnnng4f2b" path="res://Fonts/F25_Executive.otf" id="15_ftct6"]
+[ext_resource type="Resource" uid="uid://cl4bardav0wcf" path="res://Items/cheese.tres" id="15_yk07a"]
 [ext_resource type="Script" uid="uid://sbc2eq6o25dx" path="res://Scenes/tutorial_text.gd" id="16_yk07a"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fj7yv"]
@@ -161,3 +163,11 @@ text = "Use [WASD] to move and [E] to interact and pick up items."
 fit_content = true
 horizontal_alignment = 1
 script = ExtResource("16_yk07a")
+
+[node name="Item" parent="." instance=ExtResource("14_ftct6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 2)
+item_resource = ExtResource("15_yk07a")
+
+[node name="Item2" parent="." instance=ExtResource("14_ftct6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+item_resource = ExtResource("15_yk07a")

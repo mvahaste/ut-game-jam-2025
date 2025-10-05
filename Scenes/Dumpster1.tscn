@@ -1,11 +1,11 @@
-[gd_scene load_steps=33 format=3 uid="uid://bngyonn53ctri"]
+[gd_scene load_steps=34 format=3 uid="uid://bngyonn53ctri"]
 
 [ext_resource type="PackedScene" uid="uid://bgduylrt4kaoj" path="res://Characters/Player/player.tscn" id="1_63qix"]
 [ext_resource type="PackedScene" uid="uid://cpgvxfb6fsw70" path="res://Props/juice.tscn" id="1_v5nio"]
-[ext_resource type="Texture2D" uid="uid://cx45cfriwc5xg" path="res://Art/Prükkarall.png" id="2_ctto2"]
+[ext_resource type="Texture2D" uid="uid://bv0bvev30td8p" path="res://Art/Prükkarall.png" id="2_ctto2"]
 [ext_resource type="Script" uid="uid://cnvvwjm4eebk4" path="res://Scripts/smooth_camera.gd" id="2_j0g3a"]
-[ext_resource type="Texture2D" uid="uid://bq63wsuppi2ex" path="res://Art/Prugikastkulg1.png" id="3_63qix"]
-[ext_resource type="Texture2D" uid="uid://5lsycyhw4puf" path="res://Art/Prügikastkulg.png" id="4_b581c"]
+[ext_resource type="Texture2D" uid="uid://c8aw5kigh0ywr" path="res://Art/Prugikastkulg1.png" id="3_63qix"]
+[ext_resource type="Texture2D" uid="uid://cmx5gaensvl7s" path="res://Art/Prügikastkulg.png" id="4_b581c"]
 [ext_resource type="PackedScene" uid="uid://bfu37u1lvav03" path="res://Scenes/UI.tscn" id="6_mbwr5"]
 [ext_resource type="PackedScene" uid="uid://dt3fderuabyig" path="res://Characters/Cockroach/cockroach.tscn" id="7_q2e70"]
 [ext_resource type="PackedScene" uid="uid://bajmlodxhhcui" path="res://Props/dumpster_exit.tscn" id="9_4k4dw"]
@@ -23,8 +23,9 @@
 [ext_resource type="Resource" uid="uid://h43ofkoleojw" path="res://Items/plastic_ring.tres" id="21_lqgt3"]
 [ext_resource type="Resource" uid="uid://pnmoa0rst26a" path="res://Items/rusty_spoon.tres" id="21_t0ryg"]
 [ext_resource type="Resource" uid="uid://bryeruidr1orp" path="res://Items/bottlecap2.tres" id="22_riaf7"]
-[ext_resource type="Resource" path="res://Items/expired_candy.tres" id="23_4m6vf"]
+[ext_resource type="Resource" uid="uid://ynly0nujs16u" path="res://Items/expired_candy.tres" id="23_4m6vf"]
 [ext_resource type="Resource" uid="uid://c2or3b337ic48" path="res://Items/candywrapper2.tres" id="24_pjkn6"]
+[ext_resource type="Resource" uid="uid://escbf50518ep" path="res://Items/toycar.tres" id="26_l5ing"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b581c"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -271,6 +272,10 @@ item_resource = ExtResource("23_4m6vf")
 [node name="Item6" parent="." instance=ExtResource("19_uins2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, -17)
 item_resource = ExtResource("24_pjkn6")
+
+[node name="Item7" parent="." instance=ExtResource("19_uins2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -21)
+item_resource = ExtResource("26_l5ing")
 
 [node name="Cockroach3" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("7_q2e70")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 21)
