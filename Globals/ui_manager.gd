@@ -1,11 +1,23 @@
 extends Control
 
+@export var hp_3_texture: Texture2D
+@export var hp_2_texture: Texture2D
+@export var hp_1_texture: Texture2D
+@export var hp_0_texture: Texture2D
+
+@onready var health_rect: TextureRect = %Health
 @onready var black_overlay: ColorRect = %BlackOverlay
 @onready var inventory_items: HBoxContainer = %InventoryItems
 @onready var example_item: TextureRect = %ExampleItem
 
 func _ready() -> void:
 	InventoryManager.connect("inventory_updated", Callable(self, "_on_inventory_updated"))
+	Globals.player_health_changed.connect(update_health_display)
+
+	if SceneManager.is_scene_dumpster:
+		health_rect.visible = true
+	else:
+		health_rect.visible = false
 
 	_on_inventory_updated()
 
@@ -54,3 +66,14 @@ func set_black_overlay_visible(show_overlay: bool) -> void:
 	else:
 		black_overlay.modulate.a = 0.0
 		black_overlay.visible = false
+
+func update_health_display(health: int) -> void:
+	match health:
+		3:
+			health_rect.texture = hp_3_texture
+		2:
+			health_rect.texture = hp_2_texture
+		1:
+			health_rect.texture = hp_1_texture
+		0:
+			health_rect.texture = hp_0_texture

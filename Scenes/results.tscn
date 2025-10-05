@@ -1,12 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://duuvanoeea36e"]
+[gd_scene load_steps=6 format=3 uid="uid://duuvanoeea36e"]
 
-[ext_resource type="Texture2D" uid="uid://bd38krd2cnacj" path="res://Art/ResultsBackground.PNG" id="1_r1how"]
+[ext_resource type="Texture2D" uid="uid://b4o0aqb8pvebq" path="res://Art/ResultsBackground.PNG" id="1_r1how"]
 [ext_resource type="Script" uid="uid://cl7g8oosny1ds" path="res://Scenes/results.gd" id="1_txdwj"]
-[ext_resource type="Texture2D" uid="uid://yw47hmtlkttv" path="res://Art/ResultsPaper.PNG" id="2_3cjc3"]
-[ext_resource type="FontFile" uid="uid://7wrq8dvttvik" path="res://Fonts/F25_Executive.otf" id="3_3iro3"]
+[ext_resource type="Texture2D" uid="uid://u45l4e4ri4qn" path="res://Art/ResultsPaper.PNG" id="2_3cjc3"]
+[ext_resource type="PackedScene" uid="uid://bfu37u1lvav03" path="res://Scenes/UI.tscn" id="2_av73q"]
+[ext_resource type="FontFile" uid="uid://s1lqnnng4f2b" path="res://Fonts/F25_Executive.otf" id="3_3iro3"]
 
 [node name="Results" type="Node"]
 script = ExtResource("1_txdwj")
+
+[node name="UI" parent="." instance=ExtResource("2_av73q")]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dbopqt17br7hu"]
+[gd_scene load_steps=13 format=3 uid="uid://dbopqt17br7hu"]
 
-[ext_resource type="Texture2D" uid="uid://b0iq0qvuivpx5" path="res://UI/Main menu.PNG" id="1_8saeu"]
+[ext_resource type="Texture2D" uid="uid://bx5gompkphyp0" path="res://UI/Main menu.PNG" id="1_8saeu"]
 [ext_resource type="Script" uid="uid://cskti8tc7y12r" path="res://Scenes/main_menu.gd" id="1_ghw46"]
-[ext_resource type="FontFile" uid="uid://bphmonxciwmna" path="res://Fonts/F25_Executive.otf" id="1_tt5f1"]
-[ext_resource type="Texture2D" uid="uid://b5ny2jsflfcyk" path="res://UI/Õigebutton.png" id="2_853f1"]
+[ext_resource type="FontFile" uid="uid://s1lqnnng4f2b" path="res://Fonts/F25_Executive.otf" id="1_tt5f1"]
+[ext_resource type="Texture2D" uid="uid://ca865yklq8axh" path="res://UI/Õigebutton.png" id="2_853f1"]
+[ext_resource type="PackedScene" uid="uid://bfu37u1lvav03" path="res://Scenes/UI.tscn" id="2_df05h"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8saeu"]
 load_path = "res://.godot/imported/Õigebutton.png-38e15d5f1e0fe74df6b78a181df8d81b.ctex"
@@ -52,6 +53,8 @@ Button/styles/normal = SubResource("StyleBoxTexture_8saeu")
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_ghw46")
+
+[node name="UI" parent="." instance=ExtResource("2_df05h")]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

@@ -19,6 +19,8 @@ enum Dialogues {
 	RACCOON_GANG_2,
 	RACCOON_GANG_3,
 	RACCOON_GANG_4,
+
+	RAT_HOLE_NO_FOOD,
 }
 
 var wise_rat_gift: BaseItem = preload("res://Items/candy_wrapper.tres")
@@ -82,7 +84,7 @@ func start_dialogue(dialogue: Dialogues) -> void:
 			await _talk("Wise Rat", "...", sounds, 0.25, 1)
 			await _talk("Wise Rat", "...", sounds, 0.25, 1)
 			await _talk("Wise Rat", "My dear friend, you know, I found something quite nice in the dumpster today. I know  you have a large family, so here, you can have this:", sounds)
-			await _talk("Wise Rat", "*Wise Rat gave you [Shiny Gum Wrapper]*", sounds)
+			await _talk("Wise Rat", "*Wise Rat gave you [Candy Wrapper]*", sounds)
 			InventoryManager.hidden_add_item(wise_rat_gift)
 			await _talk("Wise Rat", "You mustn't feel bad about me giving you this, I am simply an old rat and I don't need much to get by.", sounds)
 			end_dialogue()
@@ -142,6 +144,10 @@ func start_dialogue(dialogue: Dialogues) -> void:
 			var boss_sounds: Array[SoundManager.SFX] = [SoundManager.SFX.BOSS_COON_1, SoundManager.SFX.BOSS_COON_2]
 			await _talk("Right Coon", "Wait, Really!?", right_sounds)
 			await _talk("Boss Coon", "Yaaayyy!", boss_sounds)
+			end_dialogue()
+			return
+		Dialogues.RAT_HOLE_NO_FOOD:
+			await _talk("Me", "I haven't found anything to sell today, I can't stop just yet.$$ My family is relying on me.", [], 0.015)
 			end_dialogue()
 			return
 

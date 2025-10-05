@@ -11,11 +11,13 @@ var hidden_inventory: Array[BaseItem] = []
 
 func hidden_add_item(item: BaseItem) -> void:
 	hidden_inventory.append(item)
+	SoundManager.play_sfx(SoundManager.SFX.SELECT)
 	print("Added hidden item: %s" % item.name)
 
 func add_item(item: BaseItem) -> bool:
 	if inventory.size() < max_items:
 		inventory.append(item)
+		SoundManager.play_sfx(SoundManager.SFX.SELECT)
 		print("Added item: %s" % item.name)
 		emit_signal("inventory_updated")
 		return true

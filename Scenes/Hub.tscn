@@ -4,14 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://bgduylrt4kaoj" path="res://Characters/Player/player.tscn" id="1_nqj8h"]
 [ext_resource type="Script" uid="uid://cnvvwjm4eebk4" path="res://Scripts/smooth_camera.gd" id="2_lv3p6"]
 [ext_resource type="PackedScene" uid="uid://csbk2eb0thd82" path="res://Props/dumpster.tscn" id="3_66k2d"]
-[ext_resource type="Texture2D" uid="uid://b314afhlxhli" path="res://Art/sein1-1.png" id="3_shh0t"]
-[ext_resource type="Texture2D" uid="uid://58it5f7yb647" path="res://Art/sein2.png" id="4_66k2d"]
-[ext_resource type="Texture2D" uid="uid://c2b63q5cs7omy" path="res://Art/Maaactually.png" id="4_n1vlf"]
+[ext_resource type="Texture2D" uid="uid://bssf8r3tljw02" path="res://Art/sein1-1.png" id="3_shh0t"]
+[ext_resource type="Texture2D" uid="uid://cvg7spoor3iob" path="res://Art/Sein2.png" id="4_66k2d"]
+[ext_resource type="Texture2D" uid="uid://ckq18ke6jgnlh" path="res://Art/Maaactually.png" id="4_n1vlf"]
 [ext_resource type="PackedScene" uid="uid://dnnr1mipdb81d" path="res://Characters/WiseRat/wise_rat.tscn" id="8_yx7fe"]
 [ext_resource type="PackedScene" uid="uid://ctwv8r48d4ela" path="res://Characters/CrazyRat/crazy_rat.tscn" id="9_hmw7c"]
 [ext_resource type="PackedScene" uid="uid://cc281xoota8r0" path="res://Characters/RaccoonGang/raccoon_gang.tscn" id="10_h8k3l"]
 [ext_resource type="PackedScene" uid="uid://dhosxvkmrhk5k" path="res://Props/rat_hole.tscn" id="11_r7avt"]
-[ext_resource type="FontFile" uid="uid://7wrq8dvttvik" path="res://Fonts/F25_Executive.otf" id="15_ftct6"]
+[ext_resource type="FontFile" uid="uid://s1lqnnng4f2b" path="res://Fonts/F25_Executive.otf" id="15_ftct6"]
 [ext_resource type="Script" uid="uid://sbc2eq6o25dx" path="res://Scenes/tutorial_text.gd" id="16_yk07a"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fj7yv"]
@@ -59,7 +59,7 @@ shadow_enabled = true
 environment = SubResource("Environment_aqk2v")
 
 [node name="Player" parent="." instance=ExtResource("1_nqj8h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.456584, 0, 1.478374)
 
 [node name="Marker3D" type="Marker3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 4.7681484, 12.115713)
@@ -122,16 +122,16 @@ to_scene = 3
 [node name="Dumpster3" parent="." instance=ExtResource("3_66k2d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -3)
 for_day = 3
-to_scene = 1
+to_scene = 4
 
 [node name="WiseRat" parent="." instance=ExtResource("8_yx7fe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.3, 0, -1.0999999)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.3, 0, -0.77956915)
 
 [node name="CrazyRat" parent="." instance=ExtResource("9_hmw7c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -0.6761322)
 
 [node name="RaccoonGang" parent="." instance=ExtResource("10_h8k3l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2, 0, -0.31980944)
 
 [node name="RatHole" parent="." instance=ExtResource("11_r7avt")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -16.4934, 0, 0)

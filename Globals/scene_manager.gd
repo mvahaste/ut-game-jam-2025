@@ -28,6 +28,7 @@ var current_scene: Scenes = Scenes.HUB
 var previous_scene: Scenes = Scenes.HUB
 var fade_duration: float = 0.5
 var is_transitioning: bool = false
+var is_scene_dumpster: bool = false
 
 func transition_to_scene(target_scene: Scenes) -> void:
 	if is_transitioning:
@@ -114,7 +115,13 @@ func transition_to_scene_with_duration(target_scene: Scenes, duration: float) ->
 	fade_duration = old_duration
 
 func _start_music_for_scene(scene: Scenes) -> void:
-	pass
+	is_scene_dumpster = false
+
 	match scene:
-		Scenes.RESULTS:
+		Scenes.MAIN_MENU, Scenes.HUB:
 			SoundManager.crossfade_music(SoundManager.MUSIC.MAIN_MENU, 1.0)
+		Scenes.RESULTS:
+			SoundManager.crossfade_music(SoundManager.MUSIC.DIVE_COMPLETED, 0.25)
+		Scenes.DUMPSTER1, Scenes.DUMPSTER2, Scenes.DUMPSTER3:
+			SoundManager.crossfade_music(SoundManager.MUSIC.DIVE, 1.0)
+			is_scene_dumpster = true

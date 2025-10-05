@@ -18,13 +18,22 @@ func _ready() -> void:
 		GameManager.Result.DIE:
 			die_background.visible = true
 			result_label.text = die_text
+			SoundManager.crossfade_music(SoundManager.MUSIC.LOSS, 1.0)
 		GameManager.Result.LOSE:
 			fail_background.visible = true
 			result_label.text = fail_text
+			SoundManager.crossfade_music(SoundManager.MUSIC.LOSS, 1.0)
 		GameManager.Result.WIN:
 			win_background.visible = true
 			result_label.text = win_text
+			SoundManager.crossfade_music(SoundManager.MUSIC.WIN, 1.0)
 
-	SoundManager.crossfade_music(SoundManager.MUSIC.MAIN_MENU, 1.0)
-	await get_tree().create_timer(5.0).timeout
+	await _wait_for_input()
+
 	SceneManager.transition_to_scene(SceneManager.Scenes.MAIN_MENU)
+
+func _wait_for_input() -> void:
+	while true:
+		if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_cancel") or Input.is_action_just_pressed("interact"):
+			break
+		await get_tree().process_frame

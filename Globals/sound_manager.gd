@@ -23,12 +23,14 @@ enum SFX {
 	GAME_OVER,
 	HIT,
 	PAPER_SLIDE,
+	PAPER_SLIDE_OUT,
 	SELECT,
 	SPOTTED,
 }
 
 enum MUSIC {
 	MAIN_MENU,
+	DIVE,
 	DIVE_COMPLETED,
 	RACCOON_THEME,
 	WIN,
@@ -100,10 +102,12 @@ func load_audio_resources():
 	sfx_resources[SFX.GAME_OVER] = load("res://Sfx/GameOver.wav")
 	sfx_resources[SFX.HIT] = load("res://Sfx/Hit.wav")
 	sfx_resources[SFX.PAPER_SLIDE] = load("res://Sfx/PaperSlide.wav")
+	sfx_resources[SFX.PAPER_SLIDE_OUT] = load("res://Sfx/PaperSlideOut.wav")
 	sfx_resources[SFX.SELECT] = load("res://Sfx/Select.wav")
 	sfx_resources[SFX.SPOTTED] = load("res://Sfx/Spotted.wav")
 
 	music_resources[MUSIC.MAIN_MENU] = load("res://Music/MainMenuAndHub.mp3")
+	music_resources[MUSIC.DIVE] = load("res://Music/DiveMusic.WAV")
 	music_resources[MUSIC.DIVE_COMPLETED] = load("res://Music/DiveCompleted.wav")
 	music_resources[MUSIC.RACCOON_THEME] = load("res://Music/RaccoonTheme.mp3")
 	music_resources[MUSIC.WIN] = load("res://Music/Victory_Music.mp3")
@@ -116,7 +120,7 @@ func load_audio_resources():
 # =============================================================================
 
 # Play a sound effect
-func play_sfx(sfx: SFX, volume_db: float = 0.0, pitch_variance: float = 0.0) -> void:
+func play_sfx(sfx: SFX, volume_db: float = 0.0, pitch_variance: float = 0.0, delay: float = 0.0) -> void:
 	if not sfx_resources.has(sfx):
 		print("Sound Manager Warning: SFX resource not found for: ", SFX.keys()[sfx])
 		return
@@ -129,6 +133,10 @@ func play_sfx(sfx: SFX, volume_db: float = 0.0, pitch_variance: float = 0.0) -> 
 	player.stream = sfx_resources[sfx]
 	player.volume_db = volume_db + linear_to_db(sfx_volume * master_volume)
 	player.pitch_scale = 1.0 + randf_range(-pitch_variance, pitch_variance)
+
+	if delay > 0.0:
+		await get_tree().create_timer(delay).timeout
+
 	player.play()
 
 # Play background music (survives scene changes)
@@ -151,6 +159,7 @@ func play_music(music: MUSIC, fade_in_duration: float = 1.0) -> void:
 	_current_music_set = true
 	music_player.stream = music_resources[music]
 	music_player.volume_db = linear_to_db(music_volume * master_volume)
+
 	music_player.play()
 	_is_music_playing = true
 
@@ -255,7 +264,7 @@ func fade_music_out(duration: float) -> void:
 
 # Crossfade from current music to new music
 func crossfade_music(new_music: MUSIC, duration: float = 2.0) -> void:
-	if _current_music == new_music and _is_music_playing:
+	if get_current_music() == new_music and is_music_currently_playing():
 		return  # Already playing this music
 
 	if not music_resources.has(new_music):
@@ -279,6 +288,7 @@ func crossfade_music(new_music: MUSIC, duration: float = 2.0) -> void:
 	_current_music = new_music
 	_current_music_set = true
 	music_player.stream = music_resources[new_music]
+
 	music_player.play()
 	_is_music_playing = true
 	fade_music_in(fade_in_duration)

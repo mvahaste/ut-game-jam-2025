@@ -10,6 +10,10 @@ func _ready() -> void:
 	interactable_area.connect("unhovered", Callable(self, "_on_interactable_area_unhovered"))
 
 func _on_interactable_area_interact() -> void:
+	if InventoryManager.inventory.size() == 0:
+		DialogueManager.start_dialogue(DialogueManager.Dialogues.RAT_HOLE_NO_FOOD)
+		return
+
 	GameManager.end_day()
 
 func _on_interactable_area_hovered() -> void:

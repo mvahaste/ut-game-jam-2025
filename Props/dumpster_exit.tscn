@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bajmlodxhhcui"]
 
 [ext_resource type="Script" uid="uid://3lnuu2gmos7c" path="res://Props/dumpster_exit.gd" id="1_cl6gd"]
-[ext_resource type="FontFile" uid="uid://bphmonxciwmna" path="res://Fonts/F25_Executive.otf" id="2_5css7"]
-[ext_resource type="Texture2D" uid="uid://djrioxsddr264" path="res://Props/Sprites/Divingprop_Trash_Exit.png" id="3_cl6gd"]
+[ext_resource type="FontFile" uid="uid://s1lqnnng4f2b" path="res://Fonts/F25_Executive.otf" id="2_5css7"]
+[ext_resource type="Texture2D" uid="uid://c0u4sphlhx304" path="res://Props/Sprites/Divingprop_Trash_Exit.png" id="3_cl6gd"]
 [ext_resource type="Script" uid="uid://ck5lp4jvx4kvu" path="res://Components/interactable_area.gd" id="4_tvq3d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jutiq"]
@@ -16,11 +16,11 @@ script = ExtResource("1_cl6gd")
 
 [node name="Label3D" type="Label3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9964285, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7964284, 1)
 billboard = 2
 shaded = true
-render_priority = 1
-outline_render_priority = 0
+render_priority = 2
+outline_render_priority = 1
 text = "Exit"
 font = ExtResource("2_5css7")
 font_size = 64

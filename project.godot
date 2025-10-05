@@ -14,8 +14,8 @@ config/name="Down in the Dumps"
 run/main_scene="uid://dbopqt17br7hu"
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/image="uid://dgnddxvbc8eqj"
-config/icon="uid://dgnddxvbc8eqj"
+boot_splash/image="uid://ju5twyr8ojc5"
+config/icon="uid://ju5twyr8ojc5"
 boot_splash/minimum_display_time=3000
 
 [autoload]

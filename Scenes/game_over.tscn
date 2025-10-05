@@ -1,13 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsgir6lreiwkh"]
+[gd_scene load_steps=7 format=3 uid="uid://bsgir6lreiwkh"]
 
-[ext_resource type="Texture2D" uid="uid://ccwakgrdpvk77" path="res://Art/You win.PNG" id="1_8fo1c"]
+[ext_resource type="Texture2D" uid="uid://cw150qiso0631" path="res://Art/You win.PNG" id="1_8fo1c"]
 [ext_resource type="Script" uid="uid://d2lcb3sn37oko" path="res://Scenes/game_over.gd" id="1_14u15"]
-[ext_resource type="Texture2D" uid="uid://iq4yqdna2r4n" path="res://Art/You lose.png" id="2_ek8ke"]
-[ext_resource type="Texture2D" uid="uid://cqskng6xqiq8x" path="res://Art/You died.png" id="3_ek8ke"]
-[ext_resource type="FontFile" uid="uid://7wrq8dvttvik" path="res://Fonts/F25_Executive.otf" id="4_eoghk"]
+[ext_resource type="Texture2D" uid="uid://c88g7s045v5d6" path="res://Art/You lose.png" id="2_ek8ke"]
+[ext_resource type="PackedScene" uid="uid://bfu37u1lvav03" path="res://Scenes/UI.tscn" id="2_j3ryr"]
+[ext_resource type="Texture2D" uid="uid://bvrluhoaql5w8" path="res://Art/You died.png" id="3_ek8ke"]
+[ext_resource type="FontFile" uid="uid://s1lqnnng4f2b" path="res://Fonts/F25_Executive.otf" id="4_eoghk"]
 
 [node name="game_over" type="Node"]
 script = ExtResource("1_14u15")
+
+[node name="UI" parent="." instance=ExtResource("2_j3ryr")]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

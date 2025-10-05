@@ -1,8 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfu37u1lvav03"]
+[gd_scene load_steps=9 format=3 uid="uid://bfu37u1lvav03"]
 
 [ext_resource type="Script" uid="uid://tdcdjhob826v" path="res://Globals/ui_manager.gd" id="1_w371h"]
-[ext_resource type="Texture2D" uid="uid://djmrtoxt4nofq" path="res://icon.svg" id="2_nxvpl"]
-[ext_resource type="FontFile" uid="uid://7wrq8dvttvik" path="res://Fonts/F25_Executive.otf" id="3_dewlx"]
+[ext_resource type="Texture2D" uid="uid://b8ysuqgj5t12d" path="res://UI/Health UI.png" id="2_hfhsn"]
+[ext_resource type="Texture2D" uid="uid://cq7qoeueo0bmh" path="res://icon.svg" id="2_nxvpl"]
+[ext_resource type="FontFile" uid="uid://s1lqnnng4f2b" path="res://Fonts/F25_Executive.otf" id="3_dewlx"]
+[ext_resource type="Texture2D" uid="uid://du8myw1fo2d1e" path="res://UI/Health UI_2.png" id="3_xjg7p"]
+[ext_resource type="Texture2D" uid="uid://b072r8ol4xm28" path="res://UI/Health UI_3.png" id="4_mg6lk"]
+[ext_resource type="Texture2D" uid="uid://caymjh7x5nx3k" path="res://UI/Health UI_4.png" id="5_wunin"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dewlx"]
 content_margin_left = 32.0
@@ -24,7 +28,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_w371h")
+hp_3_texture = ExtResource("2_hfhsn")
+hp_2_texture = ExtResource("3_xjg7p")
+hp_1_texture = ExtResource("4_mg6lk")
+hp_0_texture = ExtResource("5_wunin")
+
+[node name="Health" type="TextureRect" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 22.0
+offset_top = 16.0
+offset_right = 592.0
+offset_bottom = 607.40314
+mouse_filter = 2
+texture = ExtResource("2_hfhsn")
+expand_mode = 1
 
 [node name="BlackOverlay" type="ColorRect" parent="Control"]
 unique_name_in_owner = true

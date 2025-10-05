@@ -92,6 +92,10 @@ func _rotate_interaction_area(input: Vector2) -> void:
 
 func take_damage(amount: int) -> void:
 	health -= amount
+	if health < 0:
+		health = 0
+
+	Globals.player_health_changed.emit(health)
 	SoundManager.play_sfx(SoundManager.SFX.HIT)
 	print("Player took ", amount, " damage! Health: ", health)
 
@@ -107,5 +111,6 @@ func _die() -> void:
 	is_dead = true
 	animated_sprite.visible = false
 	GameManager.final_result = GameManager.Result.DIE
+	GameManager.day = 1
 	await get_tree().create_timer(2.0).timeout
 	SceneManager.transition_to_scene(SceneManager.Scenes.GAME_OVER)
