@@ -8,6 +8,8 @@ var money_needed_per_day: int = 450
 var last_day_failed: bool = false
 var will_lose_game: bool = false
 var items_sold: Array[BaseItem] = []
+var tutorial_dismissed: bool = false
+var tutorial_text: RichTextLabel
 
 enum Result {
 	WIN,
@@ -17,6 +19,13 @@ enum Result {
 
 var final_result: Result = Result.WIN
 
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("interact"):
+		tutorial_dismissed = true
+		if tutorial_text:
+			tutorial_text.queue_free()
+			tutorial_text = null
+
 func end_day():
 	day += 1
 
@@ -25,10 +34,10 @@ func end_day():
 		SceneManager.transition_to_scene(SceneManager.Scenes.GAME_OVER)
 		pass
 
-	day_failed = player_money < money_needed_per_day
-
 	player_money_from_sales = _player_sell()
 	player_money += player_money_from_sales
+
+	day_failed = player_money < money_needed_per_day
 
 	player_money -= money_needed_per_day
 	if player_money < 0:
