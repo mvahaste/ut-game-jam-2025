@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bxsf4hqno5lbd"]
+[gd_scene load_steps=28 format=3 uid="uid://bxsf4hqno5lbd"]
 
 [ext_resource type="PackedScene" uid="uid://cpgvxfb6fsw70" path="res://Props/juice.tscn" id="1_vkspe"]
 [ext_resource type="PackedScene" uid="uid://bfu37u1lvav03" path="res://Scenes/UI.tscn" id="2_xv7pj"]
@@ -11,17 +11,14 @@
 [ext_resource type="PackedScene" path="res://Props/dumpster_exit.tscn" id="9_wkspr"]
 [ext_resource type="PackedScene" uid="uid://ljjh4xvut3nk" path="res://Props/divingprop_banana.tscn" id="10_61saa"]
 [ext_resource type="PackedScene" uid="uid://27tiwehe0e4r" path="res://Props/klaasuus.tscn" id="11_2kc7m"]
-[ext_resource type="PackedScene" uid="uid://b82g8lpj5o8vv" path="res://Props/divingprop_bottle_2.tscn" id="12_qtljy"]
 [ext_resource type="PackedScene" uid="uid://dgu2sawsc4shl" path="res://Props/divingprop_juice_2.tscn" id="13_oi73i"]
 [ext_resource type="PackedScene" uid="uid://bo0idpsqhvcue" path="res://Props/divingprop_bottle.tscn" id="14_cyjab"]
 [ext_resource type="PackedScene" uid="uid://cry4npxicj4o6" path="res://Props/divingprop_egg_carton.tscn" id="15_pa2ae"]
 [ext_resource type="PackedScene" uid="uid://c6ic2t0oy432u" path="res://Items/item.tscn" id="17_kmsvn"]
-[ext_resource type="Resource" uid="uid://b68d6nfpcpxmm" path="res://Items/vitamin_bottle.tres" id="18_sexw7"]
-[ext_resource type="Resource" uid="uid://pnmoa0rst26a" path="res://Items/rusty_spoon.tres" id="19_dadg6"]
-[ext_resource type="Resource" uid="uid://dlljg536tuwbg" path="res://Items/bottlecap3.tres" id="20_2gp3n"]
-[ext_resource type="Resource" uid="uid://c3acdjsutfoe6" path="res://Items/broken_watch.tres" id="21_4djrj"]
-[ext_resource type="Resource" uid="uid://h43ofkoleojw" path="res://Items/plastic_ring.tres" id="22_gbprn"]
-[ext_resource type="Resource" uid="uid://bnackc2udg534" path="res://Items/ugly_earring.tres" id="23_5fyqc"]
+[ext_resource type="Resource" uid="uid://cl4bardav0wcf" path="res://Items/cheese.tres" id="18_ibo4b"]
+[ext_resource type="Resource" uid="uid://y6mnh5n6swfj" path="res://Items/bracelet.tres" id="18_y4i5k"]
+[ext_resource type="Resource" uid="uid://brdsovutfdkvy" path="res://Items/blue_cheese.tres" id="19_058c5"]
+[ext_resource type="Resource" uid="uid://0hjcwyhfount" path="res://Items/candy_wrapper.tres" id="21_wkspr"]
 [ext_resource type="PackedScene" uid="uid://cud6ycpgpkhpn" path="res://Props/divingprop_trash.tscn" id="23_wkspr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b581c"]
@@ -105,7 +102,7 @@ size = Vector3(50, 21, 1)
 
 [node name="Cockroach" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("8_8ug32")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.99938, 0, 0.5043068)
-patrol_points = [NodePath("../Marker3D"), NodePath("../Marker3D2"), NodePath("../Marker3D3")]
+patrol_points = [NodePath("../Marker3D15"), NodePath("../Marker3D16")]
 
 [node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -11)
@@ -126,13 +123,10 @@ shape = SubResource("BoxShape3D_v5nio")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.585358, -1.1980233, -20.424831)
 
 [node name="Divingprop_Banana" parent="." instance=ExtResource("10_61saa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.890514, 0.009530067, 17.918892)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.153456, 0.009530067, 17.918892)
 
 [node name="klaasuus" parent="." instance=ExtResource("11_2kc7m")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -20.060265, 0, 0.1604805)
-
-[node name="divingprop_bottle2" parent="." instance=ExtResource("12_qtljy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.96067, 0.7399988, 8.635486)
 
 [node name="Juice2" parent="." instance=ExtResource("1_vkspe")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 5.3691087, 0.04800105, 1.0995016)
@@ -141,43 +135,102 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 5.3691087, 0.04800105, 1.0995
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.31412482, 0.14374638, 0.12759686)
 
 [node name="divingprop_bottle" parent="." instance=ExtResource("14_cyjab")]
-transform = Transform3D(0.9998686, -0.016213398, 0, 0.016213398, 0.9998686, 0, 0, 0, 1, 1.6553378, 0.73999786, 18.254612)
+transform = Transform3D(0.9998686, -0.016213398, 0, 0.016213398, 0.9998686, 0, 0, 0, 1, 15.690344, 0.73999786, 17.656534)
 
 [node name="divingprop_egg_carton" parent="." instance=ExtResource("15_pa2ae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6189084, 1.9073486e-06, -2.2122335)
 
 [node name="Item" parent="." instance=ExtResource("17_kmsvn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.801691, 0, 18.956745)
-item_resource = ExtResource("18_sexw7")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1520343, 0, 24.106922)
+item_resource = ExtResource("21_wkspr")
 
-[node name="Cockroach2" parent="." instance=ExtResource("8_8ug32")]
+[node name="Cockroach2" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("8_8ug32")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.043, 0, 6.4555445)
-
-[node name="Item2" parent="." instance=ExtResource("17_kmsvn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.793571, 0, -7.8274136)
-item_resource = ExtResource("19_dadg6")
+patrol_points = [NodePath("../Marker3D4"), NodePath("../Marker3D5"), NodePath("../Marker3D6")]
 
 [node name="Item3" parent="." instance=ExtResource("17_kmsvn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.996002, 0, 24.136532)
-item_resource = ExtResource("20_2gp3n")
+item_resource = ExtResource("18_ibo4b")
 
 [node name="Item4" parent="." instance=ExtResource("17_kmsvn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.162141, -1.9073486e-06, 5.913108)
-item_resource = ExtResource("21_4djrj")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.311038, -1.9073486e-06, 3.7746267)
+item_resource = ExtResource("18_y4i5k")
 
 [node name="Item5" parent="." instance=ExtResource("17_kmsvn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5023139, 1.9073486e-06, -7.64128)
-item_resource = ExtResource("22_gbprn")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.726133, 1.9073486e-06, -4.5925193)
+item_resource = ExtResource("19_058c5")
 
 [node name="Item6" parent="." instance=ExtResource("17_kmsvn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.453878, -9.536743e-07, -20.141558)
-item_resource = ExtResource("23_5fyqc")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4468136, -9.536743e-07, 4.9416523)
+item_resource = ExtResource("21_wkspr")
 
-[node name="Cockroach3" parent="." instance=ExtResource("8_8ug32")]
+[node name="Cockroach3" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("8_8ug32")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.20247, 0, 0.056804657)
+patrol_points = [NodePath("../Marker3D11"), NodePath("../Marker3D12")]
 
-[node name="Cockroach4" parent="." instance=ExtResource("8_8ug32")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.107, 0, 22.455)
+[node name="Cockroach4" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("8_8ug32")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.126643, 0, 22.455)
+patrol_points = [NodePath("../Marker3D8"), NodePath("../Marker3D7")]
 
 [node name="divingprop_trash" parent="." instance=ExtResource("23_wkspr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3169155, 0.039998055, -19.894022)
+
+[node name="Juice3" parent="." instance=ExtResource("1_vkspe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9007826, 0.048000097, 19.205626)
+
+[node name="Juice4" parent="." instance=ExtResource("1_vkspe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8784623, 0.048000097, 20.872538)
+
+[node name="divingprop_juice3" parent="." instance=ExtResource("13_oi73i")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.22786, 0.040000916, 23.122372)
+
+[node name="Cockroach5" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("8_8ug32")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.2368, 0, 20.723)
+patrol_points = [NodePath("../Marker3D7"), NodePath("../Marker3D8")]
+
+[node name="Cockroach6" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("8_8ug32")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.157099, 0.6240001, -13.087966)
+patrol_points = [NodePath("../Marker3D13"), NodePath("../Marker3D14")]
+
+[node name="Cockroach7" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("8_8ug32")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.007336, 0.624002, 23.126637)
+patrol_points = [NodePath("../Marker3D9"), NodePath("../Marker3D10")]
+
+[node name="Marker3D4" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
+
+[node name="Marker3D5" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 7)
+
+[node name="Marker3D6" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.040288, 0, 7)
+
+[node name="Marker3D7" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.663267, 0, 20.465256)
+
+[node name="Marker3D8" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.56465, 0, 25.37347)
+
+[node name="Marker3D9" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.94733, 0, 23.082518)
+
+[node name="Marker3D10" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.826268, 0, 20.713287)
+
+[node name="Marker3D11" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.986365, 0, 8.348366)
+
+[node name="Marker3D12" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.74506, 0, -12.87388)
+
+[node name="Marker3D13" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.535273, 0, -14.310095)
+
+[node name="Marker3D14" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.972998, 0, -14.310095)
+
+[node name="Marker3D15" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.972998, 0, -10.056935)
+
+[node name="Marker3D16" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.972998, 0, 7.260043)
