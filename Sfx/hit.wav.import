@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dgejremml2irm"
-path="res://.godot/imported/Hit.wav-339ca65643d1200410465a7b36039398.sample"
+path="res://.godot/imported/hit.wav-c3111825ee48c52cfe4d8398bc95129d.sample"
 
 [deps]
 
-source_file="res://Sfx/Hit.wav"
-dest_files=["res://.godot/imported/Hit.wav-339ca65643d1200410465a7b36039398.sample"]
+source_file="res://Sfx/hit.wav"
+dest_files=["res://.godot/imported/hit.wav-c3111825ee48c52cfe4d8398bc95129d.sample"]
 
 [params]
 
