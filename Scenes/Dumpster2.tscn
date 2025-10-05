@@ -1,28 +1,28 @@
-[gd_scene load_steps=31 format=3 uid="uid://dm4aikyxvhy1a"]
+[gd_scene load_steps=31 format=3 uid="uid://cajre1g648xos"]
 
 [ext_resource type="PackedScene" uid="uid://cpgvxfb6fsw70" path="res://Props/juice.tscn" id="1_8pbng"]
 [ext_resource type="PackedScene" uid="uid://bfu37u1lvav03" path="res://Scenes/UI.tscn" id="2_jw4jj"]
 [ext_resource type="PackedScene" uid="uid://bgduylrt4kaoj" path="res://Characters/Player/player.tscn" id="3_05n41"]
 [ext_resource type="Script" uid="uid://cnvvwjm4eebk4" path="res://Scripts/smooth_camera.gd" id="4_4hod2"]
-[ext_resource type="Texture2D" uid="uid://cx45cfriwc5xg" path="res://Art/Prükkarall.png" id="5_23ivu"]
-[ext_resource type="Texture2D" uid="uid://bq63wsuppi2ex" path="res://Art/Prugikastkulg1.png" id="6_xlwnb"]
-[ext_resource type="Texture2D" uid="uid://5lsycyhw4puf" path="res://Art/Prügikastkulg.png" id="7_rdbck"]
+[ext_resource type="Texture2D" uid="uid://dmr1b0sms21hw" path="res://Art/Prükkarall.png" id="5_23ivu"]
+[ext_resource type="Texture2D" uid="uid://b6ql2hcu4yqt5" path="res://Art/Prugikastkulg1.png" id="6_xlwnb"]
+[ext_resource type="Texture2D" uid="uid://pxwbj6m5bkeb" path="res://Art/Prügikastkulg.png" id="7_rdbck"]
 [ext_resource type="PackedScene" uid="uid://dt3fderuabyig" path="res://Characters/Cockroach/cockroach.tscn" id="8_nvyw1"]
-[ext_resource type="PackedScene" uid="uid://bajmlodxhhcui" path="res://Props/dumpster_exit.tscn" id="9_jw4jj"]
-[ext_resource type="PackedScene" uid="uid://ljjh4xvut3nk" path="res://Props/divingprop_banana.tscn" id="10_85qgb"]
-[ext_resource type="PackedScene" uid="uid://27tiwehe0e4r" path="res://Props/klaasuus.tscn" id="11_8t807"]
-[ext_resource type="PackedScene" uid="uid://b82g8lpj5o8vv" path="res://Props/divingprop_bottle_2.tscn" id="12_owbt6"]
-[ext_resource type="PackedScene" uid="uid://dgu2sawsc4shl" path="res://Props/divingprop_juice_2.tscn" id="13_8ccoa"]
-[ext_resource type="PackedScene" uid="uid://bo0idpsqhvcue" path="res://Props/divingprop_bottle.tscn" id="14_a7mp1"]
-[ext_resource type="PackedScene" uid="uid://cry4npxicj4o6" path="res://Props/divingprop_egg_carton.tscn" id="15_fugvh"]
-[ext_resource type="PackedScene" uid="uid://dvoey8qikjucs" path="res://Props/chalk.tscn" id="16_ssgkm"]
+[ext_resource type="PackedScene" path="res://Props/dumpster_exit.tscn" id="9_jw4jj"]
+[ext_resource type="PackedScene" path="res://Props/divingprop_banana.tscn" id="10_85qgb"]
+[ext_resource type="PackedScene" path="res://Props/klaasuus.tscn" id="11_8t807"]
+[ext_resource type="PackedScene" path="res://Props/divingprop_bottle_2.tscn" id="12_owbt6"]
+[ext_resource type="PackedScene" path="res://Props/divingprop_juice_2.tscn" id="13_8ccoa"]
+[ext_resource type="PackedScene" path="res://Props/divingprop_bottle.tscn" id="14_a7mp1"]
+[ext_resource type="PackedScene" path="res://Props/divingprop_egg_carton.tscn" id="15_fugvh"]
+[ext_resource type="PackedScene" path="res://Props/chalk.tscn" id="16_ssgkm"]
 [ext_resource type="PackedScene" uid="uid://c6ic2t0oy432u" path="res://Items/item.tscn" id="17_fhpix"]
-[ext_resource type="Resource" uid="uid://b68d6nfpcpxmm" path="res://Items/vitamin_bottle.tres" id="18_chpb4"]
+[ext_resource type="Resource" path="res://Items/vitamin_bottle.tres" id="18_chpb4"]
 [ext_resource type="Resource" uid="uid://pnmoa0rst26a" path="res://Items/rusty_spoon.tres" id="19_8t807"]
-[ext_resource type="Resource" uid="uid://dlljg536tuwbg" path="res://Items/bottlecap3.tres" id="20_fugvh"]
+[ext_resource type="Resource" path="res://Items/bottlecap3.tres" id="20_fugvh"]
 [ext_resource type="Resource" uid="uid://c3acdjsutfoe6" path="res://Items/broken_watch.tres" id="21_ssgkm"]
 [ext_resource type="Resource" uid="uid://h43ofkoleojw" path="res://Items/plastic_ring.tres" id="22_fhpix"]
-[ext_resource type="Resource" uid="uid://bnackc2udg534" path="res://Items/ugly_earring.tres" id="23_chpb4"]
+[ext_resource type="Resource" path="res://Items/ugly_earring.tres" id="23_chpb4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b581c"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -124,6 +124,7 @@ shape = SubResource("BoxShape3D_v5nio")
 
 [node name="DumpsterExit" parent="." instance=ExtResource("9_jw4jj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.585358, -1.1980233, -20.424831)
+to_scene = 1
 
 [node name="Divingprop_Banana" parent="." instance=ExtResource("10_85qgb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07090902, 0.009530067, -4.701767)
