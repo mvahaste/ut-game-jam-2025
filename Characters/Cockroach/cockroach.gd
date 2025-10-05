@@ -10,7 +10,7 @@ enum State {
 @export var patrol_points: Array[Node3D] = []
 @export var patrol_radius: float = 5.0
 @export var move_speed: float = 2.0
-@export var chase_speed: float = 4.0
+@export var chase_speed: float = 3.5
 @export var vision_distance: float = 18.0
 @export var attack_distance: float = 3.0
 @export var damage_distance: float = 1.5
