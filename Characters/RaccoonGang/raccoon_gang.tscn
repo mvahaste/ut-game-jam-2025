@@ -6,22 +6,22 @@
 [ext_resource type="FontFile" uid="uid://7wrq8dvttvik" path="res://Fonts/F25_Executive.otf" id="4_add71"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uf45f"]
-size = Vector3(2.1000001, 1.4, 1)
+size = Vector3(3.5979004, 1.996753, 1.5429688)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xu6yp"]
-size = Vector3(2.2, 1.5, 1)
+size = Vector3(3.9626465, 2.1053467, 2.5625)
 
 [node name="RaccoonGang" type="StaticBody3D"]
 script = ExtResource("1_xtgtf")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.8, 0)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 1.5288982, 0)
 billboard = 2
 shaded = true
 texture = ExtResource("2_xu6yp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9983765, 0)
 shape = SubResource("BoxShape3D_uf45f")
 
 [node name="InteractableArea" type="Area3D" parent="."]
@@ -30,13 +30,13 @@ script = ExtResource("2_8ijx7")
 metadata/_custom_type_script = "uid://ck5lp4jvx4kvu"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011657715, 1.0526733, 0)
 shape = SubResource("BoxShape3D_xu6yp")
 debug_color = Color(1, 1, 1, 1)
 
 [node name="Label3D" type="Label3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1000001, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3000002, 0)
 billboard = 2
 shaded = true
 render_priority = 1

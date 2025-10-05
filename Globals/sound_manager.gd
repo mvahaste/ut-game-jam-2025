@@ -14,10 +14,24 @@ enum SFX {
 	BOSS_COON_2,
 	RIGHT_COON_1,
 	RIGHT_COON_2,
+
+	HOP,
+	LAND,
+	CONFIRM,
+	DIE,
+	DODGE,
+	GAME_OVER,
+	HIT,
+	PAPER_SLIDE,
+	SELECT,
+	SPOTTED,
 }
 
 enum MUSIC {
 	MAIN_MENU,
+	DIVE_COMPLETED,
+	HUB_WORLD,
+	RACCOON_THEME,
 }
 
 # AudioStreamPlayer nodes for different audio types
@@ -77,8 +91,21 @@ func load_audio_resources():
 	sfx_resources[SFX.RIGHT_COON_1] = load("res://Characters/RaccoonGang/RightCoon1.wav")
 	sfx_resources[SFX.RIGHT_COON_2] = load("res://Characters/RaccoonGang/RightCoon2.wav")
 
+	sfx_resources[SFX.HOP] = load("res://Sfx/Hop.wav")
+	sfx_resources[SFX.LAND] = load("res://Sfx/Land.wav")
+	sfx_resources[SFX.CONFIRM] = load("res://Sfx/Confirm.wav")
+	sfx_resources[SFX.DIE] = load("res://Sfx/Die.wav")
+	sfx_resources[SFX.DODGE] = load("res://Sfx/Dodge.wav")
+	sfx_resources[SFX.GAME_OVER] = load("res://Sfx/GameOver.wav")
+	sfx_resources[SFX.HIT] = load("res://Sfx/Hit.wav")
+	sfx_resources[SFX.PAPER_SLIDE] = load("res://Sfx/PaperSlide.wav")
+	sfx_resources[SFX.SELECT] = load("res://Sfx/Select.wav")
+	sfx_resources[SFX.SPOTTED] = load("res://Sfx/Spotted.wav")
 
 	music_resources[MUSIC.MAIN_MENU] = load("res://Music/MainMenu.mp3")
+	music_resources[MUSIC.DIVE_COMPLETED] = load("res://Music/DiveCompleted.mp3")
+	music_resources[MUSIC.HUB_WORLD] = load("res://Music/DiveCompleted.mp3")
+	music_resources[MUSIC.RACCOON_THEME] = load("res://Music/RaccoonTheme.mp3")
 
 	print("Sound Manager: Audio resources loaded")
 

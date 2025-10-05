@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BaseItem" load_steps=2 format=3 uid="uid://wcu4p8jpshvy"]
+
+[ext_resource type="Script" uid="uid://crpb6twyus0v8" path="res://Items/base_item.gd" id="1_4re2f"]
+
+[resource]
+script = ExtResource("1_4re2f")
+id = "Mysterious_syringe"
+name = "Mysterious Syringe"
+value = 300
+metadata/_custom_type_script = "uid://crpb6twyus0v8"
