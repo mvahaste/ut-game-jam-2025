@@ -106,3 +106,6 @@ func _die() -> void:
 	SoundManager.play_sfx(SoundManager.SFX.DIE)
 	is_dead = true
 	animated_sprite.visible = false
+	GameManager.final_result = GameManager.Result.DIE
+	await get_tree().create_timer(2.0).timeout
+	SceneManager.transition_to_scene(SceneManager.Scenes.GAME_OVER)

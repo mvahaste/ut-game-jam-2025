@@ -9,11 +9,20 @@ var last_day_failed: bool = false
 var will_lose_game: bool = false
 var items_sold: Array[BaseItem] = []
 
+enum Result {
+	WIN,
+	LOSE,
+	DIE
+}
+
+var final_result: Result = Result.WIN
+
 func end_day():
 	day += 1
 
 	if day > 3:
-		# SceneManager.transition_to_scene(SceneManager.Scenes.GAME_OVER_WIN)
+		final_result = Result.WIN
+		SceneManager.transition_to_scene(SceneManager.Scenes.GAME_OVER)
 		pass
 
 	day_failed = player_money < money_needed_per_day
@@ -26,7 +35,8 @@ func end_day():
 		player_money = 0
 
 	if last_day_failed and day_failed:
-		# SceneManager.transition_to_scene(SceneManager.Scenes.GAME_OVER_LOSE)
+		final_result = Result.LOSE
+		SceneManager.transition_to_scene(SceneManager.Scenes.GAME_OVER)
 		pass
 
 	last_day_failed = day_failed

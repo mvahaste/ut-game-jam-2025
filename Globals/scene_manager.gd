@@ -1,19 +1,23 @@
 extends Node
 
 enum Scenes {
+	MAIN_MENU,
 	HUB,
 	DUMPSTER1,
 	INTRO,
 	RESULTS,
 	FAMILY,
+	GAME_OVER,
 }
 
 const SCENE_PATHS = {
+	Scenes.MAIN_MENU: "res://Scenes/MainMenu.tscn",
 	Scenes.HUB: "res://Scenes/Hub.tscn",
 	Scenes.DUMPSTER1: "res://Scenes/Dumpster1.tscn",
 	Scenes.INTRO: "res://Scenes/intro_scene.tscn",
 	Scenes.RESULTS: "res://Scenes/results.tscn",
 	Scenes.FAMILY: "res://Scenes/family_scene.tscn",
+	Scenes.GAME_OVER: "res://Scenes/game_over.tscn",
 }
 
 var current_scene: Scenes = Scenes.HUB

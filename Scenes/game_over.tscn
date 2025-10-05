@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsgir6lreiwkh"]
+
+[ext_resource type="Texture2D" uid="uid://ccwakgrdpvk77" path="res://Art/You win.PNG" id="1_8fo1c"]
+[ext_resource type="Script" uid="uid://d2lcb3sn37oko" path="res://Scenes/game_over.gd" id="1_14u15"]
+[ext_resource type="Texture2D" uid="uid://iq4yqdna2r4n" path="res://Art/You lose.png" id="2_ek8ke"]
+[ext_resource type="Texture2D" uid="uid://cqskng6xqiq8x" path="res://Art/You died.png" id="3_ek8ke"]
+[ext_resource type="FontFile" uid="uid://7wrq8dvttvik" path="res://Fonts/F25_Executive.otf" id="4_eoghk"]
+
+[node name="game_over" type="Node"]
+script = ExtResource("1_14u15")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WinBackground" type="TextureRect" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8fo1c")
+
+[node name="FailBackground" type="TextureRect" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ek8ke")
+
+[node name="DieBackground" type="TextureRect" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ek8ke")
+
+[node name="Label" type="RichTextLabel" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 89.0
+offset_top = 42.0
+offset_right = -1694.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 32
+theme_override_fonts/normal_font = ExtResource("4_eoghk")
+theme_override_font_sizes/normal_font_size = 64
+text = "Another victim has fallen at the hands of the relentless roaches.
+Your 10 rat children will patiently wait for you to return forever…
+"
+horizontal_alignment = 1
+vertical_alignment = 1
