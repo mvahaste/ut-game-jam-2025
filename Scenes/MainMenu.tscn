@@ -1,0 +1,98 @@
+[gd_scene load_steps=11 format=3 uid="uid://kqcp8ag3ssvk"]
+
+[ext_resource type="Texture2D" uid="uid://btxqpka5j2hxo" path="res://UI/Main menu.PNG" id="1_8saeu"]
+[ext_resource type="FontFile" uid="uid://7wrq8dvttvik" path="res://Fonts/F25_Executive.otf" id="1_tt5f1"]
+[ext_resource type="Texture2D" uid="uid://b4r4alfvhh4wa" path="res://UI/Õigebutton.png" id="2_853f1"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8saeu"]
+load_path = "res://.godot/imported/Õigebutton.png-38e15d5f1e0fe74df6b78a181df8d81b.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ghw46"]
+texture = SubResource("CompressedTexture2D_8saeu")
+texture_margin_left = 284.0
+texture_margin_top = 299.0
+texture_margin_right = 304.0
+texture_margin_bottom = 299.0
+region_rect = Rect2(34, 144, 1022, 815)
+modulate_color = Color(1.2692354, 1.2692354, 1.2692354, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_853f1"]
+load_path = "res://.godot/imported/Õigebutton.png-38e15d5f1e0fe74df6b78a181df8d81b.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_df05h"]
+texture = SubResource("CompressedTexture2D_853f1")
+texture_margin_left = 284.0
+texture_margin_top = 299.0
+texture_margin_right = 304.0
+texture_margin_bottom = 299.0
+region_rect = Rect2(34, 144, 1022, 815)
+modulate_color = Color(0.7666196, 0.76661956, 0.76661944, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8saeu"]
+texture = ExtResource("2_853f1")
+texture_margin_left = 284.0
+texture_margin_top = 299.0
+texture_margin_right = 304.0
+texture_margin_bottom = 299.0
+region_rect = Rect2(34, 144, 1022, 815)
+
+[sub_resource type="Theme" id="Theme_bnhvo"]
+Button/colors/font_color = Color(0.4443361, 0.26641217, 0.1930682, 1)
+Button/colors/font_hover_color = Color(0.6987531, 0.4513992, 0.34765217, 1)
+Button/colors/font_hover_pressed_color = Color(0.94049984, 0.8301581, 0.78527355, 1)
+Button/constants/h_separation = 0
+Button/font_sizes/font_size = 64
+Button/fonts/font = ExtResource("1_tt5f1")
+Button/styles/focus = SubResource("StyleBoxTexture_ghw46")
+Button/styles/hover = SubResource("StyleBoxTexture_df05h")
+Button/styles/normal = SubResource("StyleBoxTexture_8saeu")
+
+[sub_resource type="Theme" id="Theme_853f1"]
+
+[node name="Node" type="Node"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_bnhvo")
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8saeu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -299.99994
+offset_top = -418.0
+offset_right = 515.0
+offset_bottom = 936.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.65, 0.65)
+theme = SubResource("Theme_853f1")
+
+[node name="StartButton" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "START"
+
+[node name="QuitButton" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "QUIT"
