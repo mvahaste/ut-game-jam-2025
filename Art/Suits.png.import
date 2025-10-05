@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ryc23an6vc3p"
-path.s3tc="res://.godot/imported/Divingprop_Banana.png-2159f6a4d02c6266b65e465e0ab9ef53.s3tc.ctex"
+uid="uid://u7u8nyvc0giv"
+path.s3tc="res://.godot/imported/Suits.png-4aae59f3d429af7da54c3aeb83e59a7a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Props/Sprites/Divingprop_Banana.png"
-dest_files=["res://.godot/imported/Divingprop_Banana.png-2159f6a4d02c6266b65e465e0ab9ef53.s3tc.ctex"]
+source_file="res://Art/Suits.png"
+dest_files=["res://.godot/imported/Suits.png-4aae59f3d429af7da54c3aeb83e59a7a.s3tc.ctex"]
 
 [params]
 
