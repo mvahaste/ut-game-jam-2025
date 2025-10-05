@@ -3,6 +3,7 @@ extends Node
 enum Scenes {
 	HUB,
 	DUMPSTER1,
+	DUMPSTER2,
 	INTRO,
 	RESULTS,
 }
@@ -10,6 +11,7 @@ enum Scenes {
 const SCENE_PATHS = {
 	Scenes.HUB: "res://Scenes/Hub.tscn",
 	Scenes.DUMPSTER1: "res://Scenes/Dumpster1.tscn",
+	Scenes.DUMPSTER2: "res://Scenes/Dumpster2.tscn",
 	Scenes.INTRO: "res://Scenes/intro_scene.tscn",
 	Scenes.RESULTS: "res://Scenes/results.tscn",
 }

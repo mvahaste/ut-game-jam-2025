@@ -2,14 +2,17 @@
 
 [ext_resource type="Texture2D" uid="uid://blbyu23gh45j5" path="res://Art/Chalk.png" id="1_fty1q"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_8cp6j"]
-radius = 7.0
+[sub_resource type="BoxShape3D" id="BoxShape3D_fty1q"]
+size = Vector3(17.350845, 3.7703857, 2.0844727)
 
 [node name="Chalk" type="StaticBody3D"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_8cp6j")
-
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+billboard = 2
+shaded = true
 texture = ExtResource("1_fty1q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.009284973, 1.3851929, -0.13989258)
+shape = SubResource("BoxShape3D_fty1q")

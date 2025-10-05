@@ -1,9 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://0n4x7t70mniu"]
 
-[ext_resource type="Texture2D" uid="uid://8lr7siny1hu2" path="res://Art/Suits.png" id="1_biqox"]
+[ext_resource type="Texture2D" uid="uid://u7u8nyvc0giv" path="res://Art/Suits.png" id="1_biqox"]
 
 [node name="Suits" type="StaticBody3D"]
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+billboard = 2
+shaded = true
 texture = ExtResource("1_biqox")

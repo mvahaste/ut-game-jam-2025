@@ -2,15 +2,17 @@
 
 [ext_resource type="Texture2D" uid="uid://dlet7ubx0o4aw" path="res://Props/Sprites/Divingprop_Juice2.png" id="1_b0lfy"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_qnfrs"]
-radius = 7.0
+[sub_resource type="BoxShape3D" id="BoxShape3D_b0lfy"]
+size = Vector3(16.509766, 8.188599, 2.998413)
 
 [node name="divingprop_juice2" type="StaticBody3D"]
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.2, 0)
+billboard = 2
+shaded = true
 texture = ExtResource("1_b0lfy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
-shape = SubResource("SphereShape3D_qnfrs")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19140625, 4.180237, 0.05731201)
+shape = SubResource("BoxShape3D_b0lfy")

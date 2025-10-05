@@ -9,6 +9,8 @@ radius = 8.0
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.2, 0)
+billboard = 2
+shaded = true
 texture = ExtResource("1_svme2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
