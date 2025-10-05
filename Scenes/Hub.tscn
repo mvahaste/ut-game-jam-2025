@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://catbw6iswevem"]
+[gd_scene load_steps=22 format=3 uid="uid://catbw6iswevem"]
 
 [ext_resource type="PackedScene" uid="uid://bfu37u1lvav03" path="res://Scenes/UI.tscn" id="1_n1vlf"]
 [ext_resource type="PackedScene" uid="uid://bgduylrt4kaoj" path="res://Characters/Player/player.tscn" id="1_nqj8h"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://dnnr1mipdb81d" path="res://Characters/WiseRat/wise_rat.tscn" id="8_yx7fe"]
 [ext_resource type="PackedScene" uid="uid://ctwv8r48d4ela" path="res://Characters/CrazyRat/crazy_rat.tscn" id="9_hmw7c"]
 [ext_resource type="PackedScene" uid="uid://cc281xoota8r0" path="res://Characters/RaccoonGang/raccoon_gang.tscn" id="10_h8k3l"]
+[ext_resource type="PackedScene" uid="uid://dhosxvkmrhk5k" path="res://Props/rat_hole.tscn" id="11_r7avt"]
+[ext_resource type="PackedScene" uid="uid://c6ic2t0oy432u" path="res://Items/item.tscn" id="12_cjtts"]
+[ext_resource type="Resource" uid="uid://y6mnh5n6swfj" path="res://Items/bracelet.tres" id="13_5byxb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fj7yv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -126,3 +129,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 
 [node name="RaccoonGang" parent="." instance=ExtResource("10_h8k3l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="RatHole" parent="." instance=ExtResource("11_r7avt")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -16.4934, 0, 0)
+
+[node name="Item" parent="." instance=ExtResource("12_cjtts")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7916899, 0, 2.22603)
+item_resource = ExtResource("13_5byxb")

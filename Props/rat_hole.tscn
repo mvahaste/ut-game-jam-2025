@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhosxvkmrhk5k"]
+
+[ext_resource type="Script" uid="uid://2qrq1ma7a881" path="res://Props/rat_hole.gd" id="1_2q7jy"]
+[ext_resource type="Texture2D" uid="uid://b46cpdu10raem" path="res://Props/Sprites/Rotiauk_.png" id="1_v83s5"]
+[ext_resource type="Script" uid="uid://ck5lp4jvx4kvu" path="res://Components/interactable_area.gd" id="2_lwrpd"]
+[ext_resource type="FontFile" uid="uid://7wrq8dvttvik" path="res://Fonts/F25_Executive.otf" id="3_1yblc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lwrpd"]
+size = Vector3(2.0078125, 1.7410889, 1)
+
+[node name="RatHole" type="Node3D"]
+script = ExtResource("1_2q7jy")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 1.011595, 0)
+shaded = true
+texture = ExtResource("1_v83s5")
+
+[node name="InteractableArea" type="Area3D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_lwrpd")
+metadata/_custom_type_script = "uid://ck5lp4jvx4kvu"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.87054443, 0.5)
+shape = SubResource("BoxShape3D_lwrpd")
+debug_color = Color(1, 0, 0.6000004, 0.41960785)
+
+[node name="Label3D" type="Label3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 1)
+billboard = 2
+shaded = true
+text = "End the day"
+font = ExtResource("3_1yblc")
+font_size = 64
