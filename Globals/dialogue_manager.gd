@@ -21,6 +21,8 @@ enum Dialogues {
 	RACCOON_GANG_4,
 }
 
+var wise_rat_gift: BaseItem = preload("res://Items/candy_wrapper.tres")
+
 func _speaker_label(speaker_name: String) -> String:
 	return "[font_size=64]" + speaker_name + "[/font_size]"
 
@@ -81,6 +83,7 @@ func start_dialogue(dialogue: Dialogues) -> void:
 			await _talk("Wise Rat", "...", sounds, 0.25, 1)
 			await _talk("Wise Rat", "My dear friend, you know, I found something quite nice in the dumpster today. I know  you have a large family, so here, you can have this:", sounds)
 			await _talk("Wise Rat", "*Wise Rat gave you [Shiny Gum Wrapper]*", sounds)
+			InventoryManager.hidden_add_item(wise_rat_gift)
 			await _talk("Wise Rat", "You mustn't feel bad about me giving you this, I am simply an old rat and I don't need much to get by.", sounds)
 			end_dialogue()
 			return

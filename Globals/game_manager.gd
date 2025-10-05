@@ -52,4 +52,10 @@ func _player_sell() -> int:
 		money += item.value
 		InventoryManager.remove_item(i)
 
+	for i in range(InventoryManager.hidden_inventory.size()):
+		var item = InventoryManager.hidden_inventory[i]
+		items_sold.append(item)
+		money += item.value
+		InventoryManager.hidden_inventory.remove_at(i)
+
 	return money

@@ -2,10 +2,16 @@ extends Node
 
 signal inventory_updated()
 
-var max_items: int = 3
+var max_items: int = 2
 
 # Player inventory
 var inventory: Array[BaseItem] = []
+
+var hidden_inventory: Array[BaseItem] = []
+
+func hidden_add_item(item: BaseItem) -> void:
+	hidden_inventory.append(item)
+	print("Added hidden item: %s" % item.name)
 
 func add_item(item: BaseItem) -> bool:
 	if inventory.size() < max_items:
