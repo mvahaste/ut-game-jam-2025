@@ -99,5 +99,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "QUIT"
 
+[node name="Sprite3D" type="Sprite3D" parent="Control/VBoxContainer/QuitButton"]
+
 [connection signal="pressed" from="Control/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
