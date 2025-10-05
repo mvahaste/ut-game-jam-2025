@@ -22,6 +22,7 @@ InventoryManager="*res://Globals/inventory_manager.gd"
 SoundManager="*res://Globals/sound_manager.gd"
 Globals="*res://Globals/globals.gd"
 DialogueManager="*res://Globals/dialogue_manager.gd"
+GameManager="*res://Globals/game_manager.gd"
 
 [dialogue_manager]
 

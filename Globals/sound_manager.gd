@@ -251,6 +251,9 @@ func fade_music_out(duration: float) -> void:
 
 # Crossfade from current music to new music
 func crossfade_music(new_music: MUSIC, duration: float = 2.0) -> void:
+	if _current_music == new_music and _is_music_playing:
+		return  # Already playing this music
+
 	if not music_resources.has(new_music):
 		print("Sound Manager Warning: Music resource not found for crossfade: ", MUSIC.keys()[new_music])
 		return

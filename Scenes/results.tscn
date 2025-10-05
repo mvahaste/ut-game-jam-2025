@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://duuvanoeea36e"]
+
+[ext_resource type="Texture2D" uid="uid://bd38krd2cnacj" path="res://Art/ResultsBackground.PNG" id="1_r1how"]
+[ext_resource type="Script" uid="uid://cl7g8oosny1ds" path="res://Scenes/results.gd" id="1_txdwj"]
+[ext_resource type="Texture2D" uid="uid://yw47hmtlkttv" path="res://Art/ResultsPaper.PNG" id="2_3cjc3"]
+[ext_resource type="FontFile" uid="uid://7wrq8dvttvik" path="res://Fonts/F25_Executive.otf" id="3_3iro3"]
+
+[node name="Results" type="Node"]
+script = ExtResource("1_txdwj")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_r1how")
+
+[node name="Paper" type="TextureRect" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -502.0
+offset_top = -502.0
+offset_right = 501.99963
+offset_bottom = 502.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3cjc3")
+expand_mode = 1
+
+[node name="Text" type="RichTextLabel" parent="Control/Paper"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 206.0
+offset_top = 116.0
+offset_right = 766.0
+offset_bottom = 886.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_3iro3")
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "random
+text!"

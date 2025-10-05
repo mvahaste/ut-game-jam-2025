@@ -4,12 +4,14 @@ enum Scenes {
 	HUB,
 	DUMPSTER1,
 	INTRO,
+	RESULTS,
 }
 
 const SCENE_PATHS = {
 	Scenes.HUB: "res://Scenes/Hub.tscn",
 	Scenes.DUMPSTER1: "res://Scenes/Dumpster1.tscn",
 	Scenes.INTRO: "res://Scenes/intro_scene.tscn",
+	Scenes.RESULTS: "res://Scenes/results.tscn",
 }
 
 var current_scene: Scenes = Scenes.HUB
@@ -103,6 +105,6 @@ func transition_to_scene_with_duration(target_scene: Scenes, duration: float) ->
 
 func _start_music_for_scene(scene: Scenes) -> void:
 	pass
-	# match scene:
-	# 	Scenes.INTRO:
-	# 		SoundManager.crossfade_music(SoundManager.MUSIC.MAIN_MENU, 0.0)
+	match scene:
+		Scenes.RESULTS:
+			SoundManager.crossfade_music(SoundManager.MUSIC.MAIN_MENU, 1.0)
