@@ -2,15 +2,17 @@
 
 [ext_resource type="Texture2D" uid="uid://ryc23an6vc3p" path="res://Props/Sprites/Divingprop_Banana.png" id="1_28c6f"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_dad54"]
-radius = 7.0
+[sub_resource type="BoxShape3D" id="BoxShape3D_28c6f"]
+size = Vector3(18.785858, 4.612671, 1)
 
 [node name="Divingprop_Banana" type="StaticBody3D"]
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+billboard = 2
+shaded = true
 texture = ExtResource("1_28c6f")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-shape = SubResource("SphereShape3D_dad54")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44285583, 2.0272827, 0)
+shape = SubResource("BoxShape3D_28c6f")

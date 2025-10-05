@@ -2,15 +2,17 @@
 
 [ext_resource type="Texture2D" uid="uid://bvpwhyhqq2ulv" path="res://Props/Sprites/Divingprop_Egg_Carton.png" id="1_imjlp"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_8tudj"]
-radius = 7.0
+[sub_resource type="BoxShape3D" id="BoxShape3D_imjlp"]
+size = Vector3(16.323761, 8.758484, 3.0660706)
 
 [node name="divingprop_egg_carton" type="StaticBody3D"]
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.3, 0)
+billboard = 2
+shaded = true
 texture = ExtResource("1_imjlp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
-shape = SubResource("SphereShape3D_8tudj")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15953064, 4.370941, 0.099990845)
+shape = SubResource("BoxShape3D_imjlp")
