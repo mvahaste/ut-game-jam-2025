@@ -1,4 +1,4 @@
-class_name WiseRat extends StaticBody3D
+extends StaticBody3D
 
 @onready var label: Label3D = %Label3D
 @onready var interactable_area: Area3D = %InteractableArea

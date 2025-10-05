@@ -7,6 +7,13 @@ enum SFX {
 	CRAZY_DIALOGUE_1,
 	CRAZY_DIALOGUE_2,
 	CRAZY_DIALOGUE_3,
+
+	LEFT_COON_1,
+	LEFT_COON_2,
+	BOSS_COON_1,
+	BOSS_COON_2,
+	RIGHT_COON_1,
+	RIGHT_COON_2,
 }
 
 enum MUSIC {
@@ -60,6 +67,16 @@ func load_audio_resources():
 	sfx_resources[SFX.CRAZY_DIALOGUE_1] = load("res://Characters/CrazyRat/CrazyDialogue1.wav")
 	sfx_resources[SFX.CRAZY_DIALOGUE_2] = load("res://Characters/CrazyRat/CrazyDialogue2.wav")
 	sfx_resources[SFX.CRAZY_DIALOGUE_3] = load("res://Characters/CrazyRat/CrazyDialogue3.wav")
+
+	sfx_resources[SFX.LEFT_COON_1] = load("res://Characters/RaccoonGang/LeftCoon1.wav")
+	sfx_resources[SFX.LEFT_COON_2] = load("res://Characters/RaccoonGang/LeftCoon2.wav")
+
+	sfx_resources[SFX.BOSS_COON_1] = load("res://Characters/RaccoonGang/BossCoon1.wav")
+	sfx_resources[SFX.BOSS_COON_2] = load("res://Characters/RaccoonGang/BossCoon2.wav")
+
+	sfx_resources[SFX.RIGHT_COON_1] = load("res://Characters/RaccoonGang/RightCoon1.wav")
+	sfx_resources[SFX.RIGHT_COON_2] = load("res://Characters/RaccoonGang/RightCoon2.wav")
+
 
 	music_resources[MUSIC.MAIN_MENU] = load("res://Music/MainMenu.mp3")
 

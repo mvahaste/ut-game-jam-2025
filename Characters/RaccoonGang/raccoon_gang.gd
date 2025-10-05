@@ -16,11 +16,13 @@ func _on_interactable_area_interact() -> void:
 
 	match _talk_count:
 		1:
-			DialogueManager.start_dialogue(DialogueManager.Dialogues.CRAZY_RAT_1)
+			DialogueManager.start_dialogue(DialogueManager.Dialogues.RACCOON_GANG_1)
 		2:
-			DialogueManager.start_dialogue(DialogueManager.Dialogues.CRAZY_RAT_2)
+			DialogueManager.start_dialogue(DialogueManager.Dialogues.RACCOON_GANG_2)
 		3:
-			DialogueManager.start_dialogue(DialogueManager.Dialogues.CRAZY_RAT_3)
+			DialogueManager.start_dialogue(DialogueManager.Dialogues.RACCOON_GANG_3)
+		4:
+			DialogueManager.start_dialogue(DialogueManager.Dialogues.RACCOON_GANG_4)
 		_:
 			return
 

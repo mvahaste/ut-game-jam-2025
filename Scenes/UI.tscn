@@ -5,6 +5,10 @@
 [ext_resource type="FontFile" uid="uid://7wrq8dvttvik" path="res://Fonts/F25_Executive.otf" id="3_dewlx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dewlx"]
+content_margin_left = 32.0
+content_margin_top = 24.0
+content_margin_right = 32.0
+content_margin_bottom = 12.0
 bg_color = Color(0, 0, 0, 0.5803922)
 corner_radius_top_left = 32
 corner_radius_top_right = 32

@@ -14,6 +14,11 @@ enum Dialogues {
 	CRAZY_RAT_1,
 	CRAZY_RAT_2,
 	CRAZY_RAT_3,
+
+	RACCOON_GANG_1,
+	RACCOON_GANG_2,
+	RACCOON_GANG_3,
+	RACCOON_GANG_4,
 }
 
 func _speaker_label(speaker_name: String) -> String:
@@ -34,7 +39,7 @@ func _talk(speaker_name: String, dialogue_text: String, sounds: Array[SoundManag
 		char_index += 1
 
 		if (dialogue_text[char_index - 1] == "$"):
-			await get_tree().create_timer(0.5).timeout
+			await get_tree().create_timer(0.25).timeout
 			displayed_text = displayed_text.substr(0, displayed_text.length() - 1)
 			continue
 
@@ -94,7 +99,7 @@ func start_dialogue(dialogue: Dialogues) -> void:
 		Dialogues.CRAZY_RAT_2:
 			sounds = [SoundManager.SFX.CRAZY_DIALOGUE_2, SoundManager.SFX.CRAZY_DIALOGUE_2, SoundManager.SFX.CRAZY_DIALOGUE_3]
 			await _talk("Crazy Rat", "MY LIGHTER IS SO WARM AND LIGHT do YOU KNOW THIS?", sounds)
-			await _talk("Crazy Rat", "You Don't Understand........$ Do You.......", sounds)
+			await _talk("Crazy Rat", "You Don't Understand........$$ Do You.......", sounds)
 			end_dialogue()
 			return
 		Dialogues.CRAZY_RAT_3:
@@ -102,6 +107,38 @@ func start_dialogue(dialogue: Dialogues) -> void:
 			await _talk("Crazy Rat", "THE WORMS are my worms.", sounds)
 			await _talk("Crazy Rat", "Would you be my WORM?", sounds)
 			await _talk("Crazy Rat", "My worm my friendly worm You Are My Friends worm.", sounds)
+			end_dialogue()
+			return
+		Dialogues.RACCOON_GANG_1:
+			sounds = []
+			await _talk("Raccoon Gang", "...", sounds, 0.5, 1)
+			end_dialogue()
+			return
+		Dialogues.RACCOON_GANG_2:
+			var left_sounds: Array[SoundManager.SFX] = [SoundManager.SFX.LEFT_COON_1, SoundManager.SFX.LEFT_COON_2]
+			var right_sounds: Array[SoundManager.SFX] = [SoundManager.SFX.RIGHT_COON_1, SoundManager.SFX.RIGHT_COON_2]
+			var boss_sounds: Array[SoundManager.SFX] = [SoundManager.SFX.BOSS_COON_1, SoundManager.SFX.BOSS_COON_2]
+			await _talk("Left Coon", "Yo......$$ Uh, who the hell are you?", left_sounds)
+			await _talk("Boss Coon", "Don't you know this territory is OUR turf, BRO?", boss_sounds)
+			await _talk("Boss Coon", "We're gonna turn you into...$ Uhh...$ Umm...$ MEAT PASTE, unless you get going quick...", boss_sounds)
+			await _talk("Right Coon", "HEH! Yeah bro, you better run!", right_sounds)
+			await _talk("Boss Coon", "Because we WILL turn you into meat paste.", boss_sounds)
+			await _talk("Left Coon", "And that's what we're gonna do.", left_sounds)
+			await _talk("Boss Coon", "Yeah, man.", boss_sounds)
+			end_dialogue()
+			return
+		Dialogues.RACCOON_GANG_3:
+			var right_sounds: Array[SoundManager.SFX] = [SoundManager.SFX.RIGHT_COON_1, SoundManager.SFX.RIGHT_COON_2]
+			var boss_sounds: Array[SoundManager.SFX] = [SoundManager.SFX.BOSS_COON_1, SoundManager.SFX.BOSS_COON_2]
+			await _talk("Right Coon", "Or, well, maybe we won't do that, if you're cool?", right_sounds)
+			await _talk("Boss Coon", "Are you cool? Would you join our cool and intimidating gang?", boss_sounds)
+			end_dialogue()
+			return
+		Dialogues.RACCOON_GANG_4:
+			var right_sounds: Array[SoundManager.SFX] = [SoundManager.SFX.RIGHT_COON_1, SoundManager.SFX.RIGHT_COON_2]
+			var boss_sounds: Array[SoundManager.SFX] = [SoundManager.SFX.BOSS_COON_1, SoundManager.SFX.BOSS_COON_2]
+			await _talk("Right Coon", "Wait, Really!?", right_sounds)
+			await _talk("Boss Coon", "Yaaayyy!", boss_sounds)
 			end_dialogue()
 			return
 
