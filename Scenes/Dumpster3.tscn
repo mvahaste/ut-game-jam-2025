@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bxsf4hqno5lbd"]
+[gd_scene load_steps=28 format=3 uid="uid://dkkpssu24jdtb"]
 
 [ext_resource type="PackedScene" uid="uid://cpgvxfb6fsw70" path="res://Props/juice.tscn" id="1_vkspe"]
 [ext_resource type="PackedScene" uid="uid://bfu37u1lvav03" path="res://Scenes/UI.tscn" id="2_xv7pj"]
@@ -9,17 +9,17 @@
 [ext_resource type="Texture2D" uid="uid://pxwbj6m5bkeb" path="res://Art/Prügikastkulg.png" id="7_fum5p"]
 [ext_resource type="PackedScene" uid="uid://dt3fderuabyig" path="res://Characters/Cockroach/cockroach.tscn" id="8_8ug32"]
 [ext_resource type="PackedScene" path="res://Props/dumpster_exit.tscn" id="9_wkspr"]
-[ext_resource type="PackedScene" uid="uid://ljjh4xvut3nk" path="res://Props/divingprop_banana.tscn" id="10_61saa"]
-[ext_resource type="PackedScene" uid="uid://27tiwehe0e4r" path="res://Props/klaasuus.tscn" id="11_2kc7m"]
-[ext_resource type="PackedScene" uid="uid://dgu2sawsc4shl" path="res://Props/divingprop_juice_2.tscn" id="13_oi73i"]
-[ext_resource type="PackedScene" uid="uid://bo0idpsqhvcue" path="res://Props/divingprop_bottle.tscn" id="14_cyjab"]
-[ext_resource type="PackedScene" uid="uid://cry4npxicj4o6" path="res://Props/divingprop_egg_carton.tscn" id="15_pa2ae"]
+[ext_resource type="PackedScene" path="res://Props/divingprop_banana.tscn" id="10_61saa"]
+[ext_resource type="PackedScene" path="res://Props/klaasuus.tscn" id="11_2kc7m"]
+[ext_resource type="PackedScene" path="res://Props/divingprop_juice_2.tscn" id="13_oi73i"]
+[ext_resource type="PackedScene" path="res://Props/divingprop_bottle.tscn" id="14_cyjab"]
+[ext_resource type="PackedScene" path="res://Props/divingprop_egg_carton.tscn" id="15_pa2ae"]
 [ext_resource type="PackedScene" uid="uid://c6ic2t0oy432u" path="res://Items/item.tscn" id="17_kmsvn"]
 [ext_resource type="Resource" uid="uid://cl4bardav0wcf" path="res://Items/cheese.tres" id="18_ibo4b"]
 [ext_resource type="Resource" uid="uid://y6mnh5n6swfj" path="res://Items/bracelet.tres" id="18_y4i5k"]
 [ext_resource type="Resource" uid="uid://brdsovutfdkvy" path="res://Items/blue_cheese.tres" id="19_058c5"]
 [ext_resource type="Resource" uid="uid://0hjcwyhfount" path="res://Items/candy_wrapper.tres" id="21_wkspr"]
-[ext_resource type="PackedScene" uid="uid://cud6ycpgpkhpn" path="res://Props/divingprop_trash.tscn" id="23_wkspr"]
+[ext_resource type="PackedScene" path="res://Props/divingprop_trash.tscn" id="23_wkspr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b581c"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -120,6 +120,7 @@ shape = SubResource("BoxShape3D_v5nio")
 
 [node name="DumpsterExit" parent="." instance=ExtResource("9_wkspr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.585358, -1.1980233, -20.424831)
+to_scene = 1
 
 [node name="Divingprop_Banana" parent="." instance=ExtResource("10_61saa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.153456, 0.009530067, 17.918892)
