@@ -147,7 +147,7 @@ func start_dialogue(dialogue: Dialogues) -> void:
 			end_dialogue()
 			return
 		Dialogues.RAT_HOLE_NO_FOOD:
-			await _talk("Me", "I haven't found anything to sell today, I can't stop just yet.$$ My family is relying on me.", [], 0.015)
+			await _talk("Me", "I haven't found anything to sell today, I can't stop just yet.$$ My family depends on me.", [], 0.015)
 			end_dialogue()
 			return
 

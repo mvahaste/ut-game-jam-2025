@@ -3,6 +3,8 @@ extends Node
 @onready var paper: TextureRect = %Paper
 @onready var label: RichTextLabel = %Text
 
+var _accept_input: bool = false
+
 var _paper_final_position: Vector2;
 
 func _ready() -> void:
@@ -28,7 +30,7 @@ func _show_result() -> void:
 	label.text = text
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact"):
+	if _accept_input and event.is_action_pressed("interact"):
 		_slide_out_paper()
 
 func _slide_in_paper() -> void:
@@ -38,8 +40,11 @@ func _slide_in_paper() -> void:
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(paper, "position", _paper_final_position, 0.8)
+	tween.tween_callback(func(): _accept_input = true)
 
 func _slide_out_paper() -> void:
+	_accept_input = false
+
 	SoundManager.play_sfx(SoundManager.SFX.PAPER_SLIDE_OUT, 0.0, 0.0, 0.15)
 
 	var tween = create_tween()
