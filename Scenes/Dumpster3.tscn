@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bxsf4hqno5lbd"]
+[gd_scene load_steps=31 format=3 uid="uid://bxsf4hqno5lbd"]
 
 [ext_resource type="PackedScene" uid="uid://cpgvxfb6fsw70" path="res://Props/juice.tscn" id="1_vkspe"]
 [ext_resource type="PackedScene" uid="uid://bfu37u1lvav03" path="res://Scenes/UI.tscn" id="2_xv7pj"]
@@ -8,6 +8,21 @@
 [ext_resource type="Texture2D" uid="uid://b6ql2hcu4yqt5" path="res://Art/Prugikastkulg1.png" id="6_iohl7"]
 [ext_resource type="Texture2D" uid="uid://pxwbj6m5bkeb" path="res://Art/Prügikastkulg.png" id="7_fum5p"]
 [ext_resource type="PackedScene" uid="uid://dt3fderuabyig" path="res://Characters/Cockroach/cockroach.tscn" id="8_8ug32"]
+[ext_resource type="PackedScene" path="res://Props/dumpster_exit.tscn" id="9_wkspr"]
+[ext_resource type="PackedScene" uid="uid://ljjh4xvut3nk" path="res://Props/divingprop_banana.tscn" id="10_61saa"]
+[ext_resource type="PackedScene" uid="uid://27tiwehe0e4r" path="res://Props/klaasuus.tscn" id="11_2kc7m"]
+[ext_resource type="PackedScene" uid="uid://b82g8lpj5o8vv" path="res://Props/divingprop_bottle_2.tscn" id="12_qtljy"]
+[ext_resource type="PackedScene" uid="uid://dgu2sawsc4shl" path="res://Props/divingprop_juice_2.tscn" id="13_oi73i"]
+[ext_resource type="PackedScene" uid="uid://bo0idpsqhvcue" path="res://Props/divingprop_bottle.tscn" id="14_cyjab"]
+[ext_resource type="PackedScene" uid="uid://cry4npxicj4o6" path="res://Props/divingprop_egg_carton.tscn" id="15_pa2ae"]
+[ext_resource type="PackedScene" uid="uid://c6ic2t0oy432u" path="res://Items/item.tscn" id="17_kmsvn"]
+[ext_resource type="Resource" uid="uid://b68d6nfpcpxmm" path="res://Items/vitamin_bottle.tres" id="18_sexw7"]
+[ext_resource type="Resource" uid="uid://pnmoa0rst26a" path="res://Items/rusty_spoon.tres" id="19_dadg6"]
+[ext_resource type="Resource" uid="uid://dlljg536tuwbg" path="res://Items/bottlecap3.tres" id="20_2gp3n"]
+[ext_resource type="Resource" uid="uid://c3acdjsutfoe6" path="res://Items/broken_watch.tres" id="21_4djrj"]
+[ext_resource type="Resource" uid="uid://h43ofkoleojw" path="res://Items/plastic_ring.tres" id="22_gbprn"]
+[ext_resource type="Resource" uid="uid://bnackc2udg534" path="res://Items/ugly_earring.tres" id="23_5fyqc"]
+[ext_resource type="PackedScene" uid="uid://cud6ycpgpkhpn" path="res://Props/divingprop_trash.tscn" id="23_wkspr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b581c"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -41,14 +56,15 @@ albedo_texture = ExtResource("7_fum5p")
 [sub_resource type="BoxShape3D" id="BoxShape3D_v5nio"]
 size = Vector3(54, 9, 1)
 
-[node name="Dumpster1" type="Node3D"]
+[node name="Dumpster3" type="Node3D"]
 
 [node name="Juice" parent="." instance=ExtResource("1_vkspe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -3)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -2.4252098, 0, 1.9617195)
 
 [node name="UI" parent="." instance=ExtResource("2_xv7pj")]
 
 [node name="Player" parent="." instance=ExtResource("3_y5r85")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.946629, 0, -16.272448)
 
 [node name="Marker3D" type="Marker3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 0.86602545, 0.50000006, 0, -0.50000006, 0.86602545, 0, 7.2681484, 15.115713)
@@ -88,7 +104,7 @@ use_collision = true
 size = Vector3(50, 21, 1)
 
 [node name="Cockroach" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("8_8ug32")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.99938, 0, 0.5043068)
 patrol_points = [NodePath("../Marker3D"), NodePath("../Marker3D2"), NodePath("../Marker3D3")]
 
 [node name="Marker3D" type="Marker3D" parent="."]
@@ -105,3 +121,63 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -13)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StopPlayer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 27.4)
 shape = SubResource("BoxShape3D_v5nio")
+
+[node name="DumpsterExit" parent="." instance=ExtResource("9_wkspr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.585358, -1.1980233, -20.424831)
+
+[node name="Divingprop_Banana" parent="." instance=ExtResource("10_61saa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.890514, 0.009530067, 17.918892)
+
+[node name="klaasuus" parent="." instance=ExtResource("11_2kc7m")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -20.060265, 0, 0.1604805)
+
+[node name="divingprop_bottle2" parent="." instance=ExtResource("12_qtljy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.96067, 0.7399988, 8.635486)
+
+[node name="Juice2" parent="." instance=ExtResource("1_vkspe")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 5.3691087, 0.04800105, 1.0995016)
+
+[node name="divingprop_juice2" parent="." instance=ExtResource("13_oi73i")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.31412482, 0.14374638, 0.12759686)
+
+[node name="divingprop_bottle" parent="." instance=ExtResource("14_cyjab")]
+transform = Transform3D(0.9998686, -0.016213398, 0, 0.016213398, 0.9998686, 0, 0, 0, 1, 1.6553378, 0.73999786, 18.254612)
+
+[node name="divingprop_egg_carton" parent="." instance=ExtResource("15_pa2ae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6189084, 1.9073486e-06, -2.2122335)
+
+[node name="Item" parent="." instance=ExtResource("17_kmsvn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.801691, 0, 18.956745)
+item_resource = ExtResource("18_sexw7")
+
+[node name="Cockroach2" parent="." instance=ExtResource("8_8ug32")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.043, 0, 6.4555445)
+
+[node name="Item2" parent="." instance=ExtResource("17_kmsvn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.793571, 0, -7.8274136)
+item_resource = ExtResource("19_dadg6")
+
+[node name="Item3" parent="." instance=ExtResource("17_kmsvn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.996002, 0, 24.136532)
+item_resource = ExtResource("20_2gp3n")
+
+[node name="Item4" parent="." instance=ExtResource("17_kmsvn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.162141, -1.9073486e-06, 5.913108)
+item_resource = ExtResource("21_4djrj")
+
+[node name="Item5" parent="." instance=ExtResource("17_kmsvn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5023139, 1.9073486e-06, -7.64128)
+item_resource = ExtResource("22_gbprn")
+
+[node name="Item6" parent="." instance=ExtResource("17_kmsvn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.453878, -9.536743e-07, -20.141558)
+item_resource = ExtResource("23_5fyqc")
+
+[node name="Cockroach3" parent="." instance=ExtResource("8_8ug32")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.20247, 0, 0.056804657)
+
+[node name="Cockroach4" parent="." instance=ExtResource("8_8ug32")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.107, 0, 22.455)
+
+[node name="divingprop_trash" parent="." instance=ExtResource("23_wkspr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3169155, 0.039998055, -19.894022)
