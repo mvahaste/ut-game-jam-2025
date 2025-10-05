@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://58it5f7yb647"
-path.s3tc="res://.godot/imported/Sein2.png-64da965fa3c81912df22898b0d506236.s3tc.ctex"
+path.s3tc="res://.godot/imported/sein2.png-1a56f2057f41997bc1f3568976e239e4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Art/Sein2.png"
-dest_files=["res://.godot/imported/Sein2.png-64da965fa3c81912df22898b0d506236.s3tc.ctex"]
+source_file="res://Art/sein2.png"
+dest_files=["res://.godot/imported/sein2.png-1a56f2057f41997bc1f3568976e239e4.s3tc.ctex"]
 
 [params]
 

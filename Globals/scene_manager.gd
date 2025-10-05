@@ -102,6 +102,4 @@ func transition_to_scene_with_duration(target_scene: Scenes, duration: float) ->
 func _start_music_for_scene(scene: Scenes) -> void:
 	match scene:
 		Scenes.HUB:
-			SoundManager.crossfade_music(SoundManager.MUSIC.HUB_WORLD, 1.0)
-		_:
-			SoundManager.crossfade_music(SoundManager.MUSIC.MAIN_MENU, 1.0)
+			SoundManager.crossfade_music(SoundManager.MUSIC.HUB_WORLD, 0.0)
