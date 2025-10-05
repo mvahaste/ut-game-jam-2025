@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdd7g01ypx3cf"]
+
+[ext_resource type="Texture2D" uid="uid://c4uguq07fp760" path="res://Props/Sprites/Divingprop_Trash_Exit.png" id="1_svme2"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_q4763"]
+radius = 8.0
+
+[node name="divingprop_trash_exit" type="StaticBody3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.2, 0)
+texture = ExtResource("1_svme2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+shape = SubResource("SphereShape3D_q4763")

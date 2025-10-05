@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ljjh4xvut3nk"]
+
+[ext_resource type="Texture2D" uid="uid://ryc23an6vc3p" path="res://Props/Sprites/Divingprop_Banana.png" id="1_28c6f"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dad54"]
+radius = 7.0
+
+[node name="Divingprop_Banana" type="StaticBody3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+texture = ExtResource("1_28c6f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("SphereShape3D_dad54")

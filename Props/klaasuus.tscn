@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://27tiwehe0e4r"]
+
+[ext_resource type="Texture2D" uid="uid://wecx6qxpublf" path="res://Art/Klaasuus.png" id="1_uiusy"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_b4jqy"]
+radius = 2.0
+
+[node name="klaasuus" type="StaticBody3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7, 0)
+texture = ExtResource("1_uiusy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("SphereShape3D_b4jqy")

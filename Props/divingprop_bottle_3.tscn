@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs7bkwmon2brs"]
+
+[ext_resource type="Texture2D" uid="uid://3vpehsgdci2p" path="res://Props/Sprites/Divingprop_Bottle3.png" id="1_fgsyk"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rfrms"]
+radius = 7.0
+
+[node name="divingprop_bottle3" type="StaticBody3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.5, 0)
+texture = ExtResource("1_fgsyk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("SphereShape3D_rfrms")
