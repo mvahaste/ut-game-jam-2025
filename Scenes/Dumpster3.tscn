@@ -70,7 +70,6 @@ transform = Transform3D(1, 0, 0, 0, 0.86602545, 0.50000006, 0, -0.50000006, 0.86
 transform = Transform3D(1, 0, 0, 0, 0.9848076, -0.17364818, 0, 0.17364818, 0.9848076, 0, 0, 0)
 fov = 42.5
 script = ExtResource("4_k4umu")
-log_z = true
 max_allowed_z = 35.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

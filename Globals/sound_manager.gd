@@ -31,6 +31,8 @@ enum MUSIC {
 	MAIN_MENU,
 	DIVE_COMPLETED,
 	RACCOON_THEME,
+	WIN,
+	LOSS
 }
 
 # AudioStreamPlayer nodes for different audio types
@@ -104,6 +106,8 @@ func load_audio_resources():
 	music_resources[MUSIC.MAIN_MENU] = load("res://Music/MainMenuAndHub.mp3")
 	music_resources[MUSIC.DIVE_COMPLETED] = load("res://Music/DiveCompleted.wav")
 	music_resources[MUSIC.RACCOON_THEME] = load("res://Music/RaccoonTheme.mp3")
+	music_resources[MUSIC.WIN] = load("res://Music/Victory_Music.mp3")
+	music_resources[MUSIC.LOSS] = load("res://Music/Lose_Ending.mp3")
 
 	print("Sound Manager: Audio resources loaded")
 
