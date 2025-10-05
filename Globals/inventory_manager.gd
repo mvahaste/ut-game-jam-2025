@@ -16,3 +16,12 @@ func add_item(item: BaseItem) -> bool:
 	else:
 		print("Inventory full! Cannot add item: %s" % item.name)
 		return false
+
+func remove_item(index: int) -> void:
+	if index >= 0 and index < inventory.size():
+		var item = inventory[index]
+		inventory.remove_at(index)
+		print("Removed item: %s" % item.name)
+		emit_signal("inventory_updated")
+	else:
+		print("Invalid index: %d" % index)

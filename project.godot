@@ -13,7 +13,10 @@ config_version=5
 config/name="ut-game-jam-2025"
 run/main_scene="uid://dbopqt17br7hu"
 config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="uid://dgnddxvbc8eqj"
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=3000
 
 [autoload]
 
@@ -22,6 +25,7 @@ InventoryManager="*res://Globals/inventory_manager.gd"
 SoundManager="*res://Globals/sound_manager.gd"
 Globals="*res://Globals/globals.gd"
 DialogueManager="*res://Globals/dialogue_manager.gd"
+GameManager="*res://Globals/game_manager.gd"
 
 [dialogue_manager]
 
