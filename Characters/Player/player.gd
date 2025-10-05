@@ -1,5 +1,6 @@
 class_name Player extends CharacterBody3D
 
+@export var health: int = 3
 @export var walk_speed: float = 5.0
 @export var walk_acceleration: float = 0.75
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddw130aqdwl3x"
-path.s3tc="res://.godot/imported/CrazyRat.PNG-fd3aec3d3edd3aefb01afeaf4a78f3b5.s3tc.ctex"
+path.s3tc="res://.godot/imported/WiseRat.PNG-e08a9e390a7aeaf230cc290f44ebe18e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Characters/WiseRat/Sprites/CrazyRat.PNG"
-dest_files=["res://.godot/imported/CrazyRat.PNG-fd3aec3d3edd3aefb01afeaf4a78f3b5.s3tc.ctex"]
+source_file="res://Characters/WiseRat/Sprites/WiseRat.PNG"
+dest_files=["res://.godot/imported/WiseRat.PNG-e08a9e390a7aeaf230cc290f44ebe18e.s3tc.ctex"]
 
 [params]
 

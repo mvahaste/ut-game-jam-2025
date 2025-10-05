@@ -2,10 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cyaumtfbcvhgy" path="res://Characters/WiseRat/wise_rat.gd" id="1_wmi6x"]
 [ext_resource type="Script" uid="uid://ck5lp4jvx4kvu" path="res://Components/interactable_area.gd" id="2_8ijx7"]
+[ext_resource type="Texture2D" uid="uid://ddw130aqdwl3x" path="res://Characters/WiseRat/Sprites/WiseRat.PNG" id="2_add71"]
 [ext_resource type="FontFile" uid="uid://7wrq8dvttvik" path="res://Fonts/F25_Executive.otf" id="4_add71"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ujaev"]
-load_path = "res://.godot/imported/IMG_0634.PNG-16e4ad4d1b6a30a98a376843dfee558e.s3tc.ctex"
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_kt8mr"]
 height = 1.6
@@ -21,7 +19,7 @@ script = ExtResource("1_wmi6x")
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.90000004, 0)
 billboard = 2
 shaded = true
-texture = SubResource("CompressedTexture2D_ujaev")
+texture = ExtResource("2_add71")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
