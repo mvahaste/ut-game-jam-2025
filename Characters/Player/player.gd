@@ -11,6 +11,9 @@ var _last_animation_type: String = "Idle"
 var _last_animation_direction: String = "Down"
 
 func _ready() -> void:
+	# Add to player group for cockroach detection
+	add_to_group("player")
+
 	# ! TEMPORARY
 	SoundManager.play_music(SoundManager.MUSIC.MAIN_MENU)
 
@@ -87,3 +90,12 @@ func _rotate_interaction_area(input: Vector2) -> void:
 
 	var angle = atan2(input.x, input.y)
 	interaction_area.rotation.y = angle
+
+func take_damage(amount: int) -> void:
+	health -= amount
+	print("Player took ", amount, " damage! Health: ", health)
+
+	# Add visual feedback or sound effects here
+	if health <= 0:
+		print("Player died!")
+		# Add death logic here
