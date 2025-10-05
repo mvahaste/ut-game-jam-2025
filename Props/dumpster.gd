@@ -1,5 +1,6 @@
 extends Node3D
 
+@export var for_day: int
 @export var to_scene: SceneManager.Scenes
 
 @onready var label: Label3D = %Label3D
@@ -7,6 +8,10 @@ extends Node3D
 
 func _ready() -> void:
 	label.visible = false
+
+	if GameManager.day != for_day:
+		return
+
 	interactable_area.connect("interact", Callable(self, "_on_interactable_area_interact"))
 	interactable_area.connect("hovered", Callable(self, "_on_interactable_area_hovered"))
 	interactable_area.connect("unhovered", Callable(self, "_on_interactable_area_unhovered"))
