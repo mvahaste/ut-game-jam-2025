@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BaseItem" load_steps=3 format=3 uid="uid://bnackc2udg534"]
+
+[ext_resource type="Script" uid="uid://crpb6twyus0v8" path="res://Items/base_item.gd" id="1_i2q3h"]
+[ext_resource type="Texture2D" uid="uid://bvyu5bv3c0qp6" path="res://Items/Sprites/valuables_ugly_earring.png" id="2_hhmfi"]
+
+[resource]
+script = ExtResource("1_i2q3h")
+id = "ugly_earring"
+name = "Ugly Earring"
+sprite = ExtResource("2_hhmfi")
+value = 90
+metadata/_custom_type_script = "uid://crpb6twyus0v8"

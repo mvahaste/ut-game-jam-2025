@@ -8,4 +8,5 @@ script = ExtResource("1_ue4n6")
 id = "candy_wrapper"
 name = "Candy Wrapper"
 sprite = ExtResource("2_mcpjk")
+value = 70
 metadata/_custom_type_script = "uid://crpb6twyus0v8"

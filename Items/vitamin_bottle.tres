@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BaseItem" load_steps=3 format=3 uid="uid://b68d6nfpcpxmm"]
+
+[ext_resource type="Script" uid="uid://crpb6twyus0v8" path="res://Items/base_item.gd" id="1_3vef7"]
+[ext_resource type="Texture2D" uid="uid://c3v0pc5g5007q" path="res://Items/Sprites/valuables_vitamin_bottle.png" id="2_6poet"]
+
+[resource]
+script = ExtResource("1_3vef7")
+id = "Vitamin_Bottle"
+name = "Vitamin Bottle"
+sprite = ExtResource("2_6poet")
+value = 100
+metadata/_custom_type_script = "uid://crpb6twyus0v8"

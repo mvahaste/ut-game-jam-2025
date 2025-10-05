@@ -8,4 +8,5 @@ script = ExtResource("1_n6d75")
 id = "cheese"
 name = "Cheese"
 sprite = ExtResource("2_mnc00")
+value = 750
 metadata/_custom_type_script = "uid://crpb6twyus0v8"

@@ -8,4 +8,5 @@ script = ExtResource("1_dyi1n")
 id = "broken_watch"
 name = "Broken Watch"
 sprite = ExtResource("2_t630d")
+value = 300
 metadata/_custom_type_script = "uid://crpb6twyus0v8"

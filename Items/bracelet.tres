@@ -8,4 +8,5 @@ script = ExtResource("1_vwsf7")
 id = "bracelet"
 name = "Bracelet"
 sprite = ExtResource("2_v4360")
+value = 200
 metadata/_custom_type_script = "uid://crpb6twyus0v8"

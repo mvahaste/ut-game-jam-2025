@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BaseItem" load_steps=3 format=3 uid="uid://dlljg536tuwbg"]
+
+[ext_resource type="Script" uid="uid://crpb6twyus0v8" path="res://Items/base_item.gd" id="1_qs7dm"]
+[ext_resource type="Texture2D" uid="uid://dxe5pnglmbj5n" path="res://Items/Sprites/valuables_bottlecap3.png" id="2_hm5lb"]
+
+[resource]
+script = ExtResource("1_qs7dm")
+id = "Bottle_cap3"
+name = "Bottle Cap"
+sprite = ExtResource("2_hm5lb")
+value = 40
+metadata/_custom_type_script = "uid://crpb6twyus0v8"

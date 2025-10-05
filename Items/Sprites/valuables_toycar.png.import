@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://58it5f7yb647"
-path.s3tc="res://.godot/imported/Sein2.png-64da965fa3c81912df22898b0d506236.s3tc.ctex"
+uid="uid://dhndn8gqqxwaj"
+path.s3tc="res://.godot/imported/valuables_toycar.png-95b2812fba8416a98976a7bbe7c6779d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Art/Sein2.png"
-dest_files=["res://.godot/imported/Sein2.png-64da965fa3c81912df22898b0d506236.s3tc.ctex"]
+source_file="res://Items/Sprites/valuables_toycar.png"
+dest_files=["res://.godot/imported/valuables_toycar.png-95b2812fba8416a98976a7bbe7c6779d.s3tc.ctex"]
 
 [params]
 

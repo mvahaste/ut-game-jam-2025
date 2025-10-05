@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://58it5f7yb647"
-path.s3tc="res://.godot/imported/Sein2.png-64da965fa3c81912df22898b0d506236.s3tc.ctex"
+uid="uid://bjjdojtm1e0ix"
+path.s3tc="res://.godot/imported/valuables_candywrapper2.png-d4a245ede60debabdc9df9315764299b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Art/Sein2.png"
-dest_files=["res://.godot/imported/Sein2.png-64da965fa3c81912df22898b0d506236.s3tc.ctex"]
+source_file="res://Items/Sprites/valuables_candywrapper2.png"
+dest_files=["res://.godot/imported/valuables_candywrapper2.png-d4a245ede60debabdc9df9315764299b.s3tc.ctex"]
 
 [params]
 
