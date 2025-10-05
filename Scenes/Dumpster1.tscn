@@ -1,13 +1,22 @@
-[gd_scene load_steps=16 format=3 uid="uid://bngyonn53ctri"]
+[gd_scene load_steps=29 format=3 uid="uid://bngyonn53ctri"]
 
 [ext_resource type="PackedScene" uid="uid://bgduylrt4kaoj" path="res://Characters/Player/player.tscn" id="1_63qix"]
 [ext_resource type="PackedScene" uid="uid://cpgvxfb6fsw70" path="res://Props/juice.tscn" id="1_v5nio"]
-[ext_resource type="Texture2D" uid="uid://dmr1b0sms21hw" path="res://Art/Prükkarall.png" id="2_ctto2"]
+[ext_resource type="Texture2D" uid="uid://cx45cfriwc5xg" path="res://Art/Prükkarall.png" id="2_ctto2"]
 [ext_resource type="Script" uid="uid://cnvvwjm4eebk4" path="res://Scripts/smooth_camera.gd" id="2_j0g3a"]
-[ext_resource type="Texture2D" uid="uid://b6ql2hcu4yqt5" path="res://Art/Prugikastkulg1.png" id="3_63qix"]
-[ext_resource type="Texture2D" uid="uid://pxwbj6m5bkeb" path="res://Art/Prügikastkulg.png" id="4_b581c"]
+[ext_resource type="Texture2D" uid="uid://bq63wsuppi2ex" path="res://Art/Prugikastkulg1.png" id="3_63qix"]
+[ext_resource type="Texture2D" uid="uid://5lsycyhw4puf" path="res://Art/Prügikastkulg.png" id="4_b581c"]
 [ext_resource type="PackedScene" uid="uid://bfu37u1lvav03" path="res://Scenes/UI.tscn" id="6_mbwr5"]
 [ext_resource type="PackedScene" uid="uid://dt3fderuabyig" path="res://Characters/Cockroach/cockroach.tscn" id="7_q2e70"]
+[ext_resource type="PackedScene" uid="uid://bajmlodxhhcui" path="res://Props/dumpster_exit.tscn" id="9_4k4dw"]
+[ext_resource type="PackedScene" uid="uid://cry4npxicj4o6" path="res://Props/divingprop_egg_carton.tscn" id="10_v0qtx"]
+[ext_resource type="PackedScene" uid="uid://c6ic2t0oy432u" path="res://Items/item.tscn" id="11_sfrka"]
+[ext_resource type="Resource" uid="uid://c2or3b337ic48" path="res://Items/candywrapper2.tres" id="12_kh8vj"]
+[ext_resource type="PackedScene" uid="uid://0n4x7t70mniu" path="res://Props/suits.tscn" id="13_p7rfv"]
+[ext_resource type="PackedScene" uid="uid://27tiwehe0e4r" path="res://Props/klaasuus.tscn" id="14_gkt8y"]
+[ext_resource type="PackedScene" uid="uid://bs7bkwmon2brs" path="res://Props/divingprop_bottle_3.tscn" id="15_y3w53"]
+[ext_resource type="PackedScene" uid="uid://bo0idpsqhvcue" path="res://Props/divingprop_bottle.tscn" id="16_ieq42"]
+[ext_resource type="PackedScene" uid="uid://cud6ycpgpkhpn" path="res://Props/divingprop_trash.tscn" id="17_3yaot"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b581c"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -41,14 +50,27 @@ albedo_texture = ExtResource("4_b581c")
 [sub_resource type="BoxShape3D" id="BoxShape3D_v5nio"]
 size = Vector3(54, 9, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_gkt8y"]
+size = Vector3(1, 3, 18)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y3w53"]
+size = Vector3(1, 3, 18)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ieq42"]
+size = Vector3(1, 3, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3yaot"]
+size = Vector3(1, 3, 6)
+
 [node name="Dumpster1" type="Node3D"]
 
 [node name="Juice" parent="." instance=ExtResource("1_v5nio")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -3)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -15, 0, -15)
 
 [node name="UI" parent="." instance=ExtResource("6_mbwr5")]
 
 [node name="Player" parent="." instance=ExtResource("1_63qix")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 0, -15)
 
 [node name="Marker3D" type="Marker3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 0.86602545, 0.50000006, 0, -0.50000006, 0.86602545, 0, 7.2681484, 15.115713)
@@ -57,7 +79,6 @@ transform = Transform3D(1, 0, 0, 0, 0.86602545, 0.50000006, 0, -0.50000006, 0.86
 transform = Transform3D(1, 0, 0, 0, 0.9848076, -0.17364818, 0, 0.17364818, 0.9848076, 0, 0, 0)
 fov = 42.5
 script = ExtResource("2_j0g3a")
-log_z = true
 max_allowed_z = 35.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -105,3 +126,66 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -13)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StopPlayer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 27.4)
 shape = SubResource("BoxShape3D_v5nio")
+
+[node name="DumpsterExit" parent="." instance=ExtResource("9_4k4dw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, -1.1, -22)
+
+[node name="divingprop_egg_carton" parent="." instance=ExtResource("10_v0qtx")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -16.1, 1, -6.7)
+
+[node name="Wall1" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, -21)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
+shape = SubResource("BoxShape3D_gkt8y")
+
+[node name="Wall4" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -21)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, 6)
+shape = SubResource("BoxShape3D_y3w53")
+
+[node name="Item" parent="Wall4" instance=ExtResource("11_sfrka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+item_resource = ExtResource("12_kh8vj")
+
+[node name="Wall2" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -23, 0, 6.556708e-07)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.842171e-14, 1, 22.5)
+shape = SubResource("BoxShape3D_ieq42")
+
+[node name="Wall3" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15, 0, -6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9073486e-06, 1, 0.5)
+shape = SubResource("BoxShape3D_3yaot")
+
+[node name="Suits" parent="Wall3" instance=ExtResource("13_p7rfv")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9, 0, -8.742277e-08)
+
+[node name="Cockroach2" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("7_q2e70")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -3)
+patrol_points = [NodePath("../Marker3D4"), NodePath("../Marker3D5")]
+
+[node name="Marker3D4" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -4)
+
+[node name="Marker3D5" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -4)
+
+[node name="klaasuus" parent="." instance=ExtResource("14_gkt8y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -1, -19)
+
+[node name="divingprop_bottle3" parent="." instance=ExtResource("15_y3w53")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -15, 1, -9)
+
+[node name="divingprop_bottle" parent="." instance=ExtResource("16_ieq42")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -2.6, 1, -20)
+
+[node name="divingprop_trash" parent="." instance=ExtResource("17_3yaot")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -4, 0, -17)
