@@ -3,6 +3,10 @@ extends Node
 enum SFX {
 	WISE_DIALOGUE_1,
 	WISE_DIALOGUE_2,
+
+	CRAZY_DIALOGUE_1,
+	CRAZY_DIALOGUE_2,
+	CRAZY_DIALOGUE_3,
 }
 
 enum MUSIC {
@@ -52,6 +56,10 @@ func setup_audio_players():
 func load_audio_resources():
 	sfx_resources[SFX.WISE_DIALOGUE_1] = load("res://Characters/WiseRat/WiseDialogue1.wav")
 	sfx_resources[SFX.WISE_DIALOGUE_2] = load("res://Characters/WiseRat/WiseDialogue2.wav")
+
+	sfx_resources[SFX.CRAZY_DIALOGUE_1] = load("res://Characters/CrazyRat/CrazyDialogue1.wav")
+	sfx_resources[SFX.CRAZY_DIALOGUE_2] = load("res://Characters/CrazyRat/CrazyDialogue2.wav")
+	sfx_resources[SFX.CRAZY_DIALOGUE_3] = load("res://Characters/CrazyRat/CrazyDialogue3.wav")
 
 	music_resources[MUSIC.MAIN_MENU] = load("res://Music/MainMenu.mp3")
 

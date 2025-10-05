@@ -10,6 +10,10 @@ enum Dialogues {
 	WISE_RAT_2,
 	WISE_RAT_3,
 	WISE_RAT_4,
+
+	CRAZY_RAT_1,
+	CRAZY_RAT_2,
+	CRAZY_RAT_3,
 }
 
 func _speaker_label(speaker_name: String) -> String:
@@ -28,6 +32,12 @@ func _talk(speaker_name: String, dialogue_text: String, sounds: Array[SoundManag
 	for character in dialogue_text:
 		displayed_text += character
 		char_index += 1
+
+		if (dialogue_text[char_index - 1] == "$"):
+			await get_tree().create_timer(0.5).timeout
+			displayed_text = displayed_text.substr(0, displayed_text.length() - 1)
+			continue
+
 		dialogue_text_label.text = speaker_label + "\n" + displayed_text
 
 		if sounds.size() > 0 and char_index % skip_every_n_sound == 0:
@@ -43,6 +53,7 @@ func end_dialogue() -> void:
 	dialogue_text_label.text = ""
 	dialogue_container.visible = false
 
+# "$" means a short pause in the dialogue
 func start_dialogue(dialogue: Dialogues) -> void:
 	var sounds: Array[SoundManager.SFX] = []
 
@@ -74,9 +85,29 @@ func start_dialogue(dialogue: Dialogues) -> void:
 			await _talk("Wise Rat", "If you wish to find valuables today, you ought to get to it, my friend. Soon they will close the containers.", sounds)
 			end_dialogue()
 			return
+		Dialogues.CRAZY_RAT_1:
+			sounds = [SoundManager.SFX.CRAZY_DIALOGUE_2, SoundManager.SFX.CRAZY_DIALOGUE_2, SoundManager.SFX.CRAZY_DIALOGUE_3]
+			await _talk("Crazy Rat", "MEET MY FRIEND ARABELLA she is here in my arms.", sounds)
+			await _talk("Crazy Rat", "She IS my very good friends and do you know who else is my good friend well the worms IN MY BRAIN are my good WORMS.", sounds)
+			end_dialogue()
+			return
+		Dialogues.CRAZY_RAT_2:
+			sounds = [SoundManager.SFX.CRAZY_DIALOGUE_2, SoundManager.SFX.CRAZY_DIALOGUE_2, SoundManager.SFX.CRAZY_DIALOGUE_3]
+			await _talk("Crazy Rat", "MY LIGHTER IS SO WARM AND LIGHT do YOU KNOW THIS?", sounds)
+			await _talk("Crazy Rat", "You Don't Understand........$ Do You.......", sounds)
+			end_dialogue()
+			return
+		Dialogues.CRAZY_RAT_3:
+			sounds = [SoundManager.SFX.CRAZY_DIALOGUE_2, SoundManager.SFX.CRAZY_DIALOGUE_2, SoundManager.SFX.CRAZY_DIALOGUE_3]
+			await _talk("Crazy Rat", "THE WORMS are my worms.", sounds)
+			await _talk("Crazy Rat", "Would you be my WORM?", sounds)
+			await _talk("Crazy Rat", "My worm my friendly worm You Are My Friends worm.", sounds)
+			end_dialogue()
+			return
 
 func _wait_for_input() -> void:
 	while true:
-		await get_tree().process_frame
-		if Input.is_action_just_pressed("interact"):
+		if Input.is_action_just_pressed("interact") or Input.is_action_just_pressed("interact"):
+			print("Input detected, continuing dialogue...")
 			break
+		await get_tree().process_frame

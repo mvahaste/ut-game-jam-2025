@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://catbw6iswevem"]
+[gd_scene load_steps=18 format=3 uid="uid://catbw6iswevem"]
 
 [ext_resource type="PackedScene" uid="uid://bfu37u1lvav03" path="res://Scenes/UI.tscn" id="1_n1vlf"]
 [ext_resource type="PackedScene" uid="uid://bgduylrt4kaoj" path="res://Characters/Player/player.tscn" id="1_nqj8h"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://58it5f7yb647" path="res://Art/Sein2.png" id="4_66k2d"]
 [ext_resource type="Texture2D" uid="uid://c2b63q5cs7omy" path="res://Art/Maaactually.png" id="4_n1vlf"]
 [ext_resource type="PackedScene" uid="uid://dnnr1mipdb81d" path="res://Characters/WiseRat/wise_rat.tscn" id="8_yx7fe"]
+[ext_resource type="PackedScene" uid="uid://ctwv8r48d4ela" path="res://Characters/CrazyRat/crazy_rat.tscn" id="9_hmw7c"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fj7yv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -117,3 +118,6 @@ to_scene = 1
 
 [node name="WiseRat" parent="." instance=ExtResource("8_yx7fe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3, 0, 0.90000004)
+
+[node name="WiseRat2" parent="." instance=ExtResource("9_hmw7c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -2)

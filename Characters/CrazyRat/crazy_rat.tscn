@@ -1,11 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnnr1mipdb81d"]
+[gd_scene load_steps=7 format=3 uid="uid://ctwv8r48d4ela"]
 
-[ext_resource type="Script" uid="uid://cyaumtfbcvhgy" path="res://Characters/WiseRat/wise_rat.gd" id="1_wmi6x"]
-[ext_resource type="Script" uid="uid://ck5lp4jvx4kvu" path="res://Components/interactable_area.gd" id="2_8ijx7"]
-[ext_resource type="FontFile" uid="uid://7wrq8dvttvik" path="res://Fonts/F25_Executive.otf" id="4_add71"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ujaev"]
-load_path = "res://.godot/imported/IMG_0634.PNG-16e4ad4d1b6a30a98a376843dfee558e.s3tc.ctex"
+[ext_resource type="Script" uid="uid://clebeddw2suq" path="res://Characters/CrazyRat/crazy_rat.gd" id="1_uyir0"]
+[ext_resource type="Texture2D" uid="uid://bfdxe6nm5c4x8" path="res://Characters/CrazyRat/Sprites/CrazyRat.PNG" id="2_uyir0"]
+[ext_resource type="Script" uid="uid://ck5lp4jvx4kvu" path="res://Components/interactable_area.gd" id="3_bnt2s"]
+[ext_resource type="FontFile" uid="uid://7wrq8dvttvik" path="res://Fonts/F25_Executive.otf" id="4_q3ymu"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_kt8mr"]
 height = 1.6
@@ -15,13 +13,13 @@ height = 1.6
 radius = 0.7
 
 [node name="WiseRat" type="StaticBody3D"]
-script = ExtResource("1_wmi6x")
+script = ExtResource("1_uyir0")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.90000004, 0)
 billboard = 2
 shaded = true
-texture = SubResource("CompressedTexture2D_ujaev")
+texture = ExtResource("2_uyir0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
@@ -29,7 +27,7 @@ shape = SubResource("CylinderShape3D_kt8mr")
 
 [node name="InteractableArea" type="Area3D" parent="."]
 unique_name_in_owner = true
-script = ExtResource("2_8ijx7")
+script = ExtResource("3_bnt2s")
 metadata/_custom_type_script = "uid://ck5lp4jvx4kvu"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableArea"]
@@ -44,7 +42,7 @@ billboard = 2
 shaded = true
 render_priority = 1
 outline_render_priority = 0
-text = "Wise Rat"
-font = ExtResource("4_add71")
+text = "Crazy Rat"
+font = ExtResource("4_q3ymu")
 font_size = 64
 outline_size = 32
