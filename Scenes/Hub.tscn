@@ -1,11 +1,11 @@
 [gd_scene load_steps=19 format=3 uid="uid://catbw6iswevem"]
 
-[ext_resource type="PackedScene" uid="uid://bfu37u1lvav03" path="res://Scenes/UI.tscn" id="1_n1vlf"]
+[ext_resource type="PackedScene" path="res://Scenes/UI.tscn" id="1_n1vlf"]
 [ext_resource type="PackedScene" uid="uid://bgduylrt4kaoj" path="res://Characters/Player/player.tscn" id="1_nqj8h"]
 [ext_resource type="Script" uid="uid://cnvvwjm4eebk4" path="res://Scripts/smooth_camera.gd" id="2_lv3p6"]
 [ext_resource type="PackedScene" uid="uid://csbk2eb0thd82" path="res://Props/dumpster.tscn" id="3_66k2d"]
 [ext_resource type="Texture2D" uid="uid://b314afhlxhli" path="res://Art/sein1-1.png" id="3_shh0t"]
-[ext_resource type="Texture2D" uid="uid://58it5f7yb647" path="res://Art/Sein2.png" id="4_66k2d"]
+[ext_resource type="Texture2D" uid="uid://58it5f7yb647" path="res://Art/sein2.png" id="4_66k2d"]
 [ext_resource type="Texture2D" uid="uid://c2b63q5cs7omy" path="res://Art/Maaactually.png" id="4_n1vlf"]
 [ext_resource type="PackedScene" uid="uid://dnnr1mipdb81d" path="res://Characters/WiseRat/wise_rat.tscn" id="8_yx7fe"]
 [ext_resource type="PackedScene" uid="uid://ctwv8r48d4ela" path="res://Characters/CrazyRat/crazy_rat.tscn" id="9_hmw7c"]
