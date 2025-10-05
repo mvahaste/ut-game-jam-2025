@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://0n4x7t70mniu"]
+[gd_scene load_steps=3 format=3 uid="uid://0n4x7t70mniu"]
 
 [ext_resource type="Texture2D" uid="uid://u7u8nyvc0giv" path="res://Art/Suits.png" id="1_biqox"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_biqox"]
 
 [node name="Suits" type="StaticBody3D"]
 
@@ -9,3 +11,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 billboard = 2
 shaded = true
 texture = ExtResource("1_biqox")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_biqox")

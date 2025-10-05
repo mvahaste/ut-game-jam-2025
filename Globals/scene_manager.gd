@@ -6,6 +6,7 @@ enum Scenes {
 	DUMPSTER2,
 	INTRO,
 	RESULTS,
+	FAMILY,
 }
 
 const SCENE_PATHS = {
@@ -14,6 +15,7 @@ const SCENE_PATHS = {
 	Scenes.DUMPSTER2: "res://Scenes/Dumpster2.tscn",
 	Scenes.INTRO: "res://Scenes/intro_scene.tscn",
 	Scenes.RESULTS: "res://Scenes/results.tscn",
+	Scenes.FAMILY: "res://Scenes/family_scene.tscn",
 }
 
 var current_scene: Scenes = Scenes.HUB

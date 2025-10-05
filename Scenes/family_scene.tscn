@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://deudb8ld54rfl"]
+
+[ext_resource type="Script" uid="uid://np00x5bosrgx" path="res://Scenes/family_scene.gd" id="1_48mns"]
+[ext_resource type="FontFile" uid="uid://7wrq8dvttvik" path="res://Fonts/F25_Executive.otf" id="1_r1tes"]
+
+[node name="family_scene" type="Node"]
+script = ExtResource("1_48mns")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FailLabel" type="RichTextLabel" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_r1tes")
+theme_override_font_sizes/normal_font_size = 64
+text = "You did not get enough money this month.
+Your children are starving."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SuccessLabel" type="RichTextLabel" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_r1tes")
+theme_override_font_sizes/normal_font_size = 64
+text = "You made enough money to feed your family.
+Your children are happy."
+horizontal_alignment = 1
+vertical_alignment = 1
