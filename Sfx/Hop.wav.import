@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://bo3f7xs8jc5sr"
-path="res://.godot/imported/Cockland.wav-40040a9727eae461b7798c8769541657.sample"
+uid="uid://hya53anrurml"
+path="res://.godot/imported/Hop.wav-14d9ca32c5fd4e5eb87042eacab58185.sample"
 
 [deps]
 
-source_file="res://Sfx/Cockland.wav"
-dest_files=["res://.godot/imported/Cockland.wav-40040a9727eae461b7798c8769541657.sample"]
+source_file="res://Sfx/Hop.wav"
+dest_files=["res://.godot/imported/Hop.wav-14d9ca32c5fd4e5eb87042eacab58185.sample"]
 
 [params]
 

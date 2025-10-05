@@ -16,9 +16,6 @@ func _ready() -> void:
 	# Add to player group for cockroach detection
 	add_to_group("player")
 
-	# ! TEMPORARY
-	SoundManager.play_music(SoundManager.MUSIC.MAIN_MENU)
-
 func _physics_process(_delta: float) -> void:
 	if DialogueManager.is_dialogue_active or is_dead:
 		velocity = Vector3.ZERO
@@ -95,6 +92,7 @@ func _rotate_interaction_area(input: Vector2) -> void:
 
 func take_damage(amount: int) -> void:
 	health -= amount
+	SoundManager.play_sfx(SoundManager.SFX.HIT)
 	print("Player took ", amount, " damage! Health: ", health)
 
 	# Add visual feedback or sound effects here
@@ -105,5 +103,6 @@ func _die() -> void:
 	if is_dead:
 		return
 
+	SoundManager.play_sfx(SoundManager.SFX.DIE)
 	is_dead = true
 	animated_sprite.visible = false

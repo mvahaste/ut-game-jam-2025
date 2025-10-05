@@ -25,6 +25,8 @@ func transition_to_scene(target_scene: Scenes) -> void:
 		current_scene = target_scene
 		var scene_path = SCENE_PATHS[target_scene]
 
+		_start_music_for_scene(target_scene)
+
 		# Start fade transition
 		await _fade_transition(scene_path)
 
@@ -96,3 +98,10 @@ func transition_to_scene_with_duration(target_scene: Scenes, duration: float) ->
 	fade_duration = duration
 	await transition_to_scene(target_scene)
 	fade_duration = old_duration
+
+func _start_music_for_scene(scene: Scenes) -> void:
+	match scene:
+		Scenes.HUB:
+			SoundManager.crossfade_music(SoundManager.MUSIC.HUB_WORLD, 1.0)
+		_:
+			SoundManager.crossfade_music(SoundManager.MUSIC.MAIN_MENU, 1.0)

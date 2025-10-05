@@ -281,6 +281,8 @@ func _pounce_at_player() -> void:
 	velocity.z = direction.z * pounce_force
 	velocity.y = pounce_height
 
+	SoundManager.play_sfx(SoundManager.SFX.HOP)
+
 	var _distance_to_player = Vector3(global_position.x, 0, global_position.z).distance_to(Vector3(_player.global_position.x, 0, _player.global_position.z))
 
 	# Deal damage to player if they have a health system

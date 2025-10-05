@@ -103,8 +103,8 @@ func load_audio_resources():
 	sfx_resources[SFX.SPOTTED] = load("res://Sfx/Spotted.wav")
 
 	music_resources[MUSIC.MAIN_MENU] = load("res://Music/MainMenu.mp3")
-	music_resources[MUSIC.DIVE_COMPLETED] = load("res://Music/DiveCompleted.mp3")
-	music_resources[MUSIC.HUB_WORLD] = load("res://Music/DiveCompleted.mp3")
+	music_resources[MUSIC.DIVE_COMPLETED] = load("res://Music/DiveCompleted.wav")
+	music_resources[MUSIC.HUB_WORLD] = load("res://Music/HubWorld.mp3")
 	music_resources[MUSIC.RACCOON_THEME] = load("res://Music/RaccoonTheme.mp3")
 
 	print("Sound Manager: Audio resources loaded")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://kqcp8ag3ssvk"]
+[gd_scene load_steps=12 format=3 uid="uid://boyiyc3wi2vd4"]
 
 [ext_resource type="Texture2D" uid="uid://btxqpka5j2hxo" path="res://UI/Main menu.PNG" id="1_8saeu"]
+[ext_resource type="Script" uid="uid://cskti8tc7y12r" path="res://Scenes/main_menu.gd" id="1_ghw46"]
 [ext_resource type="FontFile" uid="uid://7wrq8dvttvik" path="res://Fonts/F25_Executive.otf" id="1_tt5f1"]
 [ext_resource type="Texture2D" uid="uid://b4r4alfvhh4wa" path="res://UI/Õigebutton.png" id="2_853f1"]
 
@@ -49,7 +50,8 @@ Button/styles/normal = SubResource("StyleBoxTexture_8saeu")
 
 [sub_resource type="Theme" id="Theme_853f1"]
 
-[node name="Node" type="Node"]
+[node name="MainMenu" type="Node"]
+script = ExtResource("1_ghw46")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -96,3 +98,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "QUIT"
+
+[connection signal="pressed" from="Control/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

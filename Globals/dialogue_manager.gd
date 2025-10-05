@@ -65,7 +65,7 @@ func start_dialogue(dialogue: Dialogues) -> void:
 	match dialogue:
 		Dialogues.WISE_RAT_1:
 			sounds = [SoundManager.SFX.WISE_DIALOGUE_1, SoundManager.SFX.WISE_DIALOGUE_2]
-			await _talk("Wise Rat", "My dear friend, it's good to see you again. I didn't think you'd return here anytime soon... the roaches are still relentless about protecting their trash in these parts.", sounds)
+			await _talk("Wise Rat", "My dear friend, it's good to see you again. I didn't think you'd return here anytime soon...$$ The roaches are still relentless about protecting their trash in these parts.", sounds)
 			await _talk("Wise Rat", "If you enter a container then make it quick, they're gonna close the lids soon.", sounds)
 			end_dialogue()
 			return
