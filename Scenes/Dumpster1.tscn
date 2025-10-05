@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://bngyonn53ctri"]
+[gd_scene load_steps=15 format=3 uid="uid://bngyonn53ctri"]
 
 [ext_resource type="PackedScene" uid="uid://bgduylrt4kaoj" path="res://Characters/Player/player.tscn" id="1_63qix"]
+[ext_resource type="PackedScene" uid="uid://cpgvxfb6fsw70" path="res://Props/juice.tscn" id="1_v5nio"]
 [ext_resource type="Texture2D" uid="uid://dmr1b0sms21hw" path="res://Art/Prükkarall.png" id="2_ctto2"]
 [ext_resource type="Script" uid="uid://cnvvwjm4eebk4" path="res://Scripts/smooth_camera.gd" id="2_j0g3a"]
 [ext_resource type="Texture2D" uid="uid://b6ql2hcu4yqt5" path="res://Art/Prugikastkulg1.png" id="3_63qix"]
@@ -39,15 +40,18 @@ albedo_texture = ExtResource("4_b581c")
 
 [node name="Dumpster1" type="Node3D"]
 
+[node name="Juice" parent="." instance=ExtResource("1_v5nio")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -3)
+
 [node name="UI" parent="." instance=ExtResource("6_mbwr5")]
 
 [node name="Player" parent="." instance=ExtResource("1_63qix")]
 
 [node name="Marker3D" type="Marker3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 0.86602545, 0.50000006, 0, -0.50000006, 0.86602545, 0, 8.768148, 15.115713)
+transform = Transform3D(1, 0, 0, 0, 0.86602545, 0.50000006, 0, -0.50000006, 0.86602545, 0, 7.2681484, 15.115713)
 
 [node name="Camera3D" type="Camera3D" parent="Player/Marker3D"]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.9802322e-08, 0, -2.9802322e-08, 1.0000001, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.9848076, -0.17364818, 0, 0.17364818, 0.9848076, 0, 0, 0)
 fov = 42.5
 script = ExtResource("2_j0g3a")
 
