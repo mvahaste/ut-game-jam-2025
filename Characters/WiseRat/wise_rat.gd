@@ -6,6 +6,10 @@ extends StaticBody3D
 var _talk_count: int = 0
 
 func _ready() -> void:
+	if GameManager.day != 1:
+		queue_free()
+		return
+
 	label.visible = false
 	interactable_area.connect("interact", Callable(self, "_on_interactable_area_interact"))
 	interactable_area.connect("hovered", Callable(self, "_on_interactable_area_hovered"))
