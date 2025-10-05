@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpgvxfb6fsw70"]
+
+[ext_resource type="Texture2D" uid="uid://cpmjiip8tp6eu" path="res://Props/Sprites/Divingprop_Juice.png" id="1_uaonp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uaonp"]
+size = Vector3(2.8, 1.3000001, 0.7885742)
+
+[node name="Juice" type="StaticBody3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 2, 0)
+billboard = 2
+shaded = true
+texture = ExtResource("1_uaonp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74999994, -0.10571289)
+shape = SubResource("BoxShape3D_uaonp")

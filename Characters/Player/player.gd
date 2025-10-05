@@ -7,6 +7,8 @@ class_name Player extends CharacterBody3D
 @onready var interaction_area: Area3D = $InteractionArea
 @onready var animated_sprite: AnimatedSprite3D = %AnimatedSprite3D
 
+var is_dead: bool = false
+
 var _last_animation_type: String = "Idle"
 var _last_animation_direction: String = "Down"
 
@@ -18,7 +20,7 @@ func _ready() -> void:
 	SoundManager.play_music(SoundManager.MUSIC.MAIN_MENU)
 
 func _physics_process(_delta: float) -> void:
-	if DialogueManager.is_dialogue_active:
+	if DialogueManager.is_dialogue_active or is_dead:
 		velocity = Vector3.ZERO
 		_handle_animation()
 		_rotate_interaction_area(Vector2.ZERO)
@@ -97,5 +99,11 @@ func take_damage(amount: int) -> void:
 
 	# Add visual feedback or sound effects here
 	if health <= 0:
-		print("Player died!")
-		# Add death logic here
+		_die()
+
+func _die() -> void:
+	if is_dead:
+		return
+
+	is_dead = true
+	animated_sprite.visible = false

@@ -8,11 +8,12 @@ enum State {
 }
 
 @export var patrol_points: Array[Node3D] = []
-@export var patrol_radius: float = 3.0
+@export var patrol_radius: float = 5.0
 @export var move_speed: float = 2.0
 @export var chase_speed: float = 4.0
-@export var vision_distance: float = 8.0
-@export var attack_distance: float = 1.5
+@export var vision_distance: float = 18.0
+@export var attack_distance: float = 3.0
+@export var damage_distance: float = 1.5
 @export var max_chase_distance: float = 15.0
 @export var patrol_wait_time_min: float = 1.0
 @export var patrol_wait_time_max: float = 3.0
@@ -20,8 +21,12 @@ enum State {
 @export var pounce_force: float = 16.0
 @export var pounce_height: float = 4.0
 @export var gravity: float = 12.0
+@export var bob_amplitude: float = 0.025  # How much the sprite bobs up and down
+@export var bob_speed_patrol: float = 10.0  # Bob speed while patrolling
+@export var bob_speed_chase: float = 25.0  # Bob speed while chasing (faster)
 
 @onready var vision_raycast_parent: Node3D = %VisionRayCasts
+@onready var sprite: Sprite3D = %Sprite3D
 
 var _vision_raycasts: Array[RayCast3D] = []
 var _current_state: State = State.PATROLLING
@@ -32,6 +37,9 @@ var _wait_timer: float = 0.0
 var _attack_timer: float = 0.0
 var _player: Player
 var _last_player_position: Vector3
+var _bob_time: float = 0.0
+var _original_sprite_y: float
+var _is_moving: bool = false
 
 func _ready() -> void:
 	for child in vision_raycast_parent.get_children():
@@ -52,14 +60,20 @@ func _ready() -> void:
 		if not _player:
 			_player = _find_player_in_tree(get_tree().root)
 
-		if not _player:
-			print("Warning: No player found in scene!")
+	if not _player:
+		print("Warning: No player found in scene!")
+
+	# Store original sprite Y position for bobbing
+	_original_sprite_y = sprite.position.y
 
 	# Start patrolling
 	_start_patrol()
 
 func _physics_process(delta: float) -> void:
 	_update_timers(delta)
+
+	# Update bobbing animation
+	_update_sprite_bobbing(delta)
 
 	# Apply gravity
 	if not is_on_floor():
@@ -100,6 +114,7 @@ func _handle_patrol_state(delta: float) -> void:
 			_move_towards(_target_position, move_speed, delta)
 		else:
 			# Reached target, wait then pick new target
+			_is_moving = false
 			_wait_timer = randf_range(patrol_wait_time_min, patrol_wait_time_max)
 			_pick_new_patrol_target()
 
@@ -145,6 +160,9 @@ func _handle_attack_state(_delta: float) -> void:
 		_start_patrol()
 		return
 
+	# Not moving during attack state
+	_is_moving = false
+
 	# Only consider X and Z axes for distance calculation
 	var flat_position = Vector3(global_position.x, 0, global_position.z)
 	var flat_player_pos = Vector3(_player.global_position.x, 0, _player.global_position.z)
@@ -188,9 +206,12 @@ func _move_towards(target: Vector3, speed: float, _delta: float) -> void:
 	velocity.x = direction.x * speed
 	velocity.z = direction.z * speed
 
-	# Look towards movement direction
+	# Track if we're moving for bobbing animation
+	_is_moving = direction.length() > 0
+
+	# Flip sprite and vision raycasts based on horizontal movement direction
 	if direction.length() > 0:
-		look_at(global_position + direction, Vector3.UP)
+		_handle_sprite_flipping(direction.x)
 
 func _can_see_player() -> bool:
 	if not _player:
@@ -203,23 +224,15 @@ func _can_see_player() -> bool:
 	if distance_to_player > vision_distance:
 		return false
 
-	# Check with raycasts
+	# Check with vision raycasts - if any raycast hits the player, we can see them
 	for raycast in _vision_raycasts:
 		if raycast.is_colliding():
 			var collider = raycast.get_collider()
 			if collider and collider is Player:
+				if (collider as Player).is_dead:
+					continue
+
 				return true
-
-	# Fallback: direct line of sight check
-	var space_state = get_world_3d().direct_space_state
-	var query = PhysicsRayQueryParameters3D.create(
-		global_position + Vector3(0, 0.5, 0),
-		_player.global_position + Vector3(0, 0.5, 0)
-	)
-	var result = space_state.intersect_ray(query)
-
-	if result and result.collider and result.collider is Player:
-		return true
 
 	return false
 
@@ -268,12 +281,42 @@ func _pounce_at_player() -> void:
 	velocity.z = direction.z * pounce_force
 	velocity.y = pounce_height
 
+	var _distance_to_player = Vector3(global_position.x, 0, global_position.z).distance_to(Vector3(_player.global_position.x, 0, _player.global_position.z))
+
 	# Deal damage to player if they have a health system
-	if _player.has_method("take_damage"):
+	if _distance_to_player <= damage_distance && _player.has_method("take_damage"):
 		_player.take_damage(1)
 
 	# Return to chasing after pounce
 	_start_chase()
+
+func _handle_sprite_flipping(horizontal_direction: float) -> void:
+	if horizontal_direction < 0:
+		# Moving right - show normal sprite and vision
+		sprite.flip_h = false
+		vision_raycast_parent.scale.x = abs(vision_raycast_parent.scale.x)
+	elif horizontal_direction > 0:
+		# Moving left - flip sprite and vision
+		sprite.flip_h = true
+		vision_raycast_parent.scale.x = -abs(vision_raycast_parent.scale.x)
+
+func _update_sprite_bobbing(delta: float) -> void:
+	# Only bob if moving
+	if not _is_moving:
+		# Smoothly return to original position when not moving
+		sprite.position.y = lerp(sprite.position.y, _original_sprite_y, delta * 8.0)
+		return
+
+	# Update bob time
+	var bob_speed = bob_speed_patrol
+	if _current_state == State.CHASING:
+		bob_speed = bob_speed_chase
+
+	_bob_time += delta * bob_speed
+
+	# Apply bobbing offset
+	var bob_offset = sin(_bob_time) * bob_amplitude
+	sprite.position.y = _original_sprite_y + bob_offset
 
 func _find_player_in_tree(node: Node) -> Player:
 	if node is Player:

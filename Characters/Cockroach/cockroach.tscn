@@ -1,18 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dt3fderuabyig"]
+[gd_scene load_steps=4 format=3 uid="uid://dt3fderuabyig"]
 
 [ext_resource type="Texture2D" uid="uid://cfek6wrlxumhh" path="res://Characters/Cockroach/Sprites/IdleLeft.PNG" id="1_750a0"]
 [ext_resource type="Script" uid="uid://doc81q4qrkjde" path="res://Characters/Cockroach/cockroach.gd" id="1_u81wd"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_h3r4a"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_750a0")
-}],
-"loop": true,
-"name": &"IdleLeft",
-"speed": 5.0
-}]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_750a0"]
 radius = 0.3
@@ -21,12 +10,12 @@ height = 1.2
 [node name="Cockroach" type="CharacterBody3D"]
 script = ExtResource("1_u81wd")
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+[node name="Sprite3D" type="Sprite3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.4, 0)
 billboard = 2
 shaded = true
-sprite_frames = SubResource("SpriteFrames_h3r4a")
-animation = &"IdleLeft"
+texture = ExtResource("1_750a0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 0, 0.33545068, 0)
