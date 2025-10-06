@@ -150,14 +150,19 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -98.0
+offset_top = -384.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 24
 theme_override_fonts/normal_font = ExtResource("15_ftct6")
 theme_override_font_sizes/normal_font_size = 48
-text = "Use [WASD] to move and [E] to interact and pick up items."
+text = "Use [WASD] to move and [E] to interact and pick up items.
+
+Look for valuables in the dumpsters to feed your family,
+but be careful, you can only carry up to two items!
+
+Press [E] to dismiss this message."
 fit_content = true
 horizontal_alignment = 1
 script = ExtResource("16_yk07a")

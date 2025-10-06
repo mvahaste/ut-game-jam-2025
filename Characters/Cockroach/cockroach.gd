@@ -24,6 +24,8 @@ enum State {
 @export var bob_amplitude: float = 0.025  # How much the sprite bobs up and down
 @export var bob_speed_patrol: float = 10.0  # Bob speed while patrolling
 @export var bob_speed_chase: float = 25.0  # Bob speed while chasing (faster)
+@export var spotted_sound_cooldown: float = 5.0  # Cooldown time for spotted sound effect
+@export var spotted_jump_force: float = 3.0  # How high the roach jumps when spotting player
 
 @onready var vision_raycast_parent: Node3D = %VisionRayCasts
 @onready var sprite: Sprite3D = %Sprite3D
@@ -40,6 +42,7 @@ var _last_player_position: Vector3
 var _bob_time: float = 0.0
 var _original_sprite_y: float
 var _is_moving: bool = false
+var _spotted_sound_timer: float = 0.0
 
 func _ready() -> void:
 	for child in vision_raycast_parent.get_children():
@@ -96,6 +99,8 @@ func _update_timers(delta: float) -> void:
 		_wait_timer -= delta
 	if _attack_timer > 0:
 		_attack_timer -= delta
+	if _spotted_sound_timer > 0:
+		_spotted_sound_timer -= delta
 
 func _handle_patrol_state(delta: float) -> void:
 	# Check for player
@@ -231,6 +236,13 @@ func _can_see_player() -> bool:
 			if collider and collider is Player:
 				if (collider as Player).is_dead:
 					continue
+
+				# Play spotted sound if cooldown has expired
+				if _spotted_sound_timer <= 0:
+					SoundManager.play_sfx(SoundManager.SFX.SPOTTED, -14.0)
+					_spotted_sound_timer = spotted_sound_cooldown
+					# Make the roach jump a little when spotting the player
+					velocity.y = spotted_jump_force
 
 				return true
 
